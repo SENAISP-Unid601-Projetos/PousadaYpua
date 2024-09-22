@@ -29,6 +29,7 @@ public class TelaCadastroUsuario extends JFrame {
 	private JTextField txtCidade;
 	private JTextField txtCep;
 	private JTextField txtEstado;
+	private Usuario usuario;
 
 	/**
 	 * Launch the application.
@@ -49,20 +50,9 @@ public class TelaCadastroUsuario extends JFrame {
 	
 
 	//Criação do contrutor com encapsulamento e parametros;
-	public TelaCadastroUsuario(JTextField nome,JTextField celular,
-			JTextField cpf,JTextField email,JTextField endereco,
-			JTextField numerocasa,JTextField cidade,JTextField cep,JTextField estado) {
+	public TelaCadastroUsuario() {
 		
-		this.txtNome=nome;
-		this.txtCelular=celular;
-		this.txtCpf=cpf;
-		this.txtEmail= email;
-		this.txtEndereco=endereco;
-		this.txtNumeHome= numerocasa;
-		this.txtCidade= cidade;
-		this.txtCep= cep;
-		this.txtEstado= estado;
-		
+	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 951, 623);
 		contentPane = new JPanel();
@@ -209,14 +199,32 @@ public class TelaCadastroUsuario extends JFrame {
 		pnlInfoCliente.add(btnDelete);
 		
 		JButton btnGravar = new JButton("Gravar");
+		
 		btnGravar.setFont(new Font("Verdana", Font.ITALIC, 16));
 		btnGravar.setBounds(618, 410, 115, 23);
 		pnlInfoCliente.add(btnGravar);
 		
+		JPanel panelTeste = new JPanel();
+		panelTeste.setBounds(10, 234, 416, 223);
+		pnlInfoCliente.add(panelTeste);
 		
 		
+		btnGravar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nome = txtNome.getText();
+				String celular = txtCelular.getText();
+				String cpf = txtCpf.getText();
+				String email = txtEmail.getText();
+				String endereco = txtEndereco.getText();
+				String numero = txtNumeHome.getText();
+				String cidade = txtCidade.getText();
+				String cep = txtCep.getText();
+				String estado = txtEstado.getText();
+				
+				usuario = new Usuario(nome,celular,cpf,email,endereco,numero,cidade,cep,estado);
+				
+			}
+		});
 		
 	}
-	
-	
 }
