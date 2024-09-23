@@ -17,6 +17,11 @@ public class Usuario {
 		this.cep = cep;
 		this.estado = estado;
 	}
+	
+	public String getInfo() {
+		String s = ""+ nome+" " + celular + " " + cpf+" "+email+"\n"+ endereco+" " + numero+" "+ cidade+"\n"+ cep+" "+estado;
+		return s; 
+	}
 
 	public String getNome() {
 		return nome;

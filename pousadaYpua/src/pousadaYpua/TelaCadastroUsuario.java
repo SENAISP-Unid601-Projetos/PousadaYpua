@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
 
 public class TelaCadastroUsuario extends JFrame {
 
@@ -204,9 +205,9 @@ public class TelaCadastroUsuario extends JFrame {
 		btnGravar.setBounds(618, 410, 115, 23);
 		pnlInfoCliente.add(btnGravar);
 		
-		JPanel panelTeste = new JPanel();
-		panelTeste.setBounds(10, 234, 416, 223);
-		pnlInfoCliente.add(panelTeste);
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(10, 245, 396, 212);
+		pnlInfoCliente.add(textArea);
 		
 		
 		btnGravar.addActionListener(new ActionListener() {
@@ -221,7 +222,12 @@ public class TelaCadastroUsuario extends JFrame {
 				String cep = txtCep.getText();
 				String estado = txtEstado.getText();
 				
+				txtNome.setText(""); txtCelular.setText("");txtEmail.setText("");txtEndereco.setText("");txtNumeHome.setText("");txtCidade.setText("");txtCep.setText("");
+				txtEstado.setText("");
+				
 				usuario = new Usuario(nome,celular,cpf,email,endereco,numero,cidade,cep,estado);
+				
+				textArea.append(usuario.getInfo());
 				
 			}
 		});
