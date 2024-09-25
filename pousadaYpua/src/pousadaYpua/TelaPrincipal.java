@@ -10,6 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Panel;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
 
 public class TelaPrincipal extends JFrame {
 
@@ -37,6 +41,7 @@ public class TelaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaPrincipal() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 998, 645);
 		contentPane = new JPanel();
@@ -46,15 +51,13 @@ public class TelaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblQ1 = new JLabel("Quarto - 01");
-		lblQ1.setBounds(134, 216, 111, 22);
-		lblQ1.setBackground(new Color(255, 255, 255));
-		lblQ1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		contentPane.add(lblQ1);
-		contentPane.add(lblQ1, Integer.valueOf(1));
+		Canvas canvas_3_2_1 = new Canvas();
+		canvas_3_2_1.setBackground(new Color(0, 210, 0));
+		canvas_3_2_1.setBounds(333, 206, 17, 107);
+		contentPane.add(canvas_3_2_1);
 		
 		Canvas canvas = new Canvas();
-		canvas.setBounds(0, 0, 100, 608);
+		canvas.setBounds(0, 0, 100, 709);
 		canvas.setBackground(new Color(177, 177, 177));
 		contentPane.add(canvas);
 		
@@ -64,7 +67,7 @@ public class TelaPrincipal extends JFrame {
 		contentPane.add(lblReservas);
 		
 		Canvas canvas_1 = new Canvas();
-		canvas_1.setBounds(106, 72, 858, 2);
+		canvas_1.setBounds(106, 72, 870, 2);
 		canvas_1.setBackground(new Color(0, 0, 0));
 		contentPane.add(canvas_1);
 		
@@ -73,66 +76,144 @@ public class TelaPrincipal extends JFrame {
 		lblQuartos.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		contentPane.add(lblQuartos);
 		
-		Canvas canvas_3 = new Canvas();
-		canvas_3.setBounds(106, 201, 17, 114);
-		canvas_3.setBackground(new Color(0, 210, 0));
-		contentPane.add(canvas_3);
-		
-		JLabel lblDisponivel = new JLabel("Disponivel");
-		lblDisponivel.setBounds(203, 281, 92, 22);
-		lblDisponivel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblDisponivel.setBackground(Color.WHITE);
-		contentPane.add(lblDisponivel);
-		
-		JLabel lblDisponivel_1 = new JLabel("Disponivel");
-		lblDisponivel_1.setBounds(424, 281, 92, 22);
-		lblDisponivel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblDisponivel_1.setBackground(Color.WHITE);
-		contentPane.add(lblDisponivel_1);
-		
-		Canvas canvas_3_1 = new Canvas();
-		canvas_3_1.setBounds(327, 201, 17, 114);
-		canvas_3_1.setBackground(new Color(0, 210, 0));
-		contentPane.add(canvas_3_1);
-		
-		JLabel lblQ2 = new JLabel("Quarto - 02");
-		lblQ2.setBounds(355, 216, 111, 22);
-		lblQ2.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblQ2.setBackground(Color.WHITE);
-		contentPane.add(lblQ2);
-		
-		JLabel lblDisponivel_2 = new JLabel("Disponivel");
-		lblDisponivel_2.setBounds(640, 281, 92, 22);
-		lblDisponivel_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblDisponivel_2.setBackground(Color.WHITE);
-		contentPane.add(lblDisponivel_2);
-		
 		Canvas canvas_3_2 = new Canvas();
-		canvas_3_2.setBounds(543, 201, 17, 114);
 		canvas_3_2.setBackground(new Color(0, 210, 0));
+		canvas_3_2.setBounds(120, 206, 17, 107);
 		contentPane.add(canvas_3_2);
 		
-		JLabel lblQ3 = new JLabel("Quarto - 03");
-		lblQ3.setBounds(571, 216, 111, 22);
-		lblQ3.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblQ3.setBackground(Color.WHITE);
-		contentPane.add(lblQ3);
+		JButton btnNewButton = new JButton("Quarto - 01");
+		btnNewButton.setFocusPainted(false);
+		btnNewButton.setBackground(new Color(240, 240, 240));
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		btnNewButton.setBounds(130, 206, 175, 107);
+		contentPane.add(btnNewButton);
 		
-		JLabel lblDisponivel_3 = new JLabel("Disponivel");
-		lblDisponivel_3.setBounds(855, 281, 92, 22);
-		lblDisponivel_3.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblDisponivel_3.setBackground(Color.WHITE);
-		contentPane.add(lblDisponivel_3);
+		JButton btnQuarto = new JButton("Quarto - 02");
+		btnQuarto.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		btnQuarto.setFocusPainted(false);
+		btnQuarto.setBackground(new Color(240, 240, 240));
+		btnQuarto.setBounds(343, 206, 175, 107);
+		contentPane.add(btnQuarto);
 		
-		Canvas canvas_3_3 = new Canvas();
-		canvas_3_3.setBounds(758, 201, 17, 114);
-		canvas_3_3.setBackground(new Color(0, 210, 0));
-		contentPane.add(canvas_3_3);
+		Canvas canvas_3_2_1_1 = new Canvas();
+		canvas_3_2_1_1.setBackground(new Color(0, 210, 0));
+		canvas_3_2_1_1.setBounds(552, 206, 17, 107);
+		contentPane.add(canvas_3_2_1_1);
 		
-		JLabel lblQ4 = new JLabel("Quarto - 04");
-		lblQ4.setBounds(786, 216, 111, 22);
-		lblQ4.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblQ4.setBackground(Color.WHITE);
-		contentPane.add(lblQ4);
+		JButton btnQuarto_3 = new JButton("Quarto - 03");
+		btnQuarto_3.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		btnQuarto_3.setFocusPainted(false);
+		btnQuarto_3.setBackground(new Color(240, 240, 240));
+		btnQuarto_3.setBounds(562, 206, 175, 107);
+		contentPane.add(btnQuarto_3);
+		
+		Canvas canvas_3_2_1_2 = new Canvas();
+		canvas_3_2_1_2.setBackground(new Color(0, 210, 0));
+		canvas_3_2_1_2.setBounds(769, 206, 17, 107);
+		contentPane.add(canvas_3_2_1_2);
+		
+		JButton btnQuarto_1 = new JButton("Quarto - 04");
+		btnQuarto_1.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		btnQuarto_1.setFocusPainted(false);
+		btnQuarto_1.setBackground(new Color(240, 240, 240));
+		btnQuarto_1.setBounds(779, 206, 175, 107);
+		contentPane.add(btnQuarto_1);
+		
+		Canvas canvas_3_2_2 = new Canvas();
+		canvas_3_2_2.setBackground(new Color(0, 210, 0));
+		canvas_3_2_2.setBounds(120, 344, 17, 107);
+		contentPane.add(canvas_3_2_2);
+		
+		JButton btnQuarto_5 = new JButton("Quarto - 05");
+		btnQuarto_5.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		btnQuarto_5.setFocusPainted(false);
+		btnQuarto_5.setBackground(new Color(240, 240, 240));
+		btnQuarto_5.setBounds(130, 344, 175, 107);
+		contentPane.add(btnQuarto_5);
+		
+		Canvas canvas_3_2_1_3 = new Canvas();
+		canvas_3_2_1_3.setBackground(new Color(0, 210, 0));
+		canvas_3_2_1_3.setBounds(333, 344, 17, 107);
+		contentPane.add(canvas_3_2_1_3);
+		
+		JButton btnQuarto_6 = new JButton("Quarto - 06");
+		btnQuarto_6.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		btnQuarto_6.setFocusPainted(false);
+		btnQuarto_6.setBackground(new Color(240, 240, 240));
+		btnQuarto_6.setBounds(343, 344, 175, 107);
+		contentPane.add(btnQuarto_6);
+		
+		Canvas canvas_3_2_1_1_1 = new Canvas();
+		canvas_3_2_1_1_1.setBackground(new Color(0, 210, 0));
+		canvas_3_2_1_1_1.setBounds(552, 344, 17, 107);
+		contentPane.add(canvas_3_2_1_1_1);
+		
+		JButton btnQuarto_3_1 = new JButton("Quarto - 07");
+		btnQuarto_3_1.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		btnQuarto_3_1.setFocusPainted(false);
+		btnQuarto_3_1.setBackground(new Color(240, 240, 240));
+		btnQuarto_3_1.setBounds(562, 344, 175, 107);
+		contentPane.add(btnQuarto_3_1);
+		
+		Canvas canvas_3_2_1_2_1 = new Canvas();
+		canvas_3_2_1_2_1.setBackground(new Color(0, 210, 0));
+		canvas_3_2_1_2_1.setBounds(769, 344, 17, 107);
+		contentPane.add(canvas_3_2_1_2_1);
+		
+		JButton btnQuarto_1_1 = new JButton("Quarto - 08");
+		btnQuarto_1_1.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		btnQuarto_1_1.setFocusPainted(false);
+		btnQuarto_1_1.setBackground(new Color(240, 240, 240));
+		btnQuarto_1_1.setBounds(779, 344, 175, 107);
+		contentPane.add(btnQuarto_1_1);
+		
+		Canvas canvas_3_2_3 = new Canvas();
+		canvas_3_2_3.setBackground(new Color(0, 210, 0));
+		canvas_3_2_3.setBounds(120, 479, 17, 107);
+		contentPane.add(canvas_3_2_3);
+		
+		JButton btnQuarto_2 = new JButton("Quarto - 09");
+		btnQuarto_2.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		btnQuarto_2.setFocusPainted(false);
+		btnQuarto_2.setBackground(new Color(240, 240, 240));
+		btnQuarto_2.setBounds(130, 479, 175, 107);
+		contentPane.add(btnQuarto_2);
+		
+		Canvas canvas_3_2_1_4 = new Canvas();
+		canvas_3_2_1_4.setBackground(new Color(0, 210, 0));
+		canvas_3_2_1_4.setBounds(333, 479, 17, 107);
+		contentPane.add(canvas_3_2_1_4);
+		
+		JButton btnQuarto_7 = new JButton("Quarto - 10");
+		btnQuarto_7.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		btnQuarto_7.setFocusPainted(false);
+		btnQuarto_7.setBackground(new Color(240, 240, 240));
+		btnQuarto_7.setBounds(343, 479, 175, 107);
+		contentPane.add(btnQuarto_7);
+		
+		Canvas canvas_3_2_1_1_2 = new Canvas();
+		canvas_3_2_1_1_2.setBackground(new Color(0, 210, 0));
+		canvas_3_2_1_1_2.setBounds(552, 479, 17, 107);
+		contentPane.add(canvas_3_2_1_1_2);
+		
+		JButton btnQuarto_3_2 = new JButton("Quarto - 11");
+		btnQuarto_3_2.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		btnQuarto_3_2.setFocusPainted(false);
+		btnQuarto_3_2.setBackground(new Color(240, 240, 240));
+		btnQuarto_3_2.setBounds(562, 479, 175, 107);
+		contentPane.add(btnQuarto_3_2);
+		
+		Canvas canvas_3_2_1_2_2 = new Canvas();
+		canvas_3_2_1_2_2.setBackground(new Color(0, 210, 0));
+		canvas_3_2_1_2_2.setBounds(769, 479, 17, 107);
+		contentPane.add(canvas_3_2_1_2_2);
+		
+		JButton btnQuarto_1_2 = new JButton("Quarto - 12");
+		btnQuarto_1_2.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		btnQuarto_1_2.setFocusPainted(false);
+		btnQuarto_1_2.setBackground(new Color(240, 240, 240));
+		btnQuarto_1_2.setBounds(779, 479, 175, 107);
+		contentPane.add(btnQuarto_1_2);
+		
 	}
 }
