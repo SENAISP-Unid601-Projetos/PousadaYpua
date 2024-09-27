@@ -36,7 +36,7 @@ public class RoundedBorder implements Border {
         JPanel panel = new JPanel();
         
         // Adicionando a borda arredondada
-        panel.setBorder(new RoundedBorder(15)); // Borda arredondada com raio 15
+        panel.setBorder(new RoundedBorder(30)); // Borda arredondada com raio 15
         
         frame.add(panel);
         frame.setSize(400, 400);

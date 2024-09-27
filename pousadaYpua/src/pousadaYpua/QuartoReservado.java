@@ -62,83 +62,54 @@ public class QuartoReservado extends JFrame {
 	    contentPane.add(panel);
 	    panel.setLayout(null);
 	    
-	    // Criando o JTextPane
-	    JTextPane txtDescricao = new JTextPane();
-	    txtDescricao.setForeground(new Color(0, 0, 102));
-	    txtDescricao.setBackground(new Color(255, 255, 255));
-	    txtDescricao.setEditable(false);
-	    txtDescricao.setFont(new Font("Verdana", Font.ITALIC, 14));
-	    
-	    // Adicionando texto e imagem ao JTextPane
-	    StyledDocument doc = txtDescricao.getStyledDocument();
-	    try {
-	        // Adicionando texto
-	        doc.insertString(doc.getLength(), "Descubra o conforto e a praticidade do nosso Quarto Standard. Projetado para oferecer uma estadia relaxante, este quarto conta com uma cama de casal ou duas camas de solteiro, ideal para casais ou pequenas famílias.\n\n", null);
-	        doc.insertString(doc.getLength(), "Comodidades Inclusas:\n", null);
-	        doc.insertString(doc.getLength(), "Ar-condicionado para um ambiente fresco e agradável.\n", null);
-	        doc.insertString(doc.getLength(), "TV de tela plana com canais a cabo para entretenimento.\n", null);
-	        doc.insertString(doc.getLength(), "Frigobar abastecido com bebidas e lanches.\n", null);
-	        doc.insertString(doc.getLength(), "Banheiro privativo com chuveiro aquecido e amenidades de higiene pessoal.\n", null);
-	        doc.insertString(doc.getLength(), "Mesa de trabalho e cadeira, perfeita para quem precisa de um espaço para se concentrar.\n\n", null);
-	        doc.insertString(doc.getLength(), "Ambiente Aconchegante: A decoração moderna e aconchegante, com tons neutros e toques de cor, cria um ambiente acolhedor para relaxar após um dia de passeios.\n\n", null);
-	        doc.insertString(doc.getLength(), "Conectividade: Aproveite o Wi-Fi gratuito para se manter conectado durante sua estadia.\n\n", null);
-	        doc.insertString(doc.getLength(), "Ideal para viajantes a negócios ou lazer, o Quarto Standard oferece tudo o que você precisa para uma experiência confortável e memorável. Venha aproveitar!", null);
-	        
-	        // Carregando e inserindo a imagem
-	        ImageIcon quartoImage = new ImageIcon("\\imagens\\quarto.jpg"); // Caminho para a imagem
-	        Image img = quartoImage.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH); // Redimensionando a imagem
-	        JLabel label = new JLabel(new ImageIcon(img));
-	        
-	        // Inserindo a imagem no JTextPane
-	        doc.insertString(doc.getLength(), "\n", null); // Linha em branco antes da imagem
-	        txtDescricao.insertComponent(label); // Adicionando a imagem
-
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-
-	    txtDescricao.setBounds(10, 10, 360, 512);
-	    panel.add(txtDescricao);
+		JLabel lblImagePousada = new JLabel("");
+		lblImagePousada.setHorizontalAlignment(SwingConstants.CENTER);
+		lblImagePousada.setBounds(10, 22, 345, 266);
+		panel.add(lblImagePousada);
+		
+        // Carregando e inserindo a imagem
+        ImageIcon quartoImage = new ImageIcon("resources/quarto2.jpg"); // Caminho para a imagem
+        lblImagePousada.setIcon(quartoImage);
 	    
 	   
 	
 		JLabel lblNewLabel_2 = new JLabel("Nome :");
 		lblNewLabel_2.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 16));
-		lblNewLabel_2.setBounds(380, 23, 106, 30);
+		lblNewLabel_2.setBounds(380, 36, 106, 30);
 		panel.add(lblNewLabel_2);
 		
 		textField = new JTextField();
-		textField.setBounds(461, 27, 330, 30);
+		textField.setBounds(380, 76, 663, 30);
 		panel.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Data de Nascimento:");
 		lblNewLabel_3.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-		lblNewLabel_3.setBounds(380, 68, 183, 30);
+		lblNewLabel_3.setBounds(380, 124, 183, 30);
 		panel.add(lblNewLabel_3);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(568, 67, 330, 30);
+		textField_1.setBounds(380, 164, 663, 30);
 		panel.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("Documento (RG/CPF):");
 		lblNewLabel_4.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-		lblNewLabel_4.setBounds(379, 111, 184, 30);
+		lblNewLabel_4.setBounds(379, 198, 184, 30);
 		panel.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Telefone: ");
 		lblNewLabel_5.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 16));
-		lblNewLabel_5.setBounds(380, 151, 106, 30);
+		lblNewLabel_5.setBounds(380, 281, 106, 30);
 		panel.add(lblNewLabel_5);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(486, 151, 222, 30);
+		textField_2.setBounds(380, 311, 663, 30);
 		panel.add(textField_2);
 		textField_2.setColumns(10);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(568, 112, 233, 33);
+		textField_3.setBounds(380, 238, 663, 33);
 		panel.add(textField_3);
 		textField_3.setColumns(10);
 		
@@ -161,18 +132,28 @@ public class QuartoReservado extends JFrame {
 		textArea.setBounds(380, 411, 328, 111);
 		panel.add(textArea);
 		
+		JTextArea txtrAnicarea = new JTextArea();
+		txtrAnicarea.setLineWrap(true);
+		txtrAnicarea.setText(" A única área que eu acho, que vai exigir muita atenção nossa, e aí eu já aventei a hipótese de até criar um ministério. É na área de... Na área... Eu diria assim, como uma espécie de analogia com o que acontece na área agrícola.\r\n\r\nPrimeiro eu queria cumprimentar os internautas. -Oi Internautas! Depois dizer que o meio ambiente é sem dúvida nenhuma uma ameaça ao desenvolvimento sustentável. E isso significa que é uma ameaça pro futuro do nosso planeta e dos nossos países. O desemprego beira 20%, ou seja, 1 em cada 4 portugueses.\r\n\r\nAi você fala o seguinte: \"- Mas vocês acabaram isso?\" Vou te falar: -\"Não, está em andamento!\" Tem obras que \"vai\" durar pra depois de 2010. Agora, por isso, nós já não desenhamos, não começamos a fazer projeto do que nós \"podêmo fazê\"? 11, 12, 13, 14... Por que é que não?\r\n\r\nNo meu xinélo da humildade eu gostaria muito de ver o Neymar e o Ganso. Por que eu acho que.... 11 entre 10 brasileiros gostariam. Você veja, eu já vi, parei de ver. Voltei a ver, e acho que o Neymar e o Ganso têm essa capacidade de fazer a gente olhar.");
+		txtrAnicarea.setEnabled(false);
+		txtrAnicarea.setEditable(false);
+		txtrAnicarea.setBounds(10, 313, 345, 209);
+		panel.add(txtrAnicarea);
+		
+	
+		
 		JLabel lblNewLabel = new JLabel("Quarto 1");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel.setBackground(new Color(128, 128, 128));
 		lblNewLabel.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 20));
-		lblNewLabel.setBounds(27, 10, 340, 66);
+		lblNewLabel.setBounds(20, 18, 123, 66);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Standart ");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBackground(new Color(192, 192, 192));
 		lblNewLabel_1.setFont(new Font("Verdana", Font.ITALIC, 18));
-		lblNewLabel_1.setBounds(63, 56, 158, 30);
+		lblNewLabel_1.setBounds(153, 36, 158, 30);
 		contentPane.add(lblNewLabel_1);
 	}
 }
