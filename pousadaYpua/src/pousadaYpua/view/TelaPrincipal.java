@@ -1,4 +1,4 @@
-package pousadaYpua;
+package pousadaYpua.view;
 
 import java.awt.Canvas;
 import java.awt.Color;

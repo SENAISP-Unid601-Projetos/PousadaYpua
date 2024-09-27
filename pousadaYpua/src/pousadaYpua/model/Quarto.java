@@ -1,4 +1,4 @@
-package pousadaYpua;
+package pousadaYpua.model;
 
 public class Quarto {
 	private String numero, data;

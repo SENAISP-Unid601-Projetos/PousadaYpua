@@ -1,4 +1,4 @@
-package pousadaYpua;
+package pousadaYpua.model;
 
 public class Usuario {
 	private String nome, celular, cpf, email, endereco, numero, cidade, cep, estado;

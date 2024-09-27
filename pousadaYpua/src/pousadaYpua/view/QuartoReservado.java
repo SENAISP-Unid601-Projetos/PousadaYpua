@@ -1,4 +1,4 @@
-package pousadaYpua;
+package pousadaYpua.view;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -55,7 +55,6 @@ public class QuartoReservado extends JFrame {
 	    contentPane.setLayout(null);
 	    
 	    JPanel panel = new JPanel();
-	    panel.setBorder(new RoundedBorder(15));
 	    panel.setBackground(new Color(113, 177, 187));
 	    panel.setBounds(10, 96, 1053, 532);
 	    
