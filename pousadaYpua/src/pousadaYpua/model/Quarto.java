@@ -1,36 +1,25 @@
 package pousadaYpua.model;
 
-public class Quarto {
-	private String numero, data;
-	private boolean disponibilidade;
-	private Usuario usuario;
-	
-	public Quarto(String numero, String data,boolean disponibilidade) {
-		this.numero = numero;
-		this.data = data;
-		this.disponibilidade = disponibilidade;
-	}
-	public Quarto(String numero, String data,boolean disponibilidade, Usuario usuario) {
-		this.numero = numero;
-		this.data = data;
-		this.disponibilidade = disponibilidade;
-		this.usuario = usuario;
-	}
+import java.util.ArrayList;
 
+import java.util.ArrayList;
+
+public class Quarto {
+	private String numero;
+	private boolean disponibilidade;
+	private ArrayList<Reserva> reservas = new ArrayList<>();
+	
+	public Quarto(String numero) {
+		this.numero = numero;
+		this.disponibilidade = true;
+	}
+	
 	public String getNumero() {
 		return numero;
 	}
 
 	public void setNumero(String numero) {
 		this.numero = numero;
-	}
-
-	public String getData() {
-		return data;
-	}
-
-	public void setData(String data) {
-		this.data = data;
 	}
 
 	public boolean isDisponibilidade() {
@@ -41,16 +30,9 @@ public class Quarto {
 		this.disponibilidade = disponibilidade;
 	}
 	
-	public Usuario getUsuario() {
-		return usuario;
+	public void addReserva(String dataInicio,String dataSaida,String numeroPedido,Usuario cliente ) {
+		Reserva reserva = new Reserva(dataInicio, dataSaida, numeroPedido, cliente);
 	}
-	
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-	
-	
-	
 	
 
 }
