@@ -2,6 +2,7 @@ package pousadaYpua.DAO;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,8 +15,14 @@ public class PearsonDao {
     private Connection con;
 
 
-    public PearsonDao() throws IOException {
-        con = Database.getinstance().getConnection();
+    public PearsonDao() {
+        try {
+            // Exemplo de inicialização da conexão
+            this.con = DriverManager.getConnection("jdbc:sqlite:/Users/macbookpro/Documents/Projeto-Integrador-Pousada/src/main/java/res/pousada.db");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void insert(Pearson pearson) {
