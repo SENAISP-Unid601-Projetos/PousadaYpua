@@ -26,7 +26,7 @@ public class UsuarioDao {
     }
 
     public void insert(Usuario usuario) {
-        String sql = "INSERT INTO pearson (cpf, nome, celular, email, endereco, numero, cidade, cep, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Usuario (cpf, nome, celular, email, endereco, numero, cidade, cep, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = con.prepareStatement(sql)) {
             stmt.setString(1, usuario.getCpf());
             stmt.setString(2, usuario.getNome());

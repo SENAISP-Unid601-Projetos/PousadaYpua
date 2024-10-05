@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import pousadaYpua.DAO.UsuarioDao;
 import pousadaYpua.model.Usuario;
 
 import javax.swing.UIManager;
@@ -56,6 +57,8 @@ public class TelaCadastroUsuario extends JFrame {
 
 	//Criação do contrutor com encapsulamento e parametros;
 	public TelaCadastroUsuario() {
+		
+		userDao = new UsuarioDao();
 		
 	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
