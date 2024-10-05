@@ -34,6 +34,7 @@ public class TelaCadastroUsuario extends JFrame {
 	private JTextField txtCep;
 	private JTextField txtEstado;
 	private Usuario usuario;
+	UsuarioDao userDao;
 
 	/**
 	 * Launch the application.
@@ -229,7 +230,7 @@ public class TelaCadastroUsuario extends JFrame {
 				txtEstado.setText("");
 				
 				usuario = new Usuario(nome,celular,cpf,email,endereco,numero,cidade,cep,estado);
-				
+				userDao.insert(usuario);
 				textArea.append(usuario.getInfo());
 				
 			}

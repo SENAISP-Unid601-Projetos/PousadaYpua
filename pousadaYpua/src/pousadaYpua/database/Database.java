@@ -18,7 +18,7 @@ public class Database {
 
 		try {
 
-			connection = DriverManager.getConnection("jdbc:sqlite:/Users/macbookpro/Documents/Projeto-Integrador-Pousada/br.primeiro.database/src/main/java/res/pousada.db");
+			connection = DriverManager.getConnection("jdbc:sqlite:/Users/macbookpro/Documents/Projeto-Integrador-Pousada/pousadaYpua/resources/Pousada.db");
 
 		} catch (Exception e) {
 			System.err.println("Houve um problema ao criar o banco, mas eu ja resolvi. :)");
@@ -33,7 +33,7 @@ public class Database {
 			Statement statement = getinstance().connection.createStatement();
 
 			String sql = FileUtils.loadTextFile(
-					"/Users/macbookpro/Documents/Projeto-Integrador-Pousada/br.primeiro.database/src/main/java/res/Descrition.sql");
+					"/Users/macbookpro/Documents/Projeto-Integrador-Pousada/pousadaYpua/resources/Descrition.sql");
 			System.out.println(sql);
 			statement.executeUpdate(sql);
 		}catch (Exception ex){
