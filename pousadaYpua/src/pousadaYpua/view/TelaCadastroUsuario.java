@@ -56,6 +56,7 @@ public class TelaCadastroUsuario extends JFrame {
 
 	// Criação do contrutor com encapsulamento e parametros;
 	public TelaCadastroUsuario() {
+		userDao  =  new UsuarioDao();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 951, 623);
@@ -226,12 +227,26 @@ public class TelaCadastroUsuario extends JFrame {
 				txtCidade.setText("");
 				txtCep.setText("");
 				txtEstado.setText("");
+				txtCpf.setText("");
 
 				usuario = new Usuario(nome, celular, cpf, email, endereco, numero, cidade, cep, estado);
 				userDao.insert(usuario);
 				textArea.append(usuario.getInfo());
 
 			}
+		});
+		
+		btnDelete.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				
+				String cpf = txtCpf.getText();
+				userDao.delete(cpf);
+				
+				
+				
+			}
+			
 		});
 
 	}

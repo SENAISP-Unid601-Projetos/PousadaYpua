@@ -43,4 +43,14 @@ public class UsuarioDao {
         }
 
     }
+    public void delete(String cpf) {
+        String sql = "DELETE FROM Usuario WHERE cpf = ?";
+        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+        	stmt.setString(1, cpf);
+            stmt.executeUpdate(); // Use executeUpdate() para inserções
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }
