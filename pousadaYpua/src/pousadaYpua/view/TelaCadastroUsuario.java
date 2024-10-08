@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import pousadaYpua.DAO.UsuarioDao;
-import pousadaYpua.model.Usuario;
+import pousadaYpua.DAO.ClientesDao;
+import pousadaYpua.model.Clientes;
 
 import javax.swing.UIManager;
 import java.awt.Color;
@@ -34,8 +34,8 @@ public class TelaCadastroUsuario extends JFrame {
 	private JTextField txtCidade;
 	private JTextField txtCep;
 	private JTextField txtEstado;
-	private Usuario usuario;
-	UsuarioDao userDao;
+	private Clientes usuario;
+	ClientesDao userDao;
 
 	/**
 	 * Launch the application.
@@ -56,7 +56,7 @@ public class TelaCadastroUsuario extends JFrame {
 
 	// Criação do contrutor com encapsulamento e parametros;
 	public TelaCadastroUsuario() {
-		userDao  =  new UsuarioDao();
+		userDao  =  new ClientesDao();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 951, 623);
@@ -229,7 +229,7 @@ public class TelaCadastroUsuario extends JFrame {
 				txtEstado.setText("");
 				txtCpf.setText("");
 
-				usuario = new Usuario(nome, celular, cpf, email, endereco, numero, cidade, cep, estado);
+				usuario = new Clientes(nome, celular, cpf, email, endereco, numero, cidade, cep, estado);
 				userDao.insert(usuario);
 				textArea.append(usuario.getInfo());
 

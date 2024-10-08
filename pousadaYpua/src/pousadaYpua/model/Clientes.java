@@ -1,11 +1,11 @@
 package pousadaYpua.model;
 
-public class Usuario {
+public class Clientes {
 	private String nome, celular, cpf, email, endereco, numero, cidade, cep, estado;
 	
 	
 
-	public Usuario(String nome, String celular, String cpf, String email, String endereco, String numero, String cidade,
+	public Clientes(String nome, String celular, String cpf, String email, String endereco, String numero, String cidade,
 			String cep, String estado) {
 		this.nome = nome;
 		this.celular = celular;

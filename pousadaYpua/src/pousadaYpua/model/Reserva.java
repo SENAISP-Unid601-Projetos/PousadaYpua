@@ -4,11 +4,11 @@ public class Reserva {
 	private String dataEntrada;
 	private String dataSaida;
 	private String numeroPedido;
-	private Usuario cliente;
+	private Clientes cliente;
 	
 	
 	
-	public Reserva(String dataEntrada, String dataSaida, String numeroPedido, Usuario cliente) {
+	public Reserva(String dataEntrada, String dataSaida, String numeroPedido, Clientes cliente) {
 		this.dataEntrada = dataEntrada;
 		this.dataSaida = dataSaida;
 		this.numeroPedido = numeroPedido;
@@ -32,10 +32,10 @@ public class Reserva {
 	public void setNumeroPedido(String numeroPedido) {
 		this.numeroPedido = numeroPedido;
 	}
-	public Usuario getCliente() {
+	public Clientes getCliente() {
 		return cliente;
 	}
-	public void setCliente(Usuario cliente) {
+	public void setCliente(Clientes cliente) {
 		this.cliente = cliente;
 	}
 

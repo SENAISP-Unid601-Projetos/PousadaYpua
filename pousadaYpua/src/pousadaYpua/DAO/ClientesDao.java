@@ -6,13 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
-import pousadaYpua.model.Usuario;
+import pousadaYpua.model.Clientes;
 
-public class UsuarioDao {
+public class ClientesDao {
 
     private Connection con;
 
-    public UsuarioDao() {
+    public ClientesDao() {
 
         try {
             // Exemplo de inicialização da conexão
@@ -25,18 +25,18 @@ public class UsuarioDao {
         }
     }
 
-    public void insert(Usuario usuario) {
+    public void insert(Clientes cliente) {
         String sql = "INSERT INTO Usuario (cpf, nome, celular, email, endereco, numero, cidade, cep, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = con.prepareStatement(sql)) {
-            stmt.setString(1, usuario.getCpf());
-            stmt.setString(2, usuario.getNome());
-            stmt.setString(3, usuario.getCelular());
-            stmt.setString(4, usuario.getEmail());
-            stmt.setString(5, usuario.getEndereco());
-            stmt.setString(6, usuario.getNumero());
-            stmt.setString(7, usuario.getCidade());
-            stmt.setString(8, usuario.getCep());
-            stmt.setString(9, usuario.getEstado());
+            stmt.setString(1, cliente.getCpf());
+            stmt.setString(2, cliente.getNome());
+            stmt.setString(3, cliente.getCelular());
+            stmt.setString(4, cliente.getEmail());
+            stmt.setString(5, cliente.getEndereco());
+            stmt.setString(6, cliente.getNumero());
+            stmt.setString(7, cliente.getCidade());
+            stmt.setString(8, cliente.getCep());
+            stmt.setString(9, cliente.getEstado());
             stmt.executeUpdate(); // Use executeUpdate() para inserções
         } catch (SQLException e) {
             throw new RuntimeException(e);

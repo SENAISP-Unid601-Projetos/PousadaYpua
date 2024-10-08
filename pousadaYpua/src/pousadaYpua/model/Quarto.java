@@ -30,7 +30,7 @@ public class Quarto {
 		this.disponibilidade = disponibilidade;
 	}
 	
-	public void addReserva(String dataInicio,String dataSaida,String numeroPedido,Usuario cliente ) {
+	public void addReserva(String dataInicio,String dataSaida,String numeroPedido,Clientes cliente ) {
 		Reserva reserva = new Reserva(dataInicio, dataSaida, numeroPedido, cliente);
 	}
 	
