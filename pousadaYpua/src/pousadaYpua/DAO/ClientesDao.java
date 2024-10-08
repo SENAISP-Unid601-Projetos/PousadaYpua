@@ -26,7 +26,7 @@ public class ClientesDao {
     }
 
     public void insert(Clientes cliente) {
-        String sql = "INSERT INTO Usuario (cpf, nome, celular, email, endereco, numero, cidade, cep, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Clientes (cpf, nome, celular, email, endereco, numero, cidade, cep, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = con.prepareStatement(sql)) {
             stmt.setString(1, cliente.getCpf());
             stmt.setString(2, cliente.getNome());
@@ -44,7 +44,7 @@ public class ClientesDao {
 
     }
     public void delete(String cpf) {
-        String sql = "DELETE FROM Usuario WHERE cpf = ?";
+        String sql = "DELETE FROM Clientes WHERE cpf = ?";
         try (PreparedStatement stmt = con.prepareStatement(sql)) {
         	stmt.setString(1, cpf);
             stmt.executeUpdate(); // Use executeUpdate() para inserções
