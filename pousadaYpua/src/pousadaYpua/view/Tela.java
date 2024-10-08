@@ -1,13 +1,14 @@
 package pousadaYpua.view;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
-import javax.swing.JMenuBar;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JPanel;
 
 public class Tela {
 
@@ -41,7 +42,7 @@ public class Tela {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 898, 479);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -66,6 +67,6 @@ public class Tela {
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("New menu item");
 		mnNewMenu_1.add(mntmNewMenuItem_1);
+		frame.getContentPane().setLayout(null);
 	}
-
 }

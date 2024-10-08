@@ -3,6 +3,9 @@ package pousadaYpua.view;
 import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
+import java.awt.GridLayout;
+import javax.swing.JLabel;
+import java.awt.Font;
 
 public class CadastroCliente extends JInternalFrame {
 
@@ -28,7 +31,13 @@ public class CadastroCliente extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public CadastroCliente() {
-		setBounds(100, 100, 951, 623);
+		setBounds(0, 0, 882, 418);
+		getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Nome:");
+		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 22));
+		lblNewLabel.setBounds(10, 25, 104, 28);
+		getContentPane().add(lblNewLabel);
 
 	}
 

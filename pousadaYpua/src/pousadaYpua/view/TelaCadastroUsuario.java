@@ -28,7 +28,7 @@ public class TelaCadastroUsuario extends JFrame {
 	private JTextField txtNome;
 	private JTextField txtCelular;
 	private JTextField txtCpf;
-	private JTextField txtEmail;
+	private JTextField txtEmail; 
 	private JTextField txtEndereco;
 	private JTextField txtNumeHome;
 	private JTextField txtCidade;
