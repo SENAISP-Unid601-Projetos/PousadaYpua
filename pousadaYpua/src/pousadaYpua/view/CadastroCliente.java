@@ -28,7 +28,7 @@ public class CadastroCliente extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public CadastroCliente() {
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 951, 623);
 
 	}
 
