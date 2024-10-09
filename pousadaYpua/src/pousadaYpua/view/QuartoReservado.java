@@ -78,7 +78,7 @@ public class QuartoReservado extends JFrame {
 		panel.add(lblNewLabel_2);
 		
 		textField = new JTextField();
-		textField.setBounds(380, 76, 663, 30);
+		textField.setBounds(390, 76, 663, 30);
 		panel.add(textField);
 		textField.setColumns(10);
 		
