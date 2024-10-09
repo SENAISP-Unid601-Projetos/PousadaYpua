@@ -42,7 +42,7 @@ public class Tela {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 898, 479);
+		frame.setBounds(100, 100, 1141, 736);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();
