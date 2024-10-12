@@ -62,11 +62,18 @@ public class Tela {
 		});
 		mnNewMenu.add(mntmNewMenuItem);
 		
-		JMenu mnNewMenu_1 = new JMenu("Pessoa");
-		menuBar.add(mnNewMenu_1);
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Reserva");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ReservaDeQuarto telaReserva = new ReservaDeQuarto();
+				frame.getContentPane().add(telaReserva);
+				telaReserva.show();
+			}
+		});
+		mnNewMenu.add(mntmNewMenuItem_1);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("New menu item");
-		mnNewMenu_1.add(mntmNewMenuItem_1);
-		frame.getContentPane().setLayout(null);
+		
+		
+		
 	}
 }

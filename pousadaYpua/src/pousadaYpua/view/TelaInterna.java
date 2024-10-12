@@ -6,6 +6,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class TelaInterna extends JInternalFrame {
 
