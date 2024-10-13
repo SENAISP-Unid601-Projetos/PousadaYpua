@@ -3,6 +3,7 @@ package pousadaYpua.DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
@@ -47,10 +48,39 @@ public class ClientesDao {
         String sql = "DELETE FROM Clientes WHERE cpf = ?";
         try (PreparedStatement stmt = con.prepareStatement(sql)) {
         	stmt.setString(1, cpf);
-            stmt.executeUpdate(); // Use executeUpdate() para inserções
+            stmt.executeUpdate(); // 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
+    }
+    public Clientes buscar(Clientes cliente) {
+        String sql = "SELECT FROM Clientes WHERE cpf = ?";
+        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+        	stmt.setString(1, cliente.getCpf());
+           ResultSet rs =  stmt.executeQuery(); 
+            
+            if (rs.next()) {  // Verificando se o cliente foi encontrado
+                // Criando um novo objeto Clientes com base nos dados retornados pelo SELECT
+                return new Clientes(
+                    rs.getString("cpf"),        
+                    rs.getString("nome"),       
+                    rs.getString("telefone"),   
+                    rs.getString("email"),      
+                    rs.getString("endereco"),   
+                    rs.getString("cidade"),    
+                    rs.getString("estado"),     
+                    rs.getString("cep"),       
+                    rs.getString("pais")        
+                );
+            }
+            
+            
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+		return null;
+        
+     
     }
 }

@@ -26,14 +26,13 @@ public class ReservasDao {
 	    }
 
 	    public void insert(Clientes cliente, Reserva reserva) {
-	        String sql = "INSERT INTO Reservas (cpf, nome, numero_quarto, data_entrada, data_saida, numero_reserva) VALUES (?, ?, ?, ?, ?, ?)";
+	        String sql = "INSERT INTO Reservas (cpf, nome, data_entrada, data_saida, numero_reserva) VALUES ( ?, ?, ?, ?, ?)";
 	        try (PreparedStatement stmt = con.prepareStatement(sql)) {
 	            stmt.setString(1, cliente.getCpf());
 	            stmt.setString(2, cliente.getNome());
-	            stmt.setInt(3, reserva.getNumeroQuarto());
+	        
 	            stmt.setString(4, reserva.getDataEntrada());
 	            stmt.setString(5, reserva.getDataSaida());
-	            
 	            stmt.executeUpdate(); // Use executeUpdate() para inserções
 	        } catch (SQLException e) {
 	            throw new RuntimeException(e);

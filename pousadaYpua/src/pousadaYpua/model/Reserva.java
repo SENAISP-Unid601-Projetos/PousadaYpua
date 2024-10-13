@@ -8,11 +8,13 @@ public class Reserva {
 	
 	
 	
+	
 	public Reserva(String dataEntrada, String dataSaida, String numeroPedido, Clientes cliente) {
 		this.dataEntrada = dataEntrada;
 		this.dataSaida = dataSaida;
 		this.numeroPedido = numeroPedido;
 		this.cliente = cliente;
+		
 	}
 	public String getDataEntrada() {
 		return dataEntrada;
@@ -38,6 +40,8 @@ public class Reserva {
 	public void setCliente(Clientes cliente) {
 		this.cliente = cliente;
 	}
+
+	
 
 
 
