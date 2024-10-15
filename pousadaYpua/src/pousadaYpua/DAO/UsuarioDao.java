@@ -25,10 +25,11 @@ public class UsuarioDao {
 	}
 	
 	public void insert(Usuario usuario) {
-		  String sql = "INSERT INTO Usuarios (usuario, senha) VALUES (?, ?)";
+		  String sql = "INSERT INTO Usuarios (id, nome, senha) VALUES (?, ?, ?)";
 	        try (PreparedStatement stmt = con.prepareStatement(sql)) {
-	            stmt.setString(1, usuario.getNome());
-	            stmt.setString(2, usuario.getSenha());
+	            stmt.setString(1, usuario.getId());
+	            stmt.setString(2, usuario.getNome());
+	            stmt.setString(3, usuario.getSenha());
 	            stmt.executeUpdate(); // Use executeUpdate() para inserções
 	        } catch (SQLException e) {
 	            throw new RuntimeException(e);

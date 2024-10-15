@@ -20,7 +20,7 @@ import javax.swing.border.EmptyBorder;
 import pousadaYpua.DAO.ClientesDao;
 import pousadaYpua.model.Clientes;
 
-public class TelaCadastroUsuario extends JInternalFrame {
+public class TelaCadastroCliente extends JInternalFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -33,8 +33,8 @@ public class TelaCadastroUsuario extends JInternalFrame {
 	private JTextField txtCidade;
 	private JTextField txtCep;
 	private JTextField txtEstado;
-	private Clientes usuario;
-	ClientesDao userDao;
+	private Clientes clientes;
+	ClientesDao clienteDao;
 
 	/**
 	 * Launch the application.
@@ -43,7 +43,7 @@ public class TelaCadastroUsuario extends JInternalFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaCadastroUsuario frame = new TelaCadastroUsuario();
+					TelaCadastroCliente frame = new TelaCadastroCliente();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,8 +54,8 @@ public class TelaCadastroUsuario extends JInternalFrame {
 	}
 
 	// Criação do contrutor com encapsulamento e parametros;
-	public TelaCadastroUsuario() {
-		userDao  =  new ClientesDao();
+	public TelaCadastroCliente() {
+		clienteDao  =  new ClientesDao();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 951, 623);
@@ -228,9 +228,9 @@ public class TelaCadastroUsuario extends JInternalFrame {
 				txtEstado.setText("");
 				txtCpf.setText("");
 
-				usuario = new Clientes(nome, celular, cpf, email, endereco, numero, cidade, cep, estado);
-				userDao.insert(usuario);
-				textArea.append(usuario.getInfo());
+				clientes = new Clientes(nome, celular, cpf, email, endereco, numero, cidade, cep, estado);
+				clienteDao.insert(clientes);
+				textArea.append(clientes.getInfo());
 
 			}
 		});
@@ -240,7 +240,7 @@ public class TelaCadastroUsuario extends JInternalFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				String cpf = txtCpf.getText();
-				userDao.delete(cpf);
+				clienteDao.delete(cpf);
 				
 				
 				
