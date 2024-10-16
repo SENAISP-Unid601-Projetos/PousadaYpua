@@ -1,5 +1,6 @@
 package pousadaYpua.view;
 
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,14 +17,17 @@ public class Tela {
                 try {
                     Tela window = new Tela();
                     window.frame.setVisible(true);
+                    frame.setLocaleRelativeTo(null);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
     }
-
-    public Tela() {
+    
+   
+	public Tela() {
+    	
         initialize();
     }
 
@@ -64,5 +68,6 @@ public class Tela {
         });
         mnFuncionario.add(mntmCadastrarFuncionario);
     }
+    \
 }
 
