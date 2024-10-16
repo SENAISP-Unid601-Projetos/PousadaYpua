@@ -15,6 +15,8 @@ import pousadaYpua.model.Usuario;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.UIManager;
+import java.awt.Color;
 
 public class CadastroFuncionario extends JInternalFrame {
 
@@ -26,13 +28,16 @@ public class CadastroFuncionario extends JInternalFrame {
     private String senha;
     
     private Usuario usuario;
+    
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
+                	
                     CadastroFuncionario frame = new CadastroFuncionario();
                     frame.setVisible(true);
+                    
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -45,7 +50,9 @@ public class CadastroFuncionario extends JInternalFrame {
     	
         setTitle("Cadastro de Funcionário");
         setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
-        setBounds(100, 100, 400, 300);
+       
+        setBounds(300, 100, 400, 300);
+        
         setClosable(true);
         setResizable(true);
         setMaximizable(true);
@@ -95,8 +102,14 @@ public class CadastroFuncionario extends JInternalFrame {
         panel.add(lblId);
         
         JButton btnSalvar = new JButton("SALVAR");
-        btnSalvar.setBounds(237, 208, 117, 29);
+        btnSalvar.setBounds(199, 205, 117, 29);
         panel.add(btnSalvar);
+        
+        JButton btnSair = new JButton("SAIR");
+        btnSair.setForeground(UIManager.getColor("Button.background"));
+        btnSair.setBackground(new Color(255, 75, 62));
+        btnSair.setBounds(48, 205, 117, 29);
+        panel.add(btnSair);
         
         btnSalvar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -112,15 +125,16 @@ public class CadastroFuncionario extends JInternalFrame {
         		
         		 usuario = new Usuario(nome, senha, id);
         		 userDao.insert(usuario);
-        		 
-        		
-        		
-        		
         		
         	}
         });
         
-        
+        btnSair.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+			
+        	}
+        });
      
     }
 }

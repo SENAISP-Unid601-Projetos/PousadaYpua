@@ -10,6 +10,9 @@ public class Tela {
 
     private JFrame frame;
     private JDesktopPane desktopPane;
+    private JMenuBar menuBar; // Precisamos de referência ao menuBar para desabilitar
+    private JMenu mnNewMenu;
+    private JMenu mnFuncionario;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -17,7 +20,7 @@ public class Tela {
                 try {
                     Tela window = new Tela();
                     window.frame.setVisible(true);
-                    frame.setLocaleRelativeTo(null);
+                   
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -25,9 +28,7 @@ public class Tela {
         });
     }
     
-   
-	public Tela() {
-    	
+    public Tela() {
         initialize();
     }
 
@@ -39,10 +40,10 @@ public class Tela {
         desktopPane = new JDesktopPane();
         frame.setContentPane(desktopPane);
         
-        JMenuBar menuBar = new JMenuBar();
+        menuBar = new JMenuBar();
         frame.setJMenuBar(menuBar);
         
-        JMenu mnNewMenu = new JMenu("Quartos");
+        mnNewMenu = new JMenu("Quartos");
         menuBar.add(mnNewMenu);
         
         JMenuItem mntmNewMenuItem = new JMenuItem("Usuario");
@@ -51,11 +52,22 @@ public class Tela {
                 TelaInterna tela = new TelaInterna();
                 desktopPane.add(tela);
                 tela.setVisible(true);
+                
+                // Desabilitando os menus enquanto a tela interna estiver aberta
+                setMenuEnabled(false);
+
+                // Listener para reabilitar o menu quando o JInternalFrame for fechado
+                tela.addInternalFrameListener(new javax.swing.event.InternalFrameAdapter() {
+                    @Override
+                    public void internalFrameClosed(javax.swing.event.InternalFrameEvent e) {
+                        setMenuEnabled(true);
+                    }
+                });
             }
         });
         mnNewMenu.add(mntmNewMenuItem);
         
-        JMenu mnFuncionario = new JMenu("Funcionario");
+        mnFuncionario = new JMenu("Funcionario");
         menuBar.add(mnFuncionario);
         
         JMenuItem mntmCadastrarFuncionario = new JMenuItem("Cadastrar Funcionario");
@@ -64,10 +76,27 @@ public class Tela {
                 CadastroFuncionario cadastroFuncionario = new CadastroFuncionario();
                 desktopPane.add(cadastroFuncionario);
                 cadastroFuncionario.setVisible(true);
+                
+                // Desabilitando os menus enquanto a tela interna estiver aberta
+                setMenuEnabled(false);
+
+                // Listener para reabilitar o menu quando o JInternalFrame for fechado
+                cadastroFuncionario.addInternalFrameListener(new javax.swing.event.InternalFrameAdapter() {
+                    @Override
+                    public void internalFrameClosed(javax.swing.event.InternalFrameEvent e) {
+                        setMenuEnabled(true);
+                    }
+                });
             }
         });
         mnFuncionario.add(mntmCadastrarFuncionario);
     }
-    \
+    
+    // Método para habilitar ou desabilitar os menus
+    private void setMenuEnabled(boolean enabled) {
+        menuBar.setEnabled(enabled); // Desabilita o JMenuBar
+        for (Component component : menuBar.getComponents()) {
+            component.setEnabled(enabled); // Desabilita cada componente (como JMenu) dentro do JMenuBar
+        }
+    }
 }
-
