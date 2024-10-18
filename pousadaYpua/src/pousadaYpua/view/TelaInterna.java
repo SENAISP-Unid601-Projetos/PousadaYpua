@@ -35,8 +35,7 @@ public class TelaInterna extends JInternalFrame {
 		setResizable(true);
 		setMaximizable(true);
 		setClosable(true);
-		setBounds(100, 100, 450, 300);
-		
+		setBounds(100, 100, 450, 300);	
 		JButton btnNewButton = new JButton("New button");
 		getContentPane().add(btnNewButton, BorderLayout.CENTER);
 		

@@ -5,17 +5,15 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 
+import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.Panel;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.UIManager;
 
-public class TelaPrincipal extends JFrame {
+public class TelaPrincipal extends JInternalFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -28,8 +26,6 @@ public class TelaPrincipal extends JFrame {
 			public void run() {
 				try {
 					TelaPrincipal frame = new TelaPrincipal();
-					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -41,12 +37,12 @@ public class TelaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaPrincipal() {
-		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 998, 645);
-		contentPane = new JPanel();
+	    setBounds(0, 0, 1125, 675);
+	    JComponent contentPane = new JPanel();
+	    contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setBackground(new Color(234, 234, 234));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setClosable(true);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
