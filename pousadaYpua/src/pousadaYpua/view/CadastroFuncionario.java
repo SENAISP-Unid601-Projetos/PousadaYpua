@@ -106,8 +106,8 @@ public class CadastroFuncionario extends JInternalFrame {
         panel.add(btnSalvar);
         
         JButton btnSair = new JButton("SAIR");
-        btnSair.setForeground(UIManager.getColor("Button.background"));
-        btnSair.setBackground(new Color(255, 75, 62));
+        btnSair.setForeground(Color.BLACK);
+        btnSair.setBackground(new Color(250, 255, 253));
         btnSair.setBounds(48, 205, 117, 29);
         panel.add(btnSair);
         

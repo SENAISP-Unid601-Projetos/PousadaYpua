@@ -57,7 +57,15 @@ public class TelaCadastroCliente extends JInternalFrame {
 	// Criação do contrutor com encapsulamento e parametros;
 	public TelaCadastroCliente() {
 		clienteDao  =  new ClientesDao();
-
+		
+		    setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
+	        setBounds(300, 100, 400, 300);
+	        setClosable(true);
+	        setResizable(true);
+	        setMaximizable(true);
+	        setIconifiable(true);
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 951, 623);
 		contentPane = new JPanel();

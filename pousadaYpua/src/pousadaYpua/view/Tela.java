@@ -67,7 +67,7 @@ public class Tela {
         });
         mnNewMenu.add(mntmNewMenuItem);
         
-        mnFuncionario = new JMenu("Funcionario");
+        mnFuncionario = new JMenu("Cadastros");
         menuBar.add(mnFuncionario);
         
         JMenuItem mntmCadastrarFuncionario = new JMenuItem("Cadastrar Funcionario");
@@ -90,6 +90,30 @@ public class Tela {
             }
         });
         mnFuncionario.add(mntmCadastrarFuncionario);
+        
+        
+        JMenuItem mntmCadastrarClientes = new JMenuItem("Cadastrar Clientes");
+        mntmCadastrarClientes.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                TelaCadastroCliente telaCadastroCliente = new TelaCadastroCliente();
+                desktopPane.add(telaCadastroCliente);
+                telaCadastroCliente.setVisible(true);
+                
+                // Desabilitando os menus enquanto a tela interna estiver aberta
+                setMenuEnabled(false);
+
+                // Listener para reabilitar o menu quando o JInternalFrame for fechado
+                telaCadastroCliente.addInternalFrameListener(new javax.swing.event.InternalFrameAdapter() {
+                    @Override
+                    public void internalFrameClosed(javax.swing.event.InternalFrameEvent e) {
+                        setMenuEnabled(true);
+                    }
+                });
+            }
+        });
+        mnFuncionario.add(mntmCadastrarClientes);
+        
+        
     }
     
     // Método para habilitar ou desabilitar os menus
