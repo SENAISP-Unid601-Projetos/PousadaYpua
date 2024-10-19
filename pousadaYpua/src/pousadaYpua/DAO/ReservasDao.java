@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import pousadaYpua.model.Clientes;
+import pousadaYpua.model.Quarto;
 import pousadaYpua.model.Reserva;
 
 public class ReservasDao {
@@ -25,14 +26,13 @@ public class ReservasDao {
 	        }
 	    }
 
-	    public void insert(Clientes cliente, Reserva reserva) {
-	        String sql = "INSERT INTO Reservas (cpf, nome, data_entrada, data_saida, numero_reserva) VALUES ( ?, ?, ?, ?, ?)";
+	    public void insert(Clientes cliente, Reserva reserva, Quarto quarto) {
+	        String sql = "INSERT INTO Reservas (cpf, numero_quarto, data_entrada, data_saida, numero_reserva) VALUES ( ?, ?, ?, ?, ?)";
 	        try (PreparedStatement stmt = con.prepareStatement(sql)) {
 	            stmt.setString(1, cliente.getCpf());
-	            stmt.setString(2, cliente.getNome());
-	        
-	            stmt.setString(4, reserva.getDataEntrada());
-	            stmt.setString(5, reserva.getDataSaida());
+	            stmt.setString(2, quarto.getNumero());
+	            stmt.setString(3, reserva.getDataEntrada());
+	            stmt.setString(4, reserva.getDataSaida());
 	            stmt.executeUpdate(); // Use executeUpdate() para inserções
 	        } catch (SQLException e) {
 	            throw new RuntimeException(e);
@@ -40,7 +40,7 @@ public class ReservasDao {
 
 	    }
 	    public void delete(String cpf) {
-	        String sql = "DELETE FROM Clientes WHERE cpf = ?";
+	        String sql = "DELETE * FROM Clientes WHERE cpf = ?";
 	        try (PreparedStatement stmt = con.prepareStatement(sql)) {
 	        	stmt.setString(1, cpf);
 	            stmt.executeUpdate(); // Use executeUpdate() para inserções

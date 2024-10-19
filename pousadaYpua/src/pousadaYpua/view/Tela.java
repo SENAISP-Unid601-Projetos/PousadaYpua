@@ -20,6 +20,7 @@ public class Tela {
                 try {
                     Tela window = new Tela();
                     window.frame.setVisible(true);
+                    
                    
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -32,9 +33,12 @@ public class Tela {
         initialize();
     }
 
+    /**
+     * 
+     */
     private void initialize() {
         frame = new JFrame();
-        frame.setBounds(100, 100, 1141, 736);
+        frame.setBounds(100, 100, 1920, 1080);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         desktopPane = new JDesktopPane();
@@ -46,18 +50,18 @@ public class Tela {
         mnNewMenu = new JMenu("Quartos");
         menuBar.add(mnNewMenu);
         
-        JMenuItem mntmNewMenuItem = new JMenuItem("Usuario");
+        JMenuItem mntmNewMenuItem = new JMenuItem("Reserva de Quarto");
         mntmNewMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                TelaInterna tela = new TelaInterna();
-                desktopPane.add(tela);
-                tela.setVisible(true);
+                ReservaQuarto reserva = new ReservaQuarto();
+                desktopPane.add(reserva);
+                reserva.setVisible(true);
                 
                 // Desabilitando os menus enquanto a tela interna estiver aberta
                 setMenuEnabled(false);
 
                 // Listener para reabilitar o menu quando o JInternalFrame for fechado
-                tela.addInternalFrameListener(new javax.swing.event.InternalFrameAdapter() {
+                reserva.addInternalFrameListener(new javax.swing.event.InternalFrameAdapter() {
                     @Override
                     public void internalFrameClosed(javax.swing.event.InternalFrameEvent e) {
                         setMenuEnabled(true);
@@ -95,7 +99,7 @@ public class Tela {
         JMenuItem mntmCadastrarClientes = new JMenuItem("Cadastrar Clientes");
         mntmCadastrarClientes.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                TelaCadastroCliente telaCadastroCliente = new TelaCadastroCliente();
+                CadastroCliente telaCadastroCliente = new CadastroCliente();
                 desktopPane.add(telaCadastroCliente);
                 telaCadastroCliente.setVisible(true);
                 

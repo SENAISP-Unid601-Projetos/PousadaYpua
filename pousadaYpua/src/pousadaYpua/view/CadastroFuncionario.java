@@ -51,7 +51,7 @@ public class CadastroFuncionario extends JInternalFrame {
         setTitle("Cadastro de Funcionário");
         setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
        
-        setBounds(300, 100, 400, 300);
+        setBounds(0, 0, 1000, 520);
         
         setClosable(true);
         setResizable(true);

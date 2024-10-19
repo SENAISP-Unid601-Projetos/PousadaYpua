@@ -4,20 +4,26 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import pousadaYpua.model.Quarto;
+
 public class TelaPrincipal extends JInternalFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
+	Quarto quarto;
+	private JDesktopPane desktopPane;
 	/**
 	 * Launch the application.
 	 */
@@ -37,6 +43,8 @@ public class TelaPrincipal extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public TelaPrincipal() {
+		desktopPane = new JDesktopPane();
+       
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setBounds(0, 0, 1125, 675);
 	    JComponent contentPane = new JPanel();
@@ -77,14 +85,15 @@ public class TelaPrincipal extends JInternalFrame {
 		canvas_3_2.setBounds(120, 206, 17, 107);
 		contentPane.add(canvas_3_2);
 		
-		JButton btnNewButton = new JButton("Quarto - 01");
-		btnNewButton.setFocusPainted(false);
-		btnNewButton.setBackground(new Color(240, 240, 240));
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		btnNewButton.setBounds(130, 206, 175, 107);
-		contentPane.add(btnNewButton);
+		JButton btnQuarto1 = new JButton("Quarto 01");
 		
-		JButton btnQuarto = new JButton("Quarto - 02");
+		btnQuarto1.setFocusPainted(false);
+		btnQuarto1.setBackground(new Color(240, 240, 240));
+		btnQuarto1.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		btnQuarto1.setBounds(130, 206, 175, 107);
+		contentPane.add(btnQuarto1);
+		
+		JButton btnQuarto = new JButton("Quarto 02");
 		btnQuarto.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		btnQuarto.setFocusPainted(false);
 		btnQuarto.setBackground(new Color(240, 240, 240));
@@ -211,5 +220,21 @@ public class TelaPrincipal extends JInternalFrame {
 		btnQuarto_1_2.setBounds(779, 479, 175, 107);
 		contentPane.add(btnQuarto_1_2);
 		
+		btnQuarto1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				quarto.setNumero("1");
+
+				 ReservaQuarto reserva = new ReservaQuarto();
+				 desktopPane.add(reserva);
+				reserva.setVisible(true);
+		               
+				
+				
+				
+			
+			}
+		});
+		
 	}
+	
 }

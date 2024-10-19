@@ -8,7 +8,11 @@ public class Reserva {
 	
 	
 	
-	
+	public Reserva(String dataEntrada, String dataSaida) {
+		this.dataEntrada = dataEntrada;
+		this.dataSaida = dataSaida;
+		
+	}
 	public Reserva(String dataEntrada, String dataSaida, String numeroPedido, Clientes cliente) {
 		this.dataEntrada = dataEntrada;
 		this.dataSaida = dataSaida;
