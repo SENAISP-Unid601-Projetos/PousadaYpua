@@ -3,6 +3,7 @@ package pousadaYpua.DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import pousadaYpua.model.Clientes;
@@ -27,27 +28,50 @@ public class ReservasDao {
 	    }
 
 	    public void insert(Clientes cliente, Reserva reserva, Quarto quarto) {
-	        String sql = "INSERT INTO Reservas (cpf, numero_quarto, data_entrada, data_saida, numero_reserva) VALUES ( ?, ?, ?, ?, ?)";
+	        String sql = "INSERT INTO Reservas (numero_reserva, cpf, numero_quarto, data_entrada, data_saida) VALUES ( ?, ?, ?, ?, ?)";
 	        try (PreparedStatement stmt = con.prepareStatement(sql)) {
-	            stmt.setString(1, cliente.getCpf());
-	            stmt.setString(2, quarto.getNumero());
-	            stmt.setString(3, reserva.getDataEntrada());
-	            stmt.setString(4, reserva.getDataSaida());
+	            stmt.setString(2, cliente.getCpf());
+	            stmt.setString(3, quarto.getNumero());
+	            stmt.setString(4, reserva.getDataEntrada());
+	            stmt.setString(5, reserva.getDataSaida());
 	            stmt.executeUpdate(); // Use executeUpdate() para inserções
 	        } catch (SQLException e) {
 	            throw new RuntimeException(e);
 	        }
 
 	    }
-	    public void delete(String cpf) {
-	        String sql = "DELETE * FROM Clientes WHERE cpf = ?";
+	    public void delete(String numeroReserva) {
+	        String sql = "DELETE * FROM Reserva WHERE numero_reserva = ?";
 	        try (PreparedStatement stmt = con.prepareStatement(sql)) {
-	        	stmt.setString(1, cpf);
+	        	stmt.setString(1, numeroReserva);
 	            stmt.executeUpdate(); // Use executeUpdate() para inserções
 	        } catch (SQLException e) {
 	            throw new RuntimeException(e);
 	        }
 
+	    }
+	    public Reserva buscar() {
+			String sql = "SELECT * FROM Reservas";
+			try(PreparedStatement stmt = con.prepareStatement(sql)){
+			ResultSet rs = stmt.executeQuery();
+			
+			if(rs.next()) {
+				String numeroReserva = rs.getString("numero_reserva");
+				String cpf = rs.getString("cpf");
+				String numeroQuarto = rs.getString("numero_quarto");
+				String dataEntrada = rs.getString("data_entrada");
+				String dataSaida = rs.getString("data_saida");
+				
+				Clientes cliente = new Clientes(cpf);
+				Quarto quarto = new Quarto(numeroQuarto);
+				return new Reserva(dataSaida, dataSaida, dataSaida, cliente, quarto);
+			}
+			
+			}catch(Exception e) {
+				
+			}
+			return null;
+	    	
 	    }
 
 }

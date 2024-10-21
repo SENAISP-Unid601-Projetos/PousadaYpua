@@ -47,29 +47,7 @@ public class Tela {
         menuBar = new JMenuBar();
         frame.setJMenuBar(menuBar);
         
-        mnNewMenu = new JMenu("Quartos");
-        menuBar.add(mnNewMenu);
-        
-        JMenuItem mntmNewMenuItem = new JMenuItem("Reserva de Quarto");
-        mntmNewMenuItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                ReservaQuarto reserva = new ReservaQuarto();
-                desktopPane.add(reserva);
-                reserva.setVisible(true);
-                
-                // Desabilitando os menus enquanto a tela interna estiver aberta
-                setMenuEnabled(false);
-
-                // Listener para reabilitar o menu quando o JInternalFrame for fechado
-                reserva.addInternalFrameListener(new javax.swing.event.InternalFrameAdapter() {
-                    @Override
-                    public void internalFrameClosed(javax.swing.event.InternalFrameEvent e) {
-                        setMenuEnabled(true);
-                    }
-                });
-            }
-        });
-        mnNewMenu.add(mntmNewMenuItem);
+       
         
         mnFuncionario = new JMenu("Cadastros");
         menuBar.add(mnFuncionario);
@@ -117,6 +95,50 @@ public class Tela {
         });
         mnFuncionario.add(mntmCadastrarClientes);
         
+        mnNewMenu = new JMenu("Quartos");
+        menuBar.add(mnNewMenu);
+        
+        JMenuItem mntmReservarQuarto = new JMenuItem("Reserva de Quarto");
+        mntmReservarQuarto.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ReservaQuarto reserva = new ReservaQuarto();
+                desktopPane.add(reserva);
+                reserva.setVisible(true);
+                
+                // Desabilitando os menus enquanto a tela interna estiver aberta
+                setMenuEnabled(false);
+
+                // Listener para reabilitar o menu quando o JInternalFrame for fechado
+                reserva.addInternalFrameListener(new javax.swing.event.InternalFrameAdapter() {
+                    @Override
+                    public void internalFrameClosed(javax.swing.event.InternalFrameEvent e) {
+                        setMenuEnabled(true);
+                    }
+                });
+            }
+        });
+        mnNewMenu.add(mntmReservarQuarto);
+        
+        JMenuItem mntmQuartosReservados = new JMenuItem("Quartos Reservados");
+        mntmQuartosReservados.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                QuartosReservados quartoReservado = new QuartosReservados();
+                desktopPane.add(quartoReservado);
+                quartoReservado.setVisible(true);
+                
+                // Desabilitando os menus enquanto a tela interna estiver aberta
+                setMenuEnabled(false);
+
+                // Listener para reabilitar o menu quando o JInternalFrame for fechado
+                quartoReservado.addInternalFrameListener(new javax.swing.event.InternalFrameAdapter() {
+                    @Override
+                    public void internalFrameClosed(javax.swing.event.InternalFrameEvent e) {
+                        setMenuEnabled(true);
+                    }
+                });
+            }
+        });
+        mnNewMenu.add(mntmQuartosReservados);
         
     }
     
