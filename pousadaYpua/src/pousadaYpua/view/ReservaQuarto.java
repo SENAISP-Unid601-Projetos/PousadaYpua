@@ -5,8 +5,9 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -181,23 +182,38 @@ private JTextField textDiasReservados;
 		btnReservar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 
-				String dataEntrada = textDataEntrada.getText();
+				String dataEntradaStr = textDataEntrada.getText();
 				String diasReservados = textDiasReservados.getText();
 				int dias = Integer.parseInt(diasReservados);
 				
 				String numero = quarto.getNumero();
 				
 				String cpf = textCpf.getText();
-				reserva = new Reserva(dataEntrada);
-				quarto = new Quarto(numero);
-				clientes = new Clientes(cpf); 
+				
 				clientes = clienteDao.buscar(clientes);
 				
-				SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
-				Date dataFormatada = formato.parse(dataEntrada); 
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+				LocalDate dataEntrada2 = LocalDate.parse(dataEntradaStr, formatter);
 				
 				
-				reservaDao.insert(clientes, reserva, quarto);
+				for(int i = 0; i < dias; i++) {
+					LocalDate increment = dataEntrada2.plusDays(i);
+					String dataEntrada = increment.format(formatter);
+
+					
+					reserva = new Reserva(dataEntrada);
+					quarto = new Quarto(numero);
+					clientes = new Clientes(cpf);
+					reservaDao.insert(clientes, reserva, quarto);
+					
+					System.out.println(i);
+				}
+					
+				
+				
+				
+				
+				
 				
 			}
 		});
