@@ -2,53 +2,63 @@ package pousadaYpua.model;
 
 public class Reserva {
 	private String dataEntrada;
-	private String dataSaida;
+	private int diasReservado;
 	private String numeroPedido;
 	private Clientes cliente;
 	private Quarto quarto;
-	
-	
-	
-	public Reserva(String dataEntrada, String dataSaida) {
+
+	public Reserva(String dataEntrada) {
 		this.dataEntrada = dataEntrada;
-		this.dataSaida = dataSaida;
-		
+
 	}
-	public Reserva(String dataEntrada, String dataSaida, String numeroPedido, Clientes cliente, Quarto quarto) {
+
+	public Reserva(String dataEntrada, String numeroPedido, Clientes cliente, Quarto quarto) {
 		this.dataEntrada = dataEntrada;
-		this.dataSaida = dataSaida;
+
 		this.numeroPedido = numeroPedido;
 		this.cliente = cliente;
 		this.quarto = quarto;
-		
+
 	}
+
 	public String getDataEntrada() {
 		return dataEntrada;
 	}
+
 	public void setDataEntrada(String dataEntrada) {
 		this.dataEntrada = dataEntrada;
 	}
-	public String getDataSaida() {
-		return dataSaida;
+
+	public int getDiasReservado() {
+		return diasReservado;
 	}
-	public void setDataSaida(String dataSaida) {
-		this.dataSaida = dataSaida;
+
+	public void setDiasReservado(int diasReservado) {
+		this.diasReservado = diasReservado;
 	}
+
+	public Quarto getQuarto() {
+		return quarto;
+	}
+
+	public void setQuarto(Quarto quarto) {
+		this.quarto = quarto;
+	}
+
 	public String getNumeroPedido() {
 		return numeroPedido;
 	}
+
 	public void setNumeroPedido(String numeroPedido) {
 		this.numeroPedido = numeroPedido;
 	}
+
 	public Clientes getCliente() {
 		return cliente;
 	}
+
 	public void setCliente(Clientes cliente) {
 		this.cliente = cliente;
 	}
-
-	
-
-
 
 }

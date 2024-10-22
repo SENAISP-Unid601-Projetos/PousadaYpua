@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -31,7 +33,7 @@ Clientes clientes;
 Quarto quarto;
 Reserva reserva;
 private JTextField textDataEntrada;
-private JTextField textDataSaida;
+private JTextField textDiasReservados;
 	/**
 	 * Launch the application.
 	 */
@@ -129,17 +131,21 @@ private JTextField textDataSaida;
 		textDataEntrada.setBounds(380, 235, 122, 30);
 		panel.add(textDataEntrada);
 		
-		textDataSaida = new JTextField();
-		textDataSaida.setColumns(10);
-		textDataSaida.setBounds(550, 235, 130, 30);
-		panel.add(textDataSaida);
+		textDiasReservados = new JTextField();
+		textDiasReservados.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		textDiasReservados.setColumns(10);
+		textDiasReservados.setBounds(550, 235, 130, 30);
+		panel.add(textDiasReservados);
 		
 		JLabel lblDataEntrada = new JLabel("DATA ENTRADA");
 		lblDataEntrada.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
 		lblDataEntrada.setBounds(380, 209, 183, 30);
 		panel.add(lblDataEntrada);
 		
-		JLabel lblDataSaida = new JLabel("DATA SAIDA");
+		JLabel lblDataSaida = new JLabel("DIAS RESERVADOS");
 		lblDataSaida.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
 		lblDataSaida.setBounds(550, 209, 183, 30);
 		panel.add(lblDataSaida);
@@ -176,14 +182,20 @@ private JTextField textDataSaida;
 			public void actionPerformed(ActionEvent e) {
 				 
 				String dataEntrada = textDataEntrada.getText();
-				String dataSaida = textDataSaida.getText();
+				String diasReservados = textDiasReservados.getText();
+				int dias = Integer.parseInt(diasReservados);
+				
 				String numero = quarto.getNumero();
 				
 				String cpf = textCpf.getText();
-				reserva = new Reserva(dataEntrada, dataSaida);
+				reserva = new Reserva(dataEntrada);
 				quarto = new Quarto(numero);
 				clientes = new Clientes(cpf); 
 				clientes = clienteDao.buscar(clientes);
+				
+				SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
+				Date dataFormatada = formato.parse(dataEntrada); 
+				
 				
 				reservaDao.insert(clientes, reserva, quarto);
 				
