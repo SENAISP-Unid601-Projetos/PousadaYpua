@@ -1,7 +1,6 @@
 package pousadaYpua.DAO;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,14 +27,16 @@ public class ReservasDao {
 	        }
 	    }
 
-	    public void insert(Clientes cliente, Reserva reserva, Quarto quarto) {
+	    public void insert(Reserva reserva) {
+	    	Clientes cliente = reserva.getCliente();	
+	    	Quarto quarto = reserva.getQuarto();
+	    			
 	    	
-	    	
-	        String sql = "INSERT INTO Reservas (numero_pedido, cpf, numero_quarto, data_reservada) VALUES ( ?, ?, ?, ?)";
+	        String sql = "INSERT INTO Reservas (cpf, numero_quarto, data_reservada) VALUES ( ?, ?, ?)";
 	        try (PreparedStatement stmt = con.prepareStatement(sql)) {
-	            stmt.setString(2, cliente.getCpf());
-	            stmt.setString(3, quarto.getNumero());
-	            stmt.setString(4, reserva.getDataEntrada());
+	            stmt.setString(1, cliente.getCpf());
+	            stmt.setString(2, quarto.getNumero());
+	            stmt.setString(3, reserva.getDataEntrada());
 	            
 	            stmt.executeUpdate(); // Use executeUpdate() para inserções
 	        } catch (SQLException e) {
@@ -76,6 +77,28 @@ public class ReservasDao {
 			}
 			return null;
 	    	
+	    }
+	    
+	    public String buscarDatas(Reserva reserva)  {
+	    	String sql = "SELECT numero_quarto, data_reservada FROM Reservas WHERE numero_quarto = ? AND data_reservada = ?";
+	    	try(PreparedStatement stmt = con.prepareStatement(sql)){
+	    		stmt.setString(1, reserva.getQuarto().getNumero());
+	    		stmt.setString(2, reserva.getDataEntrada());
+	    		
+	    	ResultSet rs = stmt.executeQuery();
+	    	if(rs.next()) {
+	    		String numeroQuarto = rs.getString("numero_quarto");
+	    		String data = rs.getString("data_reservada");
+	    		
+	    		return data;    		
+	    	}
+	    		
+	    	} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    	return null;
+			
 	    }
 
 }

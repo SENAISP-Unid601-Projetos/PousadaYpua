@@ -5,9 +5,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -24,8 +23,10 @@ import javax.swing.border.EmptyBorder;
 import pousadaYpua.DAO.ClientesDao;
 import pousadaYpua.DAO.ReservasDao;
 import pousadaYpua.model.Clientes;
+import pousadaYpua.model.Gerenciador;
 import pousadaYpua.model.Quarto;
 import pousadaYpua.model.Reserva;
+import pousadaYpua.utils.DataUtils;
 
 public class ReservaQuarto extends JInternalFrame {
 
@@ -33,6 +34,7 @@ public class ReservaQuarto extends JInternalFrame {
 Clientes clientes;
 Quarto quarto;
 Reserva reserva;
+Gerenciador gerenciador;
 private JTextField textDataEntrada;
 private JTextField textDiasReservados;
 	/**
@@ -57,6 +59,8 @@ private JTextField textDiasReservados;
 	public ReservaQuarto() {
 		ClientesDao clienteDao = new ClientesDao();
 		ReservasDao reservaDao = new ReservasDao();
+		Gerenciador gerenciador = new Gerenciador();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setBounds(0, 0, 1125, 675);
 	    JComponent contentPane = new JPanel();
@@ -181,6 +185,7 @@ private JTextField textDiasReservados;
 		
 		btnReservar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				 ArrayList<Reserva> datasReserva = new ArrayList();
 				 
 				String dataEntradaStr = textDataEntrada.getText();
 				String diasReservados = textDiasReservados.getText();
@@ -188,27 +193,32 @@ private JTextField textDiasReservados;
 				
 				String numero = quarto.getNumero();
 				
-				String cpf = textCpf.getText();
+				String cpf = textCpf.getText();            
 				
-				clientes = clienteDao.buscar(clientes);
 				
-				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-				LocalDate dataEntrada2 = LocalDate.parse(dataEntradaStr, formatter);
 				
+				LocalDate dataEntrada = DataUtils.stringToDate(dataEntradaStr);
 				
 				for(int i = 0; i < dias; i++) {
-					LocalDate increment = dataEntrada2.plusDays(i);
-					String dataEntrada = increment.format(formatter);
-
+					LocalDate increment = dataEntrada.plusDays(i);
 					
-					reserva = new Reserva(dataEntrada);
-					quarto = new Quarto(numero);
-					clientes = new Clientes(cpf);
-					reservaDao.insert(clientes, reserva, quarto);
-					
-					System.out.println(i);
+					datasReserva.add(new Reserva(DataUtils.dateToString(increment), clientes, quarto));
+//					reserva = new Reserva(DataUtils.dateToString(increment), clientes, quarto);
 				}
+				if(gerenciador.verificaDatas(datasReserva)) {
+					for(Reserva r : datasReserva) {
+						reservaDao.insert(r);
+						System.out.println(r);
+					}
 					
+				}else {
+					System.out.println("ja tem a reserva no dia ");
+				}
+		
+			
+				
+	
+				
 				
 				
 				

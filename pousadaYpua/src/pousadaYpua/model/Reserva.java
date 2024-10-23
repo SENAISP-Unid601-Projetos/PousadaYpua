@@ -19,6 +19,13 @@ public class Reserva {
 		this.cliente = cliente;
 		this.quarto = quarto;
 
+	}public Reserva(String dataEntrada, Clientes cliente, Quarto quarto) {
+		this.dataEntrada = dataEntrada;
+
+		
+		this.cliente = cliente;
+		this.quarto = quarto;
+
 	}
 
 	public String getDataEntrada() {
