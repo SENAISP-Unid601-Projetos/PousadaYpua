@@ -27,6 +27,7 @@ import pousadaYpua.model.Gerenciador;
 import pousadaYpua.model.Quarto;
 import pousadaYpua.model.Reserva;
 import pousadaYpua.utils.DataUtils;
+import javax.swing.JFormattedTextField;
 
 public class ReservaQuarto extends JInternalFrame {
 
@@ -35,7 +36,6 @@ Clientes clientes;
 Quarto quarto;
 Reserva reserva;
 Gerenciador gerenciador;
-private JTextField textDataEntrada;
 private JTextField textDiasReservados;
 	/**
 	 * Launch the application.
@@ -71,7 +71,7 @@ private JTextField textDiasReservados;
 	    
 	    JPanel panel = new JPanel();
 	    panel.setBackground(new Color(113, 177, 187));
-	    panel.setBounds(0, 17, 1053, 618);
+	    panel.setBounds(0, 17, 1120, 617);
 	    
 	    contentPane.add(panel);
 	    panel.setLayout(null);
@@ -116,9 +116,10 @@ private JTextField textDiasReservados;
 		btnBuscar.setBounds(526, 110, 117, 29);
 		panel.add(btnBuscar);
 		
-		JTextArea txtArea = new JTextArea();
-		txtArea.setBounds(10, 83, 229, 150);
-		panel.add(txtArea);
+		JTextArea txtArea_InfoClient = new JTextArea();
+		txtArea_InfoClient.setEditable(false);
+		txtArea_InfoClient.setBounds(10, 83, 229, 150);
+		panel.add(txtArea_InfoClient);
 		
 		JComboBox comboBoxQuarto = new JComboBox();
 		comboBoxQuarto.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"}));
@@ -130,11 +131,6 @@ private JTextField textDiasReservados;
 		lblNQuarto.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
 		lblNQuarto.setBounds(380, 134, 183, 30);
 		panel.add(lblNQuarto);
-		
-		textDataEntrada = new JTextField();
-		textDataEntrada.setColumns(10);
-		textDataEntrada.setBounds(380, 235, 122, 30);
-		panel.add(textDataEntrada);
 		
 		textDiasReservados = new JTextField();
 		textDiasReservados.addActionListener(new ActionListener() {
@@ -160,15 +156,19 @@ private JTextField textDiasReservados;
 		btnReservar.setBounds(563, 290, 117, 29);
 		panel.add(btnReservar);
 		
+		JFormattedTextField textDataEntrada = new JFormattedTextField("##/##/####");
+		textDataEntrada.setBounds(380, 235, 122, 30);
+		panel.add(textDataEntrada);
+		
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText("");
+				txtArea_InfoClient.setText("");
 				String cpf = textCpf.getText();
 				
 
 				clientes = new Clientes(cpf);
 				clientes = clienteDao.buscar(clientes);
-				textArea.setText(clientes.getInfo());
+				txtArea_InfoClient.setText(clientes.getInfo());
 				System.out.println(clientes.getCpf() + clientes.getNome());
 			}
 		});
