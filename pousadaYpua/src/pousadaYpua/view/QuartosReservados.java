@@ -31,7 +31,7 @@ public class QuartosReservados extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public QuartosReservados() {
-		setBounds(100, 100, 1368, 786);
+		setBounds(0, 0, 1125, 675);
 		
 		table = new JTable();
 		getContentPane().add(table, BorderLayout.NORTH);
