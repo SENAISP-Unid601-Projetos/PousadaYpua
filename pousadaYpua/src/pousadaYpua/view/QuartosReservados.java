@@ -31,9 +31,10 @@ public class QuartosReservados extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public QuartosReservados() {
-		setResizable(true);
-		setMaximizable(true);
-		setClosable(true);
+        setClosable(true);
+        setResizable(true);
+        setMaximizable(true);
+        setIconifiable(true);
 		setBounds(0, 0, 1125, 675);
 		
 		table = new JTable();

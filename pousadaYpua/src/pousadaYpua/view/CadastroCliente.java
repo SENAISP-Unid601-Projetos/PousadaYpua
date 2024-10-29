@@ -60,7 +60,7 @@ public class CadastroCliente extends JInternalFrame {
 		
 		setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
 	       
-        setBounds(0, 0, 1366, 768);
+        setBounds(0, 0, 1125, 675);
         
         setClosable(true);
         setResizable(true);

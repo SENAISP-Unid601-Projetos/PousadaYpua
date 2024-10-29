@@ -36,6 +36,7 @@ Clientes clientes;
 Quarto quarto;
 Reserva reserva;
 Gerenciador gerenciador;
+JComponent contentPane = new JPanel();
 private JTextField textDiasReservados;
 	/**
 	 * Launch the application.
@@ -57,17 +58,17 @@ private JTextField textDiasReservados;
 	 * Create the frame.
 	 */
 	public ReservaQuarto() {
+		setClosable(true);
+
 		ClientesDao clienteDao = new ClientesDao();
 		ReservasDao reservaDao = new ReservasDao();
 		Gerenciador gerenciador = new Gerenciador();
 		
-		setResizable(true);
-		setMaximizable(true);
-		setClosable(true);
+
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	    setBounds(0, 0, 1125, 675);
-	    JComponent contentPane = new JPanel();
+	    
 	    contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
 	    setContentPane(contentPane);
