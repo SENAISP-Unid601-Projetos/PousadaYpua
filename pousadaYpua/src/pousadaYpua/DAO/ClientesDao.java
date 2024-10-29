@@ -57,10 +57,10 @@ public class ClientesDao {
 
 	}
 
-	public Clientes buscar(Clientes cliente) {
+	public Clientes buscar(String cpf2) {
 		String sql = "SELECT * FROM Clientes WHERE cpf = ? ";
 		try (PreparedStatement stmt = con.prepareStatement(sql)) {
-			stmt.setString(1, cliente.getCpf());
+			stmt.setString(1, cpf2);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) { // Verificando se o cliente foi encontrado
