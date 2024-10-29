@@ -8,19 +8,20 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
+import pousadaYpua.database.Database;
 import pousadaYpua.model.Usuario;
 
 public class UsuarioDao {
 
+	String path = Database.getPath();
 	private Connection con;
 
 	public UsuarioDao() {
 
 		try {
 			// Exemplo de inicialização da conexão
-			this.con = DriverManager.getConnection(
-					"jdbc:sqlite:/Users/macbookpro/Documents/Projeto-Integrador-Pousada/pousadaYpua/resources/Pousada.db");
-
+			this.con = DriverManager.getConnection(path);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

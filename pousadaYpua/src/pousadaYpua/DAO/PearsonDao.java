@@ -13,12 +13,13 @@ import pousadaYpua.model.Pearson;
 
 public class PearsonDao {
     private Connection con;
+	String path = Database.getPath();
 
 
     public PearsonDao() {
         try {
             // Exemplo de inicialização da conexão
-            this.con = DriverManager.getConnection("jdbc:sqlite:/Users/macbookpro/Documents/Projeto-Integrador-Pousada/src/main/java/res/pousada.db");
+            this.con = DriverManager.getConnection(path);
 
         } catch (SQLException e) {
             e.printStackTrace();
