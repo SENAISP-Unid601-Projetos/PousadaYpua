@@ -61,6 +61,10 @@ private JTextField textDiasReservados;
 		ReservasDao reservaDao = new ReservasDao();
 		Gerenciador gerenciador = new Gerenciador();
 		
+		setResizable(true);
+		setMaximizable(true);
+		setClosable(true);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setBounds(0, 0, 1125, 675);
 	    JComponent contentPane = new JPanel();
@@ -166,10 +170,16 @@ private JTextField textDiasReservados;
 				String cpf = textCpf.getText();
 				
 
-				clientes = new Clientes(cpf);
-				clientes = clienteDao.buscar(clientes);
-				txtArea_InfoClient.setText(clientes.getInfo());
-				System.out.println(clientes.getCpf() + clientes.getNome());
+				
+				clientes = clienteDao.buscar(cpf);
+				if(clientes != null) {
+					txtArea_InfoClient.setText(clientes.getInfo());
+					System.out.println(clientes.getCpf() + clientes.getNome());
+				}else {
+					txtArea_InfoClient.setText("O cliente buscado não existe!\nDigite um CPF valido ou \ncadatre um novo Cliente!");
+					System.out.println("Cliente Inexistente");
+				}
+				
 			}
 		});
 		
