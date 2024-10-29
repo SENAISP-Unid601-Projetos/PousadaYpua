@@ -6,18 +6,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import pousadaYpua.database.Database;
 import pousadaYpua.model.Clientes;
 
 public class ClientesDao {
 
 	private Connection con;
-
+	
+	
+	private String path = Database.getPath();
+	
 	public ClientesDao() {
 
 		try {
 			// Exemplo de inicialização da conexão
-			this.con = DriverManager.getConnection(
-					"jdbc:sqlite:/Users/macbookpro/Documents/Projeto-Integrador-Pousada/pousadaYpua/resources/Pousada.db");
+			this.con = DriverManager.getConnection(path);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
