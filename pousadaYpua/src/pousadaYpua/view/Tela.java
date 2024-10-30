@@ -2,9 +2,15 @@ package pousadaYpua.view;
 
 import java.awt.Component;
 import java.awt.EventQueue;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
+
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 public class Tela {
 
@@ -20,7 +26,8 @@ public class Tela {
                 try {
                     Tela window = new Tela();
                     window.frame.setVisible(true);
-                    
+                    window.frame.setLocationRelativeTo(null);
+                    window.frame.setExtendedState(Frame.MAXIMIZED_BOTH);
                    
                 } catch (Exception e) {
                     e.printStackTrace();
