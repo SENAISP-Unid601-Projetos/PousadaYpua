@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import pousadaYpua.database.Database;
 import pousadaYpua.model.Clientes;
@@ -93,5 +94,42 @@ public class ClientesDao {
 		}
 		return null;
 
+	}
+	
+	
+	public ArrayList<Clientes> buscaClientes(){
+		String sql = "SELECT * FROM Clientes ";
+		ArrayList<Clientes> clientes = new ArrayList<>();
+		try (PreparedStatement stmt = con.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) { // Verificando se o cliente foi encontrado
+				// Criando um novo objeto Clientes com base nos dados retornados pelo SELECT
+
+				String cpf = rs.getString("cpf");
+				String nome = rs.getString("nome");
+				String celular = rs.getString("celular");
+				String email = rs.getString("email");
+				String endereco = rs.getString("endereco");
+				String numero = rs.getString("numero");
+				String cidade = rs.getString("cidade");
+				String cep = rs.getString("cep");
+				String estado = rs.getString("estado");
+				
+				System.out.println("Buscando cliente com CPF: " + rs.getString("cpf"));
+				System.out.println("Buscando cliente com CPF: " + rs.getString("nome"));
+				System.out.println("Buscando cliente com CPF: " + rs.getString("celular"));
+				
+				
+				
+			 clientes.add (new Clientes( nome,  celular,  cpf,  email,  endereco,  numero,
+					 cidade,  cep, estado));
+ 
+			}
+			return clientes;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 	}
 }
