@@ -11,14 +11,15 @@ import pousadaYpua.utils.FileUtils;
 public class Database {
 
 	private Connection connection = null;
+	private final static String path ="jdbc:sqlite:C:\\Users\\Aluno\\Documents\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\Pousada.db";
 
 	private static Database instance = null;
-
+	
 	private Database() {
 
 		try {
 
-			connection = DriverManager.getConnection("jdbc:sqlite:/Users/macbookpro/Documents/Projeto-Integrador-Pousada/pousadaYpua/resources/Pousada.db");
+			connection = DriverManager.getConnection(this.path);
 
 		} catch (Exception e) {
 			System.err.println("Houve um problema ao criar o banco, mas eu ja resolvi. :)");
@@ -26,6 +27,8 @@ public class Database {
 		}
 
 	}
+	
+	
 
 	public static void prePopulateDatabase() throws IOException, SQLException {
 
@@ -61,5 +64,14 @@ public class Database {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 	}
+	
+	public static String getPath(){
+		
+			return path;
+		
+	}
+	
 }

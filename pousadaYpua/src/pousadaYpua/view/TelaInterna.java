@@ -1,17 +1,26 @@
 package pousadaYpua.view;
 
-import java.awt.EventQueue;
-
-import javax.swing.JInternalFrame;
-import javax.swing.JButton;
 import java.awt.BorderLayout;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+import java.awt.EventQueue;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+
+import pousadaYpua.DAO.ClientesDao;
+import pousadaYpua.model.Clientes;
 
 public class TelaInterna extends JInternalFrame {
+	
+	private ClientesDao clientesBd =  new ClientesDao();
 
 	private static final long serialVersionUID = 1L;
-	private JTextField txtOiiiiiiiiiiiiiiiiiiiiii;
 
 	/**
 	 * Launch the application.
@@ -36,16 +45,53 @@ public class TelaInterna extends JInternalFrame {
 		setResizable(true);
 		setMaximizable(true);
 		setClosable(true);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 902, 682);
+		getContentPane().setLayout(null);
 		
-		JButton btnNewButton = new JButton("New button");
-		getContentPane().add(btnNewButton, BorderLayout.CENTER);
+		ArrayList<Clientes> reservations = clientesBd.buscaClientes();
+
 		
-		txtOiiiiiiiiiiiiiiiiiiiiii = new JTextField();
-		txtOiiiiiiiiiiiiiiiiiiiiii.setText("OIIIIIIIIIIIIIIIIIIIIII");
-		getContentPane().add(txtOiiiiiiiiiiiiiiiiiiiiii, BorderLayout.NORTH);
-		txtOiiiiiiiiiiiiiiiiiiiiii.setColumns(10);
+		
+		DefaultListModel<String> listModel = new DefaultListModel<>();
+		JList reservationList = new JList(listModel);
+		reservationList.setBounds(156, 160, 656, 407);
+		getContentPane().add(reservationList);
+		
+		
+		ArrayList<String> clientes = new ArrayList<String>();
+		for (Clientes reservation : reservations) {
+			clientes.add(reservation.getNome()+ " "+reservation.getCpf());	
+		}
+		
+		for (String reservation : clientes) {
+            listModel.addElement(reservation);
+        }
+		 // Evento de clique duplo na reserva
+        reservationList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int index = reservationList.getSelectedIndex();
+                    if (index != -1) {
+                        Clientes selectedReservation = reservations.get(index);
+                        showReservationDetails(selectedReservation);
+                    }
+                }
+            }
+        });
+
+        add(new JScrollPane(reservationList), BorderLayout.CENTER);
+        
 
 	}
-
+	private void showReservationDetails(Clientes reservation) {
+        JFrame detailFrame = new JFrame("Detalhes da Reserva");
+        detailFrame.setSize(300, 200);
+        detailFrame.add(new JLabel(reservation.getInfo()), BorderLayout.CENTER);
+        detailFrame.setVisible(true);
+    }
+	
+	
+	
+	
 }
