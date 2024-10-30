@@ -20,6 +20,10 @@ import javax.swing.border.EmptyBorder;
 
 import pousadaYpua.DAO.ClientesDao;
 import pousadaYpua.model.Clientes;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
 
 public class CadastroCliente extends JInternalFrame {
 
@@ -56,6 +60,7 @@ public class CadastroCliente extends JInternalFrame {
 
 	// Criação do contrutor com encapsulamento e parametros;
 	public CadastroCliente() {
+		setBorder(UIManager.getBorder("DesktopIcon.border"));
 		clienteDao  =  new ClientesDao();
 		
 		setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
@@ -63,7 +68,6 @@ public class CadastroCliente extends JInternalFrame {
         setBounds(0, 0, 1125, 675);
         
         setClosable(true);
-        setResizable(true);
         setMaximizable(true);
         setIconifiable(true);
 		contentPane = new JPanel();
@@ -74,28 +78,21 @@ public class CadastroCliente extends JInternalFrame {
 
 		JPanel pnlCadastro = new JPanel();
 		pnlCadastro.setBackground(new Color(128, 128, 128));
-		pnlCadastro.setBorder(UIManager.getBorder("OptionPane.border"));
-		pnlCadastro.setBounds(10, 11, 917, 73);
+		pnlCadastro.setBorder(UIManager.getBorder("DesktopIcon.border"));
+		pnlCadastro.setBounds(10, 0, 1089, 73);
 		contentPane.add(pnlCadastro);
 		pnlCadastro.setLayout(null);
-
-		JButton btnReservas = new JButton("Reservas");
-		btnReservas.setFont(new Font("Verdana", Font.BOLD, 16));
-		btnReservas.setForeground(new Color(0, 0, 0));
-		btnReservas.setBackground(new Color(192, 192, 192));
-		btnReservas.setBounds(10, 95, 129, 73);
-		contentPane.add(btnReservas);
-
-		JButton btnNewButton = new JButton("Clientes");
-		btnNewButton.setBackground(new Color(192, 192, 192));
-		btnNewButton.setFont(new Font("Verdana", Font.BOLD, 16));
-		btnNewButton.setBounds(10, 179, 129, 80);
-		contentPane.add(btnNewButton);
+		
+		JLabel lblCadastrarCliente = new JLabel("Cadastro de Cliente");
+		lblCadastrarCliente.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCadastrarCliente.setFont(new Font("Verdana", Font.ITALIC, 30));
+		lblCadastrarCliente.setBounds(299, 11, 485, 51);
+		pnlCadastro.add(lblCadastrarCliente);
 
 		JPanel pnlInfoCliente = new JPanel();
 		pnlInfoCliente.setBackground(new Color(192, 192, 192));
-		pnlInfoCliente.setBorder(UIManager.getBorder("OptionPane.border"));
-		pnlInfoCliente.setBounds(149, 95, 769, 468);
+		pnlInfoCliente.setBorder(new LineBorder(new Color(128, 128, 128), 2, true));
+		pnlInfoCliente.setBounds(169, 72, 773, 480);
 		contentPane.add(pnlInfoCliente);
 		pnlInfoCliente.setLayout(null);
 
