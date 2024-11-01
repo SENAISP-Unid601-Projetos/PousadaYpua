@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.UIManager;
 
 public class ConfirmacaoInfo extends JDialog {
 
@@ -36,6 +37,7 @@ public class ConfirmacaoInfo extends JDialog {
 	public ConfirmacaoInfo() {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(UIManager.getColor("Button.disabledForeground"));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
@@ -51,10 +53,12 @@ public class ConfirmacaoInfo extends JDialog {
 		contentPanel.add(lblNewLabel_1);
 		{
 			JPanel buttonPane = new JPanel();
+			buttonPane.setBackground(UIManager.getColor("Button.shadow"));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
+				okButton.setBackground(UIManager.getColor("Button.darkShadow"));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
@@ -66,6 +70,7 @@ public class ConfirmacaoInfo extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setBackground(UIManager.getColor("Button.darkShadow"));
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}

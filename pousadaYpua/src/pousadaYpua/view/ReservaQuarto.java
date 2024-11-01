@@ -28,6 +28,8 @@ import pousadaYpua.model.Quarto;
 import pousadaYpua.model.Reserva;
 import pousadaYpua.utils.DataUtils;
 import javax.swing.JFormattedTextField;
+import javax.swing.UIManager;
+import javax.swing.ImageIcon;
 
 public class ReservaQuarto extends JInternalFrame {
 
@@ -75,7 +77,7 @@ private JTextField textDiasReservados;
 	    contentPane.setLayout(null);
 	    
 	    JPanel panel = new JPanel();
-	    panel.setBackground(new Color(113, 177, 187));
+	    panel.setBackground(UIManager.getColor("Button.shadow"));
 	    panel.setBounds(0, 17, 1120, 617);
 	    
 	    contentPane.add(panel);
@@ -83,58 +85,48 @@ private JTextField textDiasReservados;
 		
 		
 		JTextField textCpf = new JTextField();
-		textCpf.setBounds(380, 76, 263, 30);
+		textCpf.setBounds(468, 63, 263, 30);
 		panel.add(textCpf);
 		textCpf.setColumns(10);
 		
-		JLabel lblNewLabel_6 = new JLabel("Status da Reserva:");
-		lblNewLabel_6.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-		lblNewLabel_6.setBounds(745, 481, 153, 30);
-		panel.add(lblNewLabel_6);
-		
-		JTextField textStatus = new JTextField();
-		textStatus.setBounds(908, 481, 135, 30);
-		panel.add(textStatus);
-		textStatus.setColumns(10);
-		
 		JLabel lblNewLabel_7 = new JLabel("Preferências Especiais:");
 		lblNewLabel_7.setFont(new Font("Yu Gothic", Font.BOLD | Font.ITALIC, 16));
-		lblNewLabel_7.setBounds(380, 381, 244, 30);
+		lblNewLabel_7.setBounds(20, 427, 244, 30);
 		panel.add(lblNewLabel_7);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(380, 411, 328, 111);
+		textArea.setBounds(20, 467, 328, 140);
 		panel.add(textArea);
 		
 		JLabel lblCpf = new JLabel("CPF");
 		lblCpf.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-		lblCpf.setBounds(380, 41, 183, 30);
+		lblCpf.setBounds(468, 23, 183, 30);
 		panel.add(lblCpf);
 		
 		JLabel lblInfo = new JLabel("INFORMAÇÕES DO CLIENTE");
 		lblInfo.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-		lblInfo.setBounds(10, 41, 229, 30);
+		lblInfo.setBounds(20, 23, 229, 30);
 		panel.add(lblInfo);
 		
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.setBackground(Color.WHITE);
-		btnBuscar.setBounds(526, 110, 117, 29);
+		btnBuscar.setBounds(759, 63, 117, 29);
 		panel.add(btnBuscar);
 		
 		JTextArea txtArea_InfoClient = new JTextArea();
 		txtArea_InfoClient.setEditable(false);
-		txtArea_InfoClient.setBounds(10, 83, 229, 150);
+		txtArea_InfoClient.setBounds(20, 63, 311, 290);
 		panel.add(txtArea_InfoClient);
 		
 		JComboBox comboBoxQuarto = new JComboBox();
 		comboBoxQuarto.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"}));
 		comboBoxQuarto.setMaximumRowCount(12);
-		comboBoxQuarto.setBounds(380, 170, 122, 27);
+		comboBoxQuarto.setBounds(468, 145, 122, 27);
 		panel.add(comboBoxQuarto);
 		
 		JLabel lblNQuarto = new JLabel("NUMERO DO QUARTO");
 		lblNQuarto.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-		lblNQuarto.setBounds(380, 134, 183, 30);
+		lblNQuarto.setBounds(468, 103, 183, 30);
 		panel.add(lblNQuarto);
 		
 		textDiasReservados = new JTextField();
@@ -143,27 +135,32 @@ private JTextField textDiasReservados;
 			}
 		});
 		textDiasReservados.setColumns(10);
-		textDiasReservados.setBounds(550, 235, 130, 30);
+		textDiasReservados.setBounds(626, 222, 130, 30);
 		panel.add(textDiasReservados);
 		
 		JLabel lblDataEntrada = new JLabel("DATA ENTRADA");
 		lblDataEntrada.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-		lblDataEntrada.setBounds(380, 209, 183, 30);
+		lblDataEntrada.setBounds(468, 182, 183, 30);
 		panel.add(lblDataEntrada);
 		
 		JLabel lblDataSaida = new JLabel("DIAS RESERVADOS");
 		lblDataSaida.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-		lblDataSaida.setBounds(550, 209, 183, 30);
+		lblDataSaida.setBounds(626, 182, 183, 30);
 		panel.add(lblDataSaida);
 		
 		JButton btnReservar = new JButton("RESERVAR");
 	
-		btnReservar.setBounds(563, 290, 117, 29);
+		btnReservar.setBounds(787, 222, 117, 29);
 		panel.add(btnReservar);
 		
 		JFormattedTextField textDataEntrada = new JFormattedTextField("##/##/####");
-		textDataEntrada.setBounds(380, 235, 122, 30);
+		textDataEntrada.setBounds(468, 222, 122, 30);
 		panel.add(textDataEntrada);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\quarto.jpg"));
+		lblNewLabel.setBounds(376, 287, 714, 320);
+		panel.add(lblNewLabel);
 		
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -55,72 +55,73 @@ public class CadastroFuncionario extends JInternalFrame {
         setTitle("Cadastro de Funcionário");
         setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
        
-        setBounds(270,205, 1000, 520);
+        setBounds(270,205, 449, 389);
         
         setClosable(true);
         setMaximizable(true);
         setIconifiable(true);
 
         JPanel panel = new JPanel();
+        panel.setBackground(UIManager.getColor("Button.shadow"));
         getContentPane().add(panel);
         panel.setLayout(null);
         
         JLabel lblCadastroFuncionario = new JLabel("Cadastrar Funcionario");
         lblCadastroFuncionario.setHorizontalAlignment(SwingConstants.CENTER);
         lblCadastroFuncionario.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 18));
-        lblCadastroFuncionario.setBounds(367, 78, 266, 54);
+        lblCadastroFuncionario.setBounds(80, 44, 266, 54);
         panel.add(lblCadastroFuncionario);
         
         JLabel lblNome = new JLabel("Nome: ");
         lblNome.setHorizontalAlignment(SwingConstants.LEFT);
         lblNome.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-        lblNome.setBounds(367, 180, 148, 24);
+        lblNome.setBounds(80, 146, 148, 24);
         panel.add(lblNome);
         
         txtName = new JTextField();
-        txtName.setBounds(441, 184, 148, 24);
+        txtName.setBounds(154, 150, 148, 24);
         panel.add(txtName);
         txtName.setColumns(10);
         
         JLabel lblSenha = new JLabel("Senha: ");
         lblSenha.setHorizontalAlignment(SwingConstants.LEFT);
         lblSenha.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-        lblSenha.setBounds(367, 222, 148, 24);
+        lblSenha.setBounds(80, 188, 148, 24);
         panel.add(lblSenha);
         
         txtSenha = new JPasswordField();
         txtSenha.setColumns(10);
-        txtSenha.setBounds(441, 223, 148, 24);
+        txtSenha.setBounds(154, 189, 148, 24);
         panel.add(txtSenha);
         
         txtId = new JTextField();
         txtId.setColumns(10);
-        txtId.setBounds(441, 140, 148, 24);
+        txtId.setBounds(154, 106, 148, 24);
         panel.add(txtId);
         
         JLabel lblId = new JLabel("ID: ");
         lblId.setHorizontalAlignment(SwingConstants.LEFT);
         lblId.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-        lblId.setBounds(367, 136, 148, 24);
+        lblId.setBounds(80, 102, 148, 24);
         panel.add(lblId);
         
         JButton btnCadastrar = new JButton("CADASTRAR");
         btnCadastrar.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
         btnCadastrar.setBackground(new Color(255, 255, 255));
-        btnCadastrar.setBounds(526, 283, 117, 29);
+        btnCadastrar.setBounds(239, 249, 139, 29);
         panel.add(btnCadastrar);
         
         JButton btnSair = new JButton("SAIR");
         btnSair.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
         btnSair.setForeground(Color.BLACK);
         btnSair.setBackground(new Color(250, 255, 253));
-        btnSair.setBounds(375, 283, 117, 29);
+        btnSair.setBounds(88, 249, 117, 29);
         panel.add(btnSair);
                 
         JPanel panel_Fundo = new JPanel();
         panel_Fundo.setBorder(UIManager.getBorder("DesktopIcon.border"));
         panel_Fundo.setBackground(UIManager.getColor("Button.disabledForeground"));
-        panel_Fundo.setBounds(0, 0, 994, 490);
+        panel_Fundo.setBounds(0, 0, 446, 360);
         panel.add(panel_Fundo);
         
         

@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.UIManager;
 
 public class Login extends JFrame {
 
@@ -46,14 +47,14 @@ public class Login extends JFrame {
 		setBounds(100, 100, 396, 416);
 		contentPane = new JPanel();
 		contentPane.setToolTipText("");
-		contentPane.setBackground(new Color(212, 212, 212));
+		contentPane.setBackground(UIManager.getColor("Button.darkShadow"));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblLogin = new JLabel("Login ");
-		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblLogin.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 30));
 		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLogin.setBounds(79, 22, 212, 56);
 		contentPane.add(lblLogin);
@@ -66,8 +67,8 @@ public class Login extends JFrame {
 		txtUsuario.setColumns(10);
 		
 		JLabel lblUsuario = new JLabel("Usuario");
-		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblUsuario.setBounds(51, 108, 71, 41);
+		lblUsuario.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 18));
+		lblUsuario.setBounds(31, 106, 101, 41);
 		contentPane.add(lblUsuario);
 		
 		textSenha = new JTextField();
@@ -78,8 +79,8 @@ public class Login extends JFrame {
 		contentPane.add(textSenha);
 		
 		JLabel lblSenha = new JLabel("Senha");
-		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblSenha.setBounds(51, 157, 71, 41);
+		lblSenha.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 18));
+		lblSenha.setBounds(31, 155, 91, 41);
 		contentPane.add(lblSenha);
 		
 		JButton btnLogin = new JButton("Login");
@@ -88,13 +89,13 @@ public class Login extends JFrame {
 			}
 		});
 		btnLogin.setBackground(new Color(255, 255, 255));
-		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnLogin.setFont(new Font("Verdana", Font.PLAIN, 18));
 		btnLogin.setBounds(195, 239, 113, 30);
 		contentPane.add(btnLogin);
 		
 		JButton btnSair = new JButton("Sair");
 		btnSair.setBackground(new Color(255, 255, 255));
-		btnSair.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnSair.setFont(new Font("Verdana", Font.PLAIN, 18));
 		btnSair.setBounds(64, 239, 113, 30);
 		contentPane.add(btnSair);
 	}

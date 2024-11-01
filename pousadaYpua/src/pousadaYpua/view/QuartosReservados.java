@@ -55,7 +55,7 @@ public class QuartosReservados extends JInternalFrame {
 	public QuartosReservados() {
 		getContentPane().setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
 		setBackground(SystemColor.scrollbar);
-		getContentPane().setBackground(new Color(46, 139, 87));
+		getContentPane().setBackground(UIManager.getColor("Button.darkShadow"));
 		setBorder(UIManager.getBorder("DesktopIcon.border"));
         setClosable(true);
         setResizable(true);
@@ -65,13 +65,13 @@ public class QuartosReservados extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(102, 205, 170));
+		panel.setBackground(UIManager.getColor("Button.shadow"));
 		panel.setBounds(21, 163, 420, 227);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(47, 79, 79));
+		panel_1.setBackground(Color.DARK_GRAY);
 		panel_1.setBounds(0, 0, 21, 227);
 		panel.add(panel_1);
 		
@@ -80,11 +80,11 @@ public class QuartosReservados extends JInternalFrame {
 		lblNewLabel.setForeground(SystemColor.windowText);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-		lblNewLabel.setBounds(31, 10, 278, 31);
+		lblNewLabel.setBounds(31, 0, 278, 31);
 		panel.add(lblNewLabel);
 		
 		JButton btnInformacao = new JButton("Informações");
-		btnInformacao.setBackground(new Color(46, 139, 87));
+		btnInformacao.setBackground(Color.LIGHT_GRAY);
 		
 		btnInformacao.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
 		btnInformacao.setBounds(275, 194, 135, 23);
@@ -92,118 +92,126 @@ public class QuartosReservados extends JInternalFrame {
 		
 		JLabel lblNewLabel_9 = new JLabel("");
 		lblNewLabel_9.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\suite.jpg"));
-		lblNewLabel_9.setBounds(31, 29, 270, 188);
+		lblNewLabel_9.setBounds(90, 34, 240, 159);
 		panel.add(lblNewLabel_9);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
-		panel_2.setBackground(new Color(102, 205, 170));
+		panel_2.setBackground(UIManager.getColor("Button.shadow"));
 		panel_2.setBounds(21, 408, 420, 227);
 		getContentPane().add(panel_2);
 		
 		JPanel panel_1_1 = new JPanel();
-		panel_1_1.setBackground(new Color(47, 79, 79));
+		panel_1_1.setForeground(Color.DARK_GRAY);
+		panel_1_1.setBackground(Color.DARK_GRAY);
 		panel_1_1.setBounds(0, 0, 21, 227);
 		panel_2.add(panel_1_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("Quarto Cabana");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_1.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-		lblNewLabel_1.setBounds(31, 10, 278, 31);
+		lblNewLabel_1.setBounds(33, 0, 278, 31);
 		panel_2.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_10 = new JLabel("");
 		lblNewLabel_10.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\cabana.jpg"));
-		lblNewLabel_10.setBounds(31, 32, 285, 185);
+		lblNewLabel_10.setBounds(67, 31, 240, 153);
 		panel_2.add(lblNewLabel_10);
 		
 		JButton btnInformacao_1_3 = new JButton("Informações");
 		btnInformacao_1_3.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
-		btnInformacao_1_3.setBackground(new Color(46, 139, 87));
-		btnInformacao_1_3.setBounds(275, 194, 135, 23);
+		btnInformacao_1_3.setBackground(Color.LIGHT_GRAY);
+		btnInformacao_1_3.setBounds(261, 194, 135, 23);
 		panel_2.add(btnInformacao_1_3);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setLayout(null);
-		panel_4.setBackground(new Color(102, 205, 170));
-		panel_4.setBounds(451, 163, 420, 227);
+		panel_4.setBackground(UIManager.getColor("Button.shadow"));
+		panel_4.setBounds(451, 163, 351, 227);
 		getContentPane().add(panel_4);
 		
 		JPanel panel_1_3 = new JPanel();
-		panel_1_3.setBackground(new Color(47, 79, 79));
+		panel_1_3.setForeground(Color.DARK_GRAY);
+		panel_1_3.setBackground(Color.DARK_GRAY);
 		panel_1_3.setBounds(0, 0, 21, 227);
 		panel_4.add(panel_1_3);
 		
 		JLabel lblNewLabel_3 = new JLabel("Chalé Familia");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_3.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-		lblNewLabel_3.setBounds(31, 10, 278, 31);
+		lblNewLabel_3.setBounds(31, 0, 278, 31);
 		panel_4.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_11 = new JLabel("");
 		lblNewLabel_11.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\chaleFamilia.jpg"));
-		lblNewLabel_11.setBounds(32, 33, 240, 184);
+		lblNewLabel_11.setBounds(55, 38, 240, 150);
 		panel_4.add(lblNewLabel_11);
 		
 		JButton btnInformacao_1 = new JButton("Informações");
+		btnInformacao_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnInformacao_1.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
-		btnInformacao_1.setBackground(new Color(46, 139, 87));
-		btnInformacao_1.setBounds(275, 194, 135, 23);
+		btnInformacao_1.setBackground(Color.LIGHT_GRAY);
+		btnInformacao_1.setBounds(206, 193, 135, 24);
 		panel_4.add(btnInformacao_1);
 		
 		JPanel panel_5 = new JPanel();
 		panel_5.setLayout(null);
-		panel_5.setBackground(new Color(102, 205, 170));
-		panel_5.setBounds(451, 408, 420, 227);
+		panel_5.setBackground(UIManager.getColor("Button.shadow"));
+		panel_5.setBounds(451, 408, 351, 227);
 		getContentPane().add(panel_5);
 		
 		JPanel panel_1_4 = new JPanel();
-		panel_1_4.setBackground(new Color(47, 79, 79));
+		panel_1_4.setForeground(Color.DARK_GRAY);
+		panel_1_4.setBackground(Color.DARK_GRAY);
 		panel_1_4.setBounds(0, 0, 21, 227);
 		panel_5.add(panel_1_4);
 		
 		JLabel lblNewLabel_4 = new JLabel("Quarto Domo");
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_4.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-		lblNewLabel_4.setBounds(31, 10, 278, 31);
+		lblNewLabel_4.setBounds(31, 0, 278, 31);
 		panel_5.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_12 = new JLabel("");
 		lblNewLabel_12.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\quartoDomo.jpeg"));
-		lblNewLabel_12.setBounds(31, 26, 270, 191);
+		lblNewLabel_12.setBounds(31, 27, 246, 157);
 		panel_5.add(lblNewLabel_12);
 		
 		JButton btnInformacao_1_2 = new JButton("Informações");
 		btnInformacao_1_2.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
-		btnInformacao_1_2.setBackground(new Color(46, 139, 87));
-		btnInformacao_1_2.setBounds(275, 194, 135, 23);
+		btnInformacao_1_2.setBackground(Color.LIGHT_GRAY);
+		btnInformacao_1_2.setBounds(150, 194, 135, 23);
 		panel_5.add(btnInformacao_1_2);
 		
 		JPanel panel_7 = new JPanel();
 		panel_7.setLayout(null);
-		panel_7.setBackground(new Color(102, 205, 170));
-		panel_7.setBounds(880, 163, 229, 227);
+		panel_7.setBackground(UIManager.getColor("Button.shadow"));
+		panel_7.setBounds(812, 163, 297, 227);
 		getContentPane().add(panel_7);
 		
 		JPanel panel_1_6 = new JPanel();
-		panel_1_6.setBackground(new Color(47, 79, 79));
+		panel_1_6.setForeground(Color.DARK_GRAY);
+		panel_1_6.setBackground(Color.DARK_GRAY);
 		panel_1_6.setBounds(0, 0, 21, 226);
 		panel_7.add(panel_1_6);
 		
 		JLabel lblNewLabel_6 = new JLabel("Estacionamento");
 		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_6.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-		lblNewLabel_6.setBounds(22, 10, 197, 31);
+		lblNewLabel_6.setBounds(31, 0, 197, 31);
 		panel_7.add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\estacionamento.jpg"));
-		lblNewLabel_2.setBounds(31, 43, 188, 146);
+		lblNewLabel_2.setBounds(28, 40, 240, 146);
 		panel_7.add(lblNewLabel_2);
 		
 		JButton btnInformacao_1_1 = new JButton("Informações");
 		btnInformacao_1_1.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
-		btnInformacao_1_1.setBackground(new Color(46, 139, 87));
+		btnInformacao_1_1.setBackground(Color.LIGHT_GRAY);
 		btnInformacao_1_1.setBounds(57, 194, 135, 23);
 		panel_7.add(btnInformacao_1_1);
 		
@@ -212,14 +220,18 @@ public class QuartosReservados extends JInternalFrame {
 		lblNewLabel_5.setBounds(239, 10, 870, 103);
 		getContentPane().add(lblNewLabel_5);
 		
+		JPanel panel_1_2 = new JPanel();
+		panel_1_2.setBackground(Color.DARK_GRAY);
+		panel_1_2.setBounds(10, 10, 21, 103);
+		getContentPane().add(panel_1_2);
+		
 		txtConheaNossas = new JTextField();
-		txtConheaNossas.setEnabled(false);
 		txtConheaNossas.setHorizontalAlignment(SwingConstants.TRAILING);
 		txtConheaNossas.setEditable(false);
 		txtConheaNossas.setText("Nossas acomodações ");
 		txtConheaNossas.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 16));
-		txtConheaNossas.setBackground(new Color(102, 205, 170));
-		txtConheaNossas.setBounds(21, 10, 220, 103);
+		txtConheaNossas.setBackground(UIManager.getColor("Button.shadow"));
+		txtConheaNossas.setBounds(10, 10, 231, 103);
 		getContentPane().add(txtConheaNossas);
 		txtConheaNossas.setColumns(10);
 
