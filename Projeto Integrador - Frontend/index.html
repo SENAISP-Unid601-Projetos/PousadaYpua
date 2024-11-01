@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Pousada Ypua</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/syle.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Feedback dos Quartos - Pousada Ypua</h1>
+        <div class="row mt-4">
+            <div class="col-md-4 bloco">
+                <div class="card mb-4">
+                    <div class="card-header">Quarto 1</div>
+                    <div class="stars" id="starRating1">☆☆☆☆☆</div>
+                    <div class="card-body">
+                        <p>Descrição do Quarto 1</p>
+                        <button class="btn btn-primary" onclick="verFeedbacks('quarto 1')" data-toggle="modal" data-target="#feedbackModal">Ver Feedback</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 bloco">
+                <div class="card mb-4">
+                    <div class="card-header">Quarto 2</div>
+                    <div class="stars" id="starRating2">☆☆☆☆☆</div>
+                    <div class="card-body">
+                        <p>Descrição do Quarto 2</p>
+                        <button class="btn btn-primary" onclick="verFeedbacks('quarto 2')" data-toggle="modal" data-target="#feedbackModal">Ver Feedback</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 bloco">
+                <div class="card mb-4">
+                    <div class="card-header">Quarto 3</div>
+                    <div class="stars" id="starRating3">☆☆☆☆☆</div>
+                    <div class="card-body">
+                        <p>Descrição do Quarto 3</p>
+                        <button class="btn btn-primary" onclick="verFeedbacks('quarto 3')" data-toggle="modal" data-target="#feedbackModal">Ver Feedback</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 bloco">
+                <div class="card mb-4">
+                    <div class="card-header">Quarto 4</div>
+                    <div class="stars" id="starRating4">☆☆☆☆☆</div>
+                    <div class="card-body">
+                        <p>Descrição do Quarto 4</p>
+                        <button class="btn btn-primary" onclick="verFeedbacks('quarto 4')" data-toggle="modal" data-target="#feedbackModal">Ver Feedback</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 bloco">
+                <div class="card mb-4">
+                    <div class="card-header">Quarto 5</div>
+                    <div class="stars" id="starRating5">☆☆☆☆☆</div>
+                    <div class="card-body">
+                        <p>Descrição do Quarto 5</p>
+                        <button class="btn btn-primary" onclick="verFeedbacks('quarto 5')" data-toggle="modal" data-target="#feedbackModal">Ver Feedback</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 bloco">
+                <div class="card mb-4">
+                    <div class="card-header">Quarto 6</div>
+                    <div class="stars" id="starRating6">☆☆☆☆☆</div>
+                    <div class="card-body">
+                        <p>Descrição do Quarto 6</p>
+                        <button class="btn btn-primary" onclick="verFeedbacks('quarto 6')" data-toggle="modal" data-target="#feedbackModal">Ver Feedback</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 bloco">
+                <div class="card mb-4">
+                    <div class="card-header">Quarto 7</div>
+                    <div class="stars" id="starRating7">☆☆☆☆☆</div>
+                    <div class="card-body">
+                        <p>Descrição do Quarto 7</p>
+                        <button class="btn btn-primary" onclick="verFeedbacks('quarto 7')" data-toggle="modal" data-target="#feedbackModal">Ver Feedback</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 bloco">
+                <div class="card mb-4">
+                    <div class="card-header">Quarto 8</div>
+                    <div class="stars" id="starRating8">☆☆☆☆☆</div>
+                    <div class="card-body">
+                        <p>Descrição do Quarto 8</p>
+                        <button class="btn btn-primary" onclick="verFeedbacks('quarto 8')" data-toggle="modal" data-target="#feedbackModal">Ver Feedback</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 bloco">
+                <div class="card mb-4">
+                    <div class="card-header">Quarto 9</div>
+                    <div class="stars" id="starRating9">☆☆☆☆☆</div>
+                    <div class="card-body">
+                        <p>Descrição do Quarto 9</p>
+                        <button class="btn btn-primary" onclick="verFeedbacks('quarto 9')" data-toggle="modal" data-target="#feedbackModal">Ver Feedback</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 bloco">
+                <div class="card mb-4">
+                    <div class="card-header">Quarto 10</div>
+                    <div class="stars" id="starRating10">☆☆☆☆☆</div>
+                    <div class="card-body">
+                        <p>Descrição do Quarto 10</p>
+                        <button class="btn btn-primary" onclick="verFeedbacks('quarto 10')" data-toggle="modal" data-target="#feedbackModal">Ver Feedback</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="feedbackModalLabel">Feedback do Quarto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="modalQuartoNome" class="font-weight-bold mb-2"></div>
+                    <div id="modalStarRating" class="text-warning mb-3"></div>
+                    <button class="btn btn-danger mb-3" onclick="limparFeedbackPorQuarto()">Limpar Feedbacks deste Quarto</button>
+                    <ul id="mostrarFeedback" class="list-group"></ul>
+                    <div class="input-group mb-3">
+                        <input type="text" id="novoFeedback" class="form-control" placeholder="Digite seu feedback" aria-label="Novo feedback">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" id="btnAdicionar" onclick="adicionarNovoFeedback()">Adicionar</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
