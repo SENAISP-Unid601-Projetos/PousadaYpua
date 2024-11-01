@@ -71,13 +71,14 @@ public class CadastroCliente extends JInternalFrame {
         setMaximizable(true);
         setIconifiable(true);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 153, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JPanel pnlCadastro = new JPanel();
-		pnlCadastro.setBackground(new Color(128, 128, 128));
+		pnlCadastro.setBackground(new Color(0, 0, 204));
 		pnlCadastro.setBorder(UIManager.getBorder("DesktopIcon.border"));
 		pnlCadastro.setBounds(10, 0, 1089, 73);
 		contentPane.add(pnlCadastro);
@@ -90,7 +91,7 @@ public class CadastroCliente extends JInternalFrame {
 		pnlCadastro.add(lblCadastrarCliente);
 
 		JPanel pnlInfoCliente = new JPanel();
-		pnlInfoCliente.setBackground(new Color(192, 192, 192));
+		pnlInfoCliente.setBackground(new Color(51, 153, 255));
 		pnlInfoCliente.setBorder(new LineBorder(new Color(128, 128, 128), 2, true));
 		pnlInfoCliente.setBounds(169, 72, 773, 480);
 		contentPane.add(pnlInfoCliente);

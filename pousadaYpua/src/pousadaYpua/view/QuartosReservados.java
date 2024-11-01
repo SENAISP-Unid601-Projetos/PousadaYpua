@@ -24,10 +24,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
+import java.awt.SystemColor;
+import javax.swing.JTextField;
 
 public class QuartosReservados extends JInternalFrame {
 
 	private static final long serialVersionUID = 1L;
+	private JTextField txtConheaNossas;
 
 	/**
 	 * Launch the application.
@@ -49,6 +53,9 @@ public class QuartosReservados extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public QuartosReservados() {
+		getContentPane().setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
+		setBackground(SystemColor.scrollbar);
+		getContentPane().setBackground(new Color(46, 139, 87));
 		setBorder(UIManager.getBorder("DesktopIcon.border"));
         setClosable(true);
         setResizable(true);
@@ -58,202 +65,163 @@ public class QuartosReservados extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(177, 48, 300, 145);
+		panel.setBackground(new Color(102, 205, 170));
+		panel.setBounds(21, 163, 420, 227);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(255, 0, 0));
-		panel_1.setBounds(0, 0, 21, 145);
+		panel_1.setBackground(new Color(47, 79, 79));
+		panel_1.setBounds(0, 0, 21, 227);
 		panel.add(panel_1);
 		
-		JLabel lblNewLabel = new JLabel("Quarto 1");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 15));
-		lblNewLabel.setBounds(22, 0, 278, 31);
+		JLabel lblNewLabel = new JLabel("Quarto Suite");
+		lblNewLabel.setBackground(SystemColor.controlHighlight);
+		lblNewLabel.setForeground(SystemColor.windowText);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
+		lblNewLabel.setBounds(31, 10, 278, 31);
 		panel.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Informações");
-		btnNewButton.setFont(new Font("Arial", Font.BOLD, 9));
-		btnNewButton.setBounds(191, 111, 99, 23);
-		panel.add(btnNewButton);
+		JButton btnInformacao = new JButton("Informações");
+		btnInformacao.setBackground(new Color(46, 139, 87));
+		
+		btnInformacao.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
+		btnInformacao.setBounds(275, 194, 135, 23);
+		panel.add(btnInformacao);
+		
+		JLabel lblNewLabel_9 = new JLabel("");
+		lblNewLabel_9.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\suite.jpg"));
+		lblNewLabel_9.setBounds(31, 29, 270, 188);
+		panel.add(lblNewLabel_9);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
-		panel_2.setBackground(Color.WHITE);
-		panel_2.setBounds(177, 230, 300, 145);
+		panel_2.setBackground(new Color(102, 205, 170));
+		panel_2.setBounds(21, 408, 420, 227);
 		getContentPane().add(panel_2);
 		
 		JPanel panel_1_1 = new JPanel();
-		panel_1_1.setBackground(Color.RED);
-		panel_1_1.setBounds(0, 0, 21, 145);
+		panel_1_1.setBackground(new Color(47, 79, 79));
+		panel_1_1.setBounds(0, 0, 21, 227);
 		panel_2.add(panel_1_1);
 		
-		JLabel lblNewLabel_1 = new JLabel("Quarto 1");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Arial", Font.BOLD, 15));
-		lblNewLabel_1.setBounds(22, 0, 278, 31);
+		JLabel lblNewLabel_1 = new JLabel("Quarto Cabana");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_1.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
+		lblNewLabel_1.setBounds(31, 10, 278, 31);
 		panel_2.add(lblNewLabel_1);
 		
-		JButton btnNewButton_1 = new JButton("Informações");
-		btnNewButton_1.setFont(new Font("Arial", Font.BOLD, 9));
-		btnNewButton_1.setBounds(191, 111, 99, 23);
-		panel_2.add(btnNewButton_1);
+		JLabel lblNewLabel_10 = new JLabel("");
+		lblNewLabel_10.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\cabana.jpg"));
+		lblNewLabel_10.setBounds(31, 32, 285, 185);
+		panel_2.add(lblNewLabel_10);
 		
-		JPanel panel_3 = new JPanel();
-		panel_3.setLayout(null);
-		panel_3.setBackground(Color.WHITE);
-		panel_3.setBounds(177, 408, 300, 145);
-		getContentPane().add(panel_3);
-		
-		JPanel panel_1_2 = new JPanel();
-		panel_1_2.setBackground(Color.RED);
-		panel_1_2.setBounds(0, 0, 21, 145);
-		panel_3.add(panel_1_2);
-		
-		JLabel lblNewLabel_2 = new JLabel("Quarto 1");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setFont(new Font("Arial", Font.BOLD, 15));
-		lblNewLabel_2.setBounds(22, 0, 278, 31);
-		panel_3.add(lblNewLabel_2);
-		
-		JButton btnNewButton_2 = new JButton("Informações");
-		btnNewButton_2.setFont(new Font("Arial", Font.BOLD, 9));
-		btnNewButton_2.setBounds(191, 111, 99, 23);
-		panel_3.add(btnNewButton_2);
+		JButton btnInformacao_1_3 = new JButton("Informações");
+		btnInformacao_1_3.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
+		btnInformacao_1_3.setBackground(new Color(46, 139, 87));
+		btnInformacao_1_3.setBounds(275, 194, 135, 23);
+		panel_2.add(btnInformacao_1_3);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setLayout(null);
-		panel_4.setBackground(Color.WHITE);
-		panel_4.setBounds(499, 48, 300, 145);
+		panel_4.setBackground(new Color(102, 205, 170));
+		panel_4.setBounds(451, 163, 420, 227);
 		getContentPane().add(panel_4);
 		
 		JPanel panel_1_3 = new JPanel();
-		panel_1_3.setBackground(Color.RED);
-		panel_1_3.setBounds(0, 0, 21, 145);
+		panel_1_3.setBackground(new Color(47, 79, 79));
+		panel_1_3.setBounds(0, 0, 21, 227);
 		panel_4.add(panel_1_3);
 		
-		JLabel lblNewLabel_3 = new JLabel("Quarto 1");
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setFont(new Font("Arial", Font.BOLD, 15));
-		lblNewLabel_3.setBounds(22, 0, 278, 31);
+		JLabel lblNewLabel_3 = new JLabel("Chalé Familia");
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
+		lblNewLabel_3.setBounds(31, 10, 278, 31);
 		panel_4.add(lblNewLabel_3);
 		
-		JButton btnNewButton_3 = new JButton("Informações");
-		btnNewButton_3.setFont(new Font("Arial", Font.BOLD, 9));
-		btnNewButton_3.setBounds(191, 111, 99, 23);
-		panel_4.add(btnNewButton_3);
+		JLabel lblNewLabel_11 = new JLabel("");
+		lblNewLabel_11.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\chaleFamilia.jpg"));
+		lblNewLabel_11.setBounds(32, 33, 240, 184);
+		panel_4.add(lblNewLabel_11);
+		
+		JButton btnInformacao_1 = new JButton("Informações");
+		btnInformacao_1.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
+		btnInformacao_1.setBackground(new Color(46, 139, 87));
+		btnInformacao_1.setBounds(275, 194, 135, 23);
+		panel_4.add(btnInformacao_1);
 		
 		JPanel panel_5 = new JPanel();
 		panel_5.setLayout(null);
-		panel_5.setBackground(Color.WHITE);
-		panel_5.setBounds(499, 230, 300, 145);
+		panel_5.setBackground(new Color(102, 205, 170));
+		panel_5.setBounds(451, 408, 420, 227);
 		getContentPane().add(panel_5);
 		
 		JPanel panel_1_4 = new JPanel();
-		panel_1_4.setBackground(Color.RED);
-		panel_1_4.setBounds(0, 0, 21, 145);
+		panel_1_4.setBackground(new Color(47, 79, 79));
+		panel_1_4.setBounds(0, 0, 21, 227);
 		panel_5.add(panel_1_4);
 		
-		JLabel lblNewLabel_4 = new JLabel("Quarto 1");
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4.setFont(new Font("Arial", Font.BOLD, 15));
-		lblNewLabel_4.setBounds(22, 0, 278, 31);
+		JLabel lblNewLabel_4 = new JLabel("Quarto Domo");
+		lblNewLabel_4.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_4.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
+		lblNewLabel_4.setBounds(31, 10, 278, 31);
 		panel_5.add(lblNewLabel_4);
 		
-		JButton btnNewButton_4 = new JButton("Informações");
-		btnNewButton_4.setFont(new Font("Arial", Font.BOLD, 9));
-		btnNewButton_4.setBounds(191, 111, 99, 23);
-		panel_5.add(btnNewButton_4);
+		JLabel lblNewLabel_12 = new JLabel("");
+		lblNewLabel_12.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\quartoDomo.jpeg"));
+		lblNewLabel_12.setBounds(31, 26, 270, 191);
+		panel_5.add(lblNewLabel_12);
 		
-		JPanel panel_6 = new JPanel();
-		panel_6.setLayout(null);
-		panel_6.setBackground(Color.WHITE);
-		panel_6.setBounds(499, 408, 300, 145);
-		getContentPane().add(panel_6);
-		
-		JPanel panel_1_5 = new JPanel();
-		panel_1_5.setBackground(Color.RED);
-		panel_1_5.setBounds(0, 0, 21, 145);
-		panel_6.add(panel_1_5);
-		
-		JLabel lblNewLabel_5 = new JLabel("Quarto 1");
-		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_5.setFont(new Font("Arial", Font.BOLD, 15));
-		lblNewLabel_5.setBounds(22, 0, 278, 31);
-		panel_6.add(lblNewLabel_5);
-		
-		JButton btnNewButton_5 = new JButton("Informações");
-		btnNewButton_5.setFont(new Font("Arial", Font.BOLD, 9));
-		btnNewButton_5.setBounds(191, 111, 99, 23);
-		panel_6.add(btnNewButton_5);
+		JButton btnInformacao_1_2 = new JButton("Informações");
+		btnInformacao_1_2.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
+		btnInformacao_1_2.setBackground(new Color(46, 139, 87));
+		btnInformacao_1_2.setBounds(275, 194, 135, 23);
+		panel_5.add(btnInformacao_1_2);
 		
 		JPanel panel_7 = new JPanel();
 		panel_7.setLayout(null);
-		panel_7.setBackground(Color.WHITE);
-		panel_7.setBounds(819, 48, 300, 145);
+		panel_7.setBackground(new Color(102, 205, 170));
+		panel_7.setBounds(880, 163, 229, 227);
 		getContentPane().add(panel_7);
 		
 		JPanel panel_1_6 = new JPanel();
-		panel_1_6.setBackground(Color.RED);
-		panel_1_6.setBounds(0, 0, 21, 145);
+		panel_1_6.setBackground(new Color(47, 79, 79));
+		panel_1_6.setBounds(0, 0, 21, 226);
 		panel_7.add(panel_1_6);
 		
-		JLabel lblNewLabel_6 = new JLabel("Quarto 1");
+		JLabel lblNewLabel_6 = new JLabel("Estacionamento");
 		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_6.setFont(new Font("Arial", Font.BOLD, 15));
-		lblNewLabel_6.setBounds(22, 0, 278, 31);
+		lblNewLabel_6.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
+		lblNewLabel_6.setBounds(22, 10, 197, 31);
 		panel_7.add(lblNewLabel_6);
 		
-		JButton btnNewButton_6 = new JButton("Informações");
-		btnNewButton_6.setFont(new Font("Arial", Font.BOLD, 9));
-		btnNewButton_6.setBounds(191, 111, 99, 23);
-		panel_7.add(btnNewButton_6);
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\estacionamento.jpg"));
+		lblNewLabel_2.setBounds(31, 43, 188, 146);
+		panel_7.add(lblNewLabel_2);
 		
-		JPanel panel_8 = new JPanel();
-		panel_8.setLayout(null);
-		panel_8.setBackground(Color.WHITE);
-		panel_8.setBounds(819, 230, 300, 145);
-		getContentPane().add(panel_8);
+		JButton btnInformacao_1_1 = new JButton("Informações");
+		btnInformacao_1_1.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
+		btnInformacao_1_1.setBackground(new Color(46, 139, 87));
+		btnInformacao_1_1.setBounds(57, 194, 135, 23);
+		panel_7.add(btnInformacao_1_1);
 		
-		JPanel panel_1_7 = new JPanel();
-		panel_1_7.setBackground(Color.RED);
-		panel_1_7.setBounds(0, 0, 21, 145);
-		panel_8.add(panel_1_7);
+		JLabel lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\imagemRe.png"));
+		lblNewLabel_5.setBounds(239, 10, 870, 103);
+		getContentPane().add(lblNewLabel_5);
 		
-		JLabel lblNewLabel_7 = new JLabel("Quarto 1");
-		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_7.setFont(new Font("Arial", Font.BOLD, 15));
-		lblNewLabel_7.setBounds(22, 0, 278, 31);
-		panel_8.add(lblNewLabel_7);
-		
-		JButton btnNewButton_7 = new JButton("Informações");
-		btnNewButton_7.setFont(new Font("Arial", Font.BOLD, 9));
-		btnNewButton_7.setBounds(191, 111, 99, 23);
-		panel_8.add(btnNewButton_7);
-		
-		JPanel panel_9 = new JPanel();
-		panel_9.setLayout(null);
-		panel_9.setBackground(Color.WHITE);
-		panel_9.setBounds(819, 408, 300, 145);
-		getContentPane().add(panel_9);
-		
-		JPanel panel_1_8 = new JPanel();
-		panel_1_8.setBackground(Color.RED);
-		panel_1_8.setBounds(0, 0, 21, 145);
-		panel_9.add(panel_1_8);
-		
-		JLabel lblNewLabel_8 = new JLabel("Quarto 1");
-		lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_8.setFont(new Font("Arial", Font.BOLD, 15));
-		lblNewLabel_8.setBounds(22, 0, 278, 31);
-		panel_9.add(lblNewLabel_8);
-		
-		JButton btnNewButton_8 = new JButton("Informações");
-		btnNewButton_8.setFont(new Font("Arial", Font.BOLD, 9));
-		btnNewButton_8.setBounds(191, 111, 99, 23);
-		panel_9.add(btnNewButton_8);
+		txtConheaNossas = new JTextField();
+		txtConheaNossas.setEnabled(false);
+		txtConheaNossas.setHorizontalAlignment(SwingConstants.TRAILING);
+		txtConheaNossas.setEditable(false);
+		txtConheaNossas.setText("Nossas acomodações ");
+		txtConheaNossas.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 16));
+		txtConheaNossas.setBackground(new Color(102, 205, 170));
+		txtConheaNossas.setBounds(21, 10, 220, 103);
+		getContentPane().add(txtConheaNossas);
+		txtConheaNossas.setColumns(10);
 
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {

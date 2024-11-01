@@ -11,6 +11,12 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.JTextArea;
+import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.Font;
 
 public class Tela {
 
@@ -19,12 +25,17 @@ public class Tela {
     private JMenuBar menuBar; // Precisamos de referência ao menuBar para desabilitar
     private JMenu mnNewMenu;
     private JMenu mnFuncionario;
+    private JTextArea textArea;
+    private JLabel lblNewLabel;
+    private JLabel lblNewLabel_1;
+    private JLabel lblNewLabel_2;
+    private JLabel lblNewLabel_3;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    Tela window = new Tela();
+                    Tela window = new Tela();  // Teste
                     window.frame.setVisible(true);
                     window.frame.setLocationRelativeTo(null);
                     window.frame.setExtendedState(Frame.MAXIMIZED_BOTH);
@@ -50,6 +61,31 @@ public class Tela {
         
         desktopPane = new JDesktopPane();
         frame.setContentPane(desktopPane);
+        
+        lblNewLabel = new JLabel("");
+        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\imagemPousada.jpg"));
+        lblNewLabel.setBounds(0, 0, 744, 355);
+        desktopPane.add(lblNewLabel);
+        
+        lblNewLabel_1 = new JLabel("");
+        lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\pousada2.jpg"));
+        lblNewLabel_1.setBounds(0, 355, 744, 468);
+        desktopPane.add(lblNewLabel_1);
+        
+        lblNewLabel_2 = new JLabel("");
+        lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\PousadaYpua.jpg"));
+        lblNewLabel_2.setBounds(745, 0, 795, 355);
+        desktopPane.add(lblNewLabel_2);
+        
+        lblNewLabel_3 = new JLabel("");
+        lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\pousada1.jpg"));
+        lblNewLabel_3.setBounds(743, 355, 787, 468);
+        desktopPane.add(lblNewLabel_3);
+        
+        textArea = new JTextArea();
+        textArea.setBackground(new Color(99, 99, 99));
+        textArea.setBounds(0, 0, 1540, 823);
+        desktopPane.add(textArea);
         
         menuBar = new JMenuBar();
         frame.setJMenuBar(menuBar);

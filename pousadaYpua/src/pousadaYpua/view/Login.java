@@ -11,6 +11,8 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Login extends JFrame {
 
@@ -39,7 +41,7 @@ public class Login extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Login() {
+	public Login() { 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 396, 416);
 		contentPane = new JPanel();
@@ -81,6 +83,10 @@ public class Login extends JFrame {
 		contentPane.add(lblSenha);
 		
 		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnLogin.setBackground(new Color(255, 255, 255));
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnLogin.setBounds(195, 239, 113, 30);

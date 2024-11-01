@@ -55,7 +55,7 @@ public class CadastroFuncionario extends JInternalFrame {
         setTitle("Cadastro de Funcionário");
         setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
        
-        setBounds(0, 0, 1000, 520);
+        setBounds(270,205, 1000, 520);
         
         setClosable(true);
         setMaximizable(true);
@@ -67,13 +67,13 @@ public class CadastroFuncionario extends JInternalFrame {
         
         JLabel lblCadastroFuncionario = new JLabel("Cadastrar Funcionario");
         lblCadastroFuncionario.setHorizontalAlignment(SwingConstants.CENTER);
-        lblCadastroFuncionario.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblCadastroFuncionario.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 18));
         lblCadastroFuncionario.setBounds(367, 78, 266, 54);
         panel.add(lblCadastroFuncionario);
         
         JLabel lblNome = new JLabel("Nome: ");
         lblNome.setHorizontalAlignment(SwingConstants.LEFT);
-        lblNome.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        lblNome.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
         lblNome.setBounds(367, 180, 148, 24);
         panel.add(lblNome);
         
@@ -84,7 +84,7 @@ public class CadastroFuncionario extends JInternalFrame {
         
         JLabel lblSenha = new JLabel("Senha: ");
         lblSenha.setHorizontalAlignment(SwingConstants.LEFT);
-        lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        lblSenha.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
         lblSenha.setBounds(367, 222, 148, 24);
         panel.add(lblSenha);
         
@@ -100,16 +100,18 @@ public class CadastroFuncionario extends JInternalFrame {
         
         JLabel lblId = new JLabel("ID: ");
         lblId.setHorizontalAlignment(SwingConstants.LEFT);
-        lblId.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        lblId.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
         lblId.setBounds(367, 136, 148, 24);
         panel.add(lblId);
         
         JButton btnCadastrar = new JButton("CADASTRAR");
+        btnCadastrar.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
         btnCadastrar.setBackground(new Color(255, 255, 255));
         btnCadastrar.setBounds(526, 283, 117, 29);
         panel.add(btnCadastrar);
         
         JButton btnSair = new JButton("SAIR");
+        btnSair.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
         btnSair.setForeground(Color.BLACK);
         btnSair.setBackground(new Color(250, 255, 253));
         btnSair.setBounds(375, 283, 117, 29);
@@ -117,8 +119,8 @@ public class CadastroFuncionario extends JInternalFrame {
                 
         JPanel panel_Fundo = new JPanel();
         panel_Fundo.setBorder(UIManager.getBorder("DesktopIcon.border"));
-        panel_Fundo.setBackground(new Color(192, 192, 192));
-        panel_Fundo.setBounds(295, 57, 423, 308);
+        panel_Fundo.setBackground(new Color(0, 153, 255));
+        panel_Fundo.setBounds(0, 0, 994, 490);
         panel.add(panel_Fundo);
         
         
