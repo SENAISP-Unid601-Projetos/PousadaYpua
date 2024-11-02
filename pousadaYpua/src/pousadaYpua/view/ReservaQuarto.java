@@ -60,6 +60,7 @@ private JTextField textDiasReservados;
 	 * Create the frame.
 	 */
 	public ReservaQuarto() {
+		super("Reserva de Quartos");
 		setClosable(true);
 
 		ClientesDao clienteDao = new ClientesDao();
@@ -83,9 +84,14 @@ private JTextField textDiasReservados;
 	    contentPane.add(panel);
 	    panel.setLayout(null);
 		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\imagemInterna.jpg"));
+		lblNewLabel.setBounds(376, 287, 714, 320);
+		panel.add(lblNewLabel);
+		
 		
 		JTextField textCpf = new JTextField();
-		textCpf.setBounds(468, 63, 263, 30);
+		textCpf.setBounds(468, 39, 263, 30);
 		panel.add(textCpf);
 		textCpf.setColumns(10);
 		
@@ -100,7 +106,7 @@ private JTextField textDiasReservados;
 		
 		JLabel lblCpf = new JLabel("CPF");
 		lblCpf.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-		lblCpf.setBounds(468, 23, 183, 30);
+		lblCpf.setBounds(468, 10, 183, 30);
 		panel.add(lblCpf);
 		
 		JLabel lblInfo = new JLabel("INFORMAÇÕES DO CLIENTE");
@@ -110,7 +116,7 @@ private JTextField textDiasReservados;
 		
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.setBackground(Color.WHITE);
-		btnBuscar.setBounds(759, 63, 117, 29);
+		btnBuscar.setBounds(751, 39, 117, 29);
 		panel.add(btnBuscar);
 		
 		JTextArea txtArea_InfoClient = new JTextArea();
@@ -156,11 +162,6 @@ private JTextField textDiasReservados;
 		JFormattedTextField textDataEntrada = new JFormattedTextField("##/##/####");
 		textDataEntrada.setBounds(468, 222, 122, 30);
 		panel.add(textDataEntrada);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\quarto.jpg"));
-		lblNewLabel.setBounds(376, 287, 714, 320);
-		panel.add(lblNewLabel);
 		
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -27,11 +27,11 @@ import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 public class QuartosReservados extends JInternalFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JTextField txtConheaNossas;
 
 	/**
 	 * Launch the application.
@@ -55,7 +55,7 @@ public class QuartosReservados extends JInternalFrame {
 	public QuartosReservados() {
 		getContentPane().setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
 		setBackground(SystemColor.scrollbar);
-		getContentPane().setBackground(UIManager.getColor("Button.darkShadow"));
+		getContentPane().setBackground(Color.GRAY);
 		setBorder(UIManager.getBorder("DesktopIcon.border"));
         setClosable(true);
         setResizable(true);
@@ -65,13 +65,13 @@ public class QuartosReservados extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(UIManager.getColor("Button.shadow"));
+		panel.setBackground(Color.LIGHT_GRAY);
 		panel.setBounds(21, 163, 420, 227);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_9 = new JLabel("");
-		lblNewLabel_9.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\suite.jpg"));
+		lblNewLabel_9.setIcon(new ImageIcon("C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\QuartoSuite.jpg"));
 		lblNewLabel_9.setBounds(90, 34, 240, 159);
 		panel.add(lblNewLabel_9);
 		
@@ -97,12 +97,12 @@ public class QuartosReservados extends JInternalFrame {
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
-		panel_2.setBackground(UIManager.getColor("Button.shadow"));
+		panel_2.setBackground(Color.LIGHT_GRAY);
 		panel_2.setBounds(21, 408, 420, 227);
 		getContentPane().add(panel_2);
 		
 		JLabel lblNewLabel_10 = new JLabel("");
-		lblNewLabel_10.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\cabana.jpg"));
+		lblNewLabel_10.setIcon(new ImageIcon("C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\QuartoCabana.jpg"));
 		lblNewLabel_10.setBounds(67, 31, 240, 153);
 		panel_2.add(lblNewLabel_10);
 		
@@ -126,12 +126,12 @@ public class QuartosReservados extends JInternalFrame {
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setLayout(null);
-		panel_4.setBackground(UIManager.getColor("Button.shadow"));
+		panel_4.setBackground(Color.LIGHT_GRAY);
 		panel_4.setBounds(451, 163, 351, 227);
 		getContentPane().add(panel_4);
 		
 		JLabel lblNewLabel_11 = new JLabel("");
-		lblNewLabel_11.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\chaleFamilia.jpg"));
+		lblNewLabel_11.setIcon(new ImageIcon("C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\QuartoFamilia.jpg"));
 		lblNewLabel_11.setBounds(55, 38, 240, 150);
 		panel_4.add(lblNewLabel_11);
 		
@@ -159,12 +159,12 @@ public class QuartosReservados extends JInternalFrame {
 		
 		JPanel panel_5 = new JPanel();
 		panel_5.setLayout(null);
-		panel_5.setBackground(UIManager.getColor("Button.shadow"));
+		panel_5.setBackground(Color.LIGHT_GRAY);
 		panel_5.setBounds(451, 408, 351, 227);
 		getContentPane().add(panel_5);
 		
 		JLabel lblNewLabel_12 = new JLabel("");
-		lblNewLabel_12.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\quartoDomo.jpeg"));
+		lblNewLabel_12.setIcon(new ImageIcon("C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\quartoDomo.jpeg"));
 		lblNewLabel_12.setBounds(31, 27, 246, 157);
 		panel_5.add(lblNewLabel_12);
 		
@@ -188,7 +188,7 @@ public class QuartosReservados extends JInternalFrame {
 		
 		JPanel panel_7 = new JPanel();
 		panel_7.setLayout(null);
-		panel_7.setBackground(UIManager.getColor("Button.shadow"));
+		panel_7.setBackground(Color.LIGHT_GRAY);
 		panel_7.setBounds(812, 163, 297, 227);
 		getContentPane().add(panel_7);
 		
@@ -215,26 +215,29 @@ public class QuartosReservados extends JInternalFrame {
 		btnInformacao_1_1.setBounds(57, 194, 135, 23);
 		panel_7.add(btnInformacao_1_1);
 		
-		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\imagemRe.png"));
-		lblNewLabel_5.setBounds(239, 10, 870, 103);
-		getContentPane().add(lblNewLabel_5);
-		
 		JPanel panel_1_2 = new JPanel();
-		panel_1_2.setBackground(Color.DARK_GRAY);
-		panel_1_2.setBounds(10, 10, 21, 103);
+		panel_1_2.setBackground(Color.LIGHT_GRAY);
+		panel_1_2.setBounds(10, 10, 82, 103);
 		getContentPane().add(panel_1_2);
 		
-		txtConheaNossas = new JTextField();
-		txtConheaNossas.setHorizontalAlignment(SwingConstants.TRAILING);
-		txtConheaNossas.setEditable(false);
-		txtConheaNossas.setText("Nossas acomodações ");
-		txtConheaNossas.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 16));
-		txtConheaNossas.setBackground(UIManager.getColor("Button.shadow"));
-		txtConheaNossas.setBounds(10, 10, 231, 103);
-		getContentPane().add(txtConheaNossas);
-		txtConheaNossas.setColumns(10);
-
+		JLabel lblNewLabel_7 = new JLabel("");
+		panel_1_2.add(lblNewLabel_7);
+		lblNewLabel_7.setIcon(new ImageIcon("C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\logo-pousada.png"));
+		
+		JTextPane txtpnNossasAcomodaoes = new JTextPane();
+		txtpnNossasAcomodaoes.setForeground(Color.LIGHT_GRAY);
+		txtpnNossasAcomodaoes.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		txtpnNossasAcomodaoes.setText("Nossas Acomododações");
+		txtpnNossasAcomodaoes.setBackground(Color.DARK_GRAY);
+		txtpnNossasAcomodaoes.setBounds(92, 10, 159, 103);
+		getContentPane().add(txtpnNossasAcomodaoes);
+		
+		JTextPane textPane = new JTextPane();
+		textPane.setBackground(Color.DARK_GRAY);
+		textPane.setBounds(249, 10, 860, 103);
+		getContentPane().add(textPane);
+		
+		
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {

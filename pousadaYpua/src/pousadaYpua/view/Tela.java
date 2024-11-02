@@ -63,7 +63,7 @@ public class Tela {
         frame.setContentPane(desktopPane);
         
         lblNewLabel = new JLabel("");
-        lblNewLabel.setIcon(new ImageIcon(path+"\\imagemPousada.jpg"));
+        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\imagemPousada.jpg"));
         lblNewLabel.setBounds(0, 0, 744, 355);
         desktopPane.add(lblNewLabel);
         
