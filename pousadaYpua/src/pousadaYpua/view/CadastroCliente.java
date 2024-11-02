@@ -71,14 +71,14 @@ public class CadastroCliente extends JInternalFrame {
         setMaximizable(true);
         setIconifiable(true);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.DARK_GRAY);
+		contentPane.setBackground(UIManager.getColor("Button.shadow"));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JPanel pnlCadastro = new JPanel();
-		pnlCadastro.setBackground(Color.GRAY);
+		pnlCadastro.setBackground(UIManager.getColor("Button.disabledForeground"));
 		pnlCadastro.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(105, 105, 105), new Color(160, 160, 160), new Color(0, 0, 0), new Color(0, 0, 0)));
 		pnlCadastro.setBounds(10, 0, 1089, 73);
 		contentPane.add(pnlCadastro);
@@ -91,7 +91,7 @@ public class CadastroCliente extends JInternalFrame {
 		pnlCadastro.add(lblCadastrarCliente);
 
 		JPanel pnlInfoCliente = new JPanel();
-		pnlInfoCliente.setBackground(Color.LIGHT_GRAY);
+		pnlInfoCliente.setBackground(UIManager.getColor("CheckBox.darkShadow"));
 		pnlInfoCliente.setBorder(new LineBorder(new Color(128, 128, 128), 2, true));
 		pnlInfoCliente.setBounds(169, 72, 773, 480);
 		contentPane.add(pnlInfoCliente);
