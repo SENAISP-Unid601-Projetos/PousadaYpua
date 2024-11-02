@@ -19,7 +19,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 
 public class Tela {
-
+    private String path = "C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources";
     private JFrame frame;
     private JDesktopPane desktopPane;
     private JMenuBar menuBar; // Precisamos de referência ao menuBar para desabilitar
@@ -63,22 +63,22 @@ public class Tela {
         frame.setContentPane(desktopPane);
         
         lblNewLabel = new JLabel("");
-        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\imagemPousada.jpg"));
+        lblNewLabel.setIcon(new ImageIcon(path+"\\imagemPousada.jpg"));
         lblNewLabel.setBounds(0, 0, 744, 355);
         desktopPane.add(lblNewLabel);
         
         lblNewLabel_1 = new JLabel("");
-        lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\pousada2.jpg"));
+        lblNewLabel_1.setIcon(new ImageIcon(path+"\\pousada2.jpg"));
         lblNewLabel_1.setBounds(0, 355, 744, 468);
         desktopPane.add(lblNewLabel_1);
         
         lblNewLabel_2 = new JLabel("");
-        lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\PousadaYpua.jpg"));
+        lblNewLabel_2.setIcon(new ImageIcon(path+"\\PousadaYpua.jpg"));
         lblNewLabel_2.setBounds(745, 0, 795, 355);
         desktopPane.add(lblNewLabel_2);
         
         lblNewLabel_3 = new JLabel("");
-        lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\pousada1.jpg"));
+        lblNewLabel_3.setIcon(new ImageIcon(path+"\\pousada1.jpg"));
         lblNewLabel_3.setBounds(743, 355, 787, 468);
         desktopPane.add(lblNewLabel_3);
         
