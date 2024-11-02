@@ -19,7 +19,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 
 public class Tela {
-    private String path = "C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources";
+    private String path = "C:\\Users\\Aluno\\Documents\\GitHub\\PousadaYpua\\pousadaYpua\\resources";
     private JFrame frame;
     private JDesktopPane desktopPane;
     private JMenuBar menuBar; // Precisamos de referência ao menuBar para desabilitar
