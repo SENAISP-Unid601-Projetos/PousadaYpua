@@ -70,6 +70,11 @@ public class QuartosReservados extends JInternalFrame {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
+		JLabel lblNewLabel_9 = new JLabel("");
+		lblNewLabel_9.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\suite.jpg"));
+		lblNewLabel_9.setBounds(90, 34, 240, 159);
+		panel.add(lblNewLabel_9);
+		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.DARK_GRAY);
 		panel_1.setBounds(0, 0, 21, 227);
@@ -90,16 +95,16 @@ public class QuartosReservados extends JInternalFrame {
 		btnInformacao.setBounds(275, 194, 135, 23);
 		panel.add(btnInformacao);
 		
-		JLabel lblNewLabel_9 = new JLabel("");
-		lblNewLabel_9.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\suite.jpg"));
-		lblNewLabel_9.setBounds(90, 34, 240, 159);
-		panel.add(lblNewLabel_9);
-		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
 		panel_2.setBackground(UIManager.getColor("Button.shadow"));
 		panel_2.setBounds(21, 408, 420, 227);
 		getContentPane().add(panel_2);
+		
+		JLabel lblNewLabel_10 = new JLabel("");
+		lblNewLabel_10.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\cabana.jpg"));
+		lblNewLabel_10.setBounds(67, 31, 240, 153);
+		panel_2.add(lblNewLabel_10);
 		
 		JPanel panel_1_1 = new JPanel();
 		panel_1_1.setForeground(Color.DARK_GRAY);
@@ -113,11 +118,6 @@ public class QuartosReservados extends JInternalFrame {
 		lblNewLabel_1.setBounds(33, 0, 278, 31);
 		panel_2.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_10 = new JLabel("");
-		lblNewLabel_10.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\cabana.jpg"));
-		lblNewLabel_10.setBounds(67, 31, 240, 153);
-		panel_2.add(lblNewLabel_10);
-		
 		JButton btnInformacao_1_3 = new JButton("Informações");
 		btnInformacao_1_3.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
 		btnInformacao_1_3.setBackground(Color.LIGHT_GRAY);
@@ -130,6 +130,11 @@ public class QuartosReservados extends JInternalFrame {
 		panel_4.setBounds(451, 163, 351, 227);
 		getContentPane().add(panel_4);
 		
+		JLabel lblNewLabel_11 = new JLabel("");
+		lblNewLabel_11.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\chaleFamilia.jpg"));
+		lblNewLabel_11.setBounds(55, 38, 240, 150);
+		panel_4.add(lblNewLabel_11);
+		
 		JPanel panel_1_3 = new JPanel();
 		panel_1_3.setForeground(Color.DARK_GRAY);
 		panel_1_3.setBackground(Color.DARK_GRAY);
@@ -141,11 +146,6 @@ public class QuartosReservados extends JInternalFrame {
 		lblNewLabel_3.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
 		lblNewLabel_3.setBounds(31, 0, 278, 31);
 		panel_4.add(lblNewLabel_3);
-		
-		JLabel lblNewLabel_11 = new JLabel("");
-		lblNewLabel_11.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\chaleFamilia.jpg"));
-		lblNewLabel_11.setBounds(55, 38, 240, 150);
-		panel_4.add(lblNewLabel_11);
 		
 		JButton btnInformacao_1 = new JButton("Informações");
 		btnInformacao_1.addActionListener(new ActionListener() {
@@ -163,6 +163,11 @@ public class QuartosReservados extends JInternalFrame {
 		panel_5.setBounds(451, 408, 351, 227);
 		getContentPane().add(panel_5);
 		
+		JLabel lblNewLabel_12 = new JLabel("");
+		lblNewLabel_12.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\quartoDomo.jpeg"));
+		lblNewLabel_12.setBounds(31, 27, 246, 157);
+		panel_5.add(lblNewLabel_12);
+		
 		JPanel panel_1_4 = new JPanel();
 		panel_1_4.setForeground(Color.DARK_GRAY);
 		panel_1_4.setBackground(Color.DARK_GRAY);
@@ -174,11 +179,6 @@ public class QuartosReservados extends JInternalFrame {
 		lblNewLabel_4.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
 		lblNewLabel_4.setBounds(31, 0, 278, 31);
 		panel_5.add(lblNewLabel_4);
-		
-		JLabel lblNewLabel_12 = new JLabel("");
-		lblNewLabel_12.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\quartoDomo.jpeg"));
-		lblNewLabel_12.setBounds(31, 27, 246, 157);
-		panel_5.add(lblNewLabel_12);
 		
 		JButton btnInformacao_1_2 = new JButton("Informações");
 		btnInformacao_1_2.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
@@ -192,6 +192,11 @@ public class QuartosReservados extends JInternalFrame {
 		panel_7.setBounds(812, 163, 297, 227);
 		getContentPane().add(panel_7);
 		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\estacionamento.jpg"));
+		lblNewLabel_2.setBounds(28, 40, 240, 146);
+		panel_7.add(lblNewLabel_2);
+		
 		JPanel panel_1_6 = new JPanel();
 		panel_1_6.setForeground(Color.DARK_GRAY);
 		panel_1_6.setBackground(Color.DARK_GRAY);
@@ -204,11 +209,6 @@ public class QuartosReservados extends JInternalFrame {
 		lblNewLabel_6.setBounds(31, 0, 197, 31);
 		panel_7.add(lblNewLabel_6);
 		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\estacionamento.jpg"));
-		lblNewLabel_2.setBounds(28, 40, 240, 146);
-		panel_7.add(lblNewLabel_2);
-		
 		JButton btnInformacao_1_1 = new JButton("Informações");
 		btnInformacao_1_1.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
 		btnInformacao_1_1.setBackground(Color.LIGHT_GRAY);
@@ -216,7 +216,7 @@ public class QuartosReservados extends JInternalFrame {
 		panel_7.add(btnInformacao_1_1);
 		
 		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\imagemRe.png"));
+		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\imagemRe.png"));
 		lblNewLabel_5.setBounds(239, 10, 870, 103);
 		getContentPane().add(lblNewLabel_5);
 		

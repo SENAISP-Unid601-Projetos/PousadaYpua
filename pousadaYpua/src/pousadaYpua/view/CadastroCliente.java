@@ -79,7 +79,7 @@ public class CadastroCliente extends JInternalFrame {
 
 		JPanel pnlCadastro = new JPanel();
 		pnlCadastro.setBackground(UIManager.getColor("Button.disabledForeground"));
-		pnlCadastro.setBorder(UIManager.getBorder("DesktopIcon.border"));
+		pnlCadastro.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(105, 105, 105), new Color(160, 160, 160), new Color(0, 0, 0), new Color(0, 0, 0)));
 		pnlCadastro.setBounds(10, 0, 1089, 73);
 		contentPane.add(pnlCadastro);
 		pnlCadastro.setLayout(null);
