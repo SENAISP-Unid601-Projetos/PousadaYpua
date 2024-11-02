@@ -193,7 +193,7 @@ public class QuartosReservados extends JInternalFrame {
 		getContentPane().add(panel_7);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\nicol\\OneDrive\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\estacionamento.jpg"));
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\estacionamento.jpg"));
 		lblNewLabel_2.setBounds(28, 40, 240, 146);
 		panel_7.add(lblNewLabel_2);
 		
@@ -216,7 +216,7 @@ public class QuartosReservados extends JInternalFrame {
 		panel_7.add(btnInformacao_1_1);
 		
 		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\nicol\\Documents\\Desktop\\PousadaYpua\\pousadaYpua\\resources\\imagemRe.png"));
+		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\imagemRe.png"));
 		lblNewLabel_5.setBounds(239, 10, 870, 103);
 		getContentPane().add(lblNewLabel_5);
 		
