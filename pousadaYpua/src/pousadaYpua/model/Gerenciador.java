@@ -18,4 +18,16 @@ public class Gerenciador {
 		return true;
 		
 	}
+	public boolean verificaCpf(ArrayList<Reserva> verif, String cpf) {
+		ReservasDao reservaDao = new ReservasDao();
+				for(Reserva r : verif) {
+					
+					if( reservaDao.existeReserva(cpf)) {
+						
+						return true;
+					}
+				}
+				return false;
+		
+	}
 }

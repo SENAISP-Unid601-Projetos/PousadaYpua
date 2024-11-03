@@ -2,15 +2,15 @@ package pousadaYpua.view;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.time.Period;
 import java.util.Scanner;
 
 import pousadaYpua.DAO.PearsonDao;
+import pousadaYpua.DAO.QuartosDao;
 import pousadaYpua.database.Database;
 import pousadaYpua.model.Pearson;
+import pousadaYpua.model.Quarto;
 
 public class TesteBD {
 ;
@@ -22,18 +22,16 @@ public class TesteBD {
 
 		try {
 			con = Database.getinstance().getConnection();
-			Database.prePopulateDatabase();
-			System.out.println("digite o id ?");
-			int id = sc.nextInt();
-			sc.nextLine();
-			System.out.println("digite o nome? ");
-			String name = sc.nextLine();
+			
+			
+			
+			
+			
+			
+			
 
-			Pearson p = new Pearson(id, name);
 
-
-			PearsonDao dao = new PearsonDao();
-			dao.insert(p);
+		
 
 			Statement statement = con.createStatement();
 

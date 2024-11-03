@@ -6,6 +6,9 @@ public class Reserva {
 	private String numeroPedido;
 	private Clientes cliente;
 	private Quarto quarto;
+	
+	public Reserva() {
+	}
 
 	public Reserva(String dataEntrada) {
 		this.dataEntrada = dataEntrada;
@@ -19,14 +22,31 @@ public class Reserva {
 		this.cliente = cliente;
 		this.quarto = quarto;
 
-	}public Reserva(String dataEntrada, Clientes cliente, Quarto quarto) {
-		this.dataEntrada = dataEntrada;
+	}
+	
+	
+	public Reserva(String numeroPedido, Clientes cliente, Quarto quarto) {
+		this.numeroPedido = numeroPedido;
 
 		
 		this.cliente = cliente;
 		this.quarto = quarto;
 
 	}
+	
+	
+	public Reserva(String dataEntrada,  Quarto quarto) {
+		this.dataEntrada = dataEntrada;
+		this.quarto = quarto;
+
+	}
+	public Reserva(Clientes cliente,  Quarto quarto) {
+		this.cliente = cliente;
+		this.quarto = quarto;
+
+	}
+
+	
 
 	public String getDataEntrada() {
 		return dataEntrada;

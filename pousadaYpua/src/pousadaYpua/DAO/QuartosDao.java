@@ -35,7 +35,7 @@ public class QuartosDao {
 	    	
 	        String sql = "INSERT INTO Quartos ( numero_quarto) VALUES ( ?)";
 	        try (PreparedStatement stmt = con.prepareStatement(sql)) {
-	            stmt.setInt(1, quarto.getNumero());
+	            stmt.setString(1, quarto.getNumero());
 	           
 	            
 	            stmt.executeUpdate(); // Use executeUpdate() para inserções

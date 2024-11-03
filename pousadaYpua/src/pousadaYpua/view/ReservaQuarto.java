@@ -5,20 +5,25 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
 
 import pousadaYpua.DAO.ClientesDao;
 import pousadaYpua.DAO.ReservasDao;
@@ -27,19 +32,17 @@ import pousadaYpua.model.Gerenciador;
 import pousadaYpua.model.Quarto;
 import pousadaYpua.model.Reserva;
 import pousadaYpua.utils.DataUtils;
-import javax.swing.JFormattedTextField;
-import javax.swing.UIManager;
-import javax.swing.ImageIcon;
 
 public class ReservaQuarto extends JInternalFrame {
 
 	private static final long serialVersionUID = 1L;
-Clientes clientes;
-Quarto quarto;
-Reserva reserva;
-Gerenciador gerenciador;
-JComponent contentPane = new JPanel();
-private JTextField textDiasReservados;
+	Clientes clientes;
+	Quarto quarto;
+	Reserva reserva;
+	Gerenciador gerenciador;
+	JComponent contentPane = new JPanel();
+	private JTextField textDiasReservados;
+
 	/**
 	 * Launch the application.
 	 */
@@ -60,13 +63,16 @@ private JTextField textDiasReservados;
 	 * Create the frame.
 	 */
 	public ReservaQuarto() {
+		
+		
+		
 		super("Reserva de Quartos");
 		setClosable(true);
 
 		ClientesDao clienteDao = new ClientesDao();
 		ReservasDao reservaDao = new ReservasDao();
 		Gerenciador gerenciador = new Gerenciador();
-		
+		MaskFormatter dataMask = null;
 
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -159,7 +165,14 @@ private JTextField textDiasReservados;
 		btnReservar.setBounds(787, 222, 117, 29);
 		panel.add(btnReservar);
 		
-		JFormattedTextField textDataEntrada = new JFormattedTextField("##/##/####");
+		try {
+		    dataMask = new MaskFormatter("##/##/####");
+		    dataMask.setPlaceholderCharacter('_'); // Define o caractere de preenchimento como "_"
+		} catch (ParseException e) {
+		    e.printStackTrace();
+		}
+		
+		JFormattedTextField textDataEntrada = new JFormattedTextField(dataMask);
 		textDataEntrada.setBounds(468, 222, 122, 30);
 		panel.add(textDataEntrada);
 		
@@ -202,23 +215,50 @@ private JTextField textDiasReservados;
 				
 				String numero = quarto.getNumero();
 				
-				String cpf = textCpf.getText();            
+				String cpf = textCpf.getText(); 
 				
 				
 				
+				clientes = new Clientes(cpf);
+				
+				reserva = new Reserva(clientes, quarto);
+				reservaDao.insert(reserva);
+				
+				
+				String numeroPedido = reservaDao.buscarPedido(cpf);
 				LocalDate dataEntrada = DataUtils.stringToDate(dataEntradaStr);
 				
 				for(int i = 0; i < dias; i++) {
-					LocalDate increment = dataEntrada.plusDays(i);
 					
-					datasReserva.add(new Reserva(DataUtils.dateToString(increment), clientes, quarto));
-//					reserva = new Reserva(DataUtils.dateToString(increment), clientes, quarto);
-				}
+					LocalDate increment = dataEntrada.plusDays(i);
+					if(!increment.isBefore(LocalDate.now())) {
+						datasReserva.add(new Reserva(DataUtils.dateToString(increment),numeroPedido, clientes, quarto));
+//						reserva = new Reserva(DataUtils.dateToString(increment), clientes, quarto);
+						
+						System.out.println(increment);
+					
+					}
+					else {
+						System.out.println("data invalida");
+					}
+					
+					}
+					
+					
+					
+					
+				
 				if(gerenciador.verificaDatas(datasReserva)) {
 					for(Reserva r : datasReserva) {
-						reservaDao.insert(r);
-						System.out.println(r);
+						
+						
+//						if(gerenciador.verificaCpf(datasReserva, cpf) == false) {
+//							reservaDao.insert(r);
+//						}
+						reservaDao.insertDatas(r);
+						System.out.println(r.getNumeroPedido());
 					}
+						
 					
 				}else {
 					System.out.println("ja tem a reserva no dia ");
