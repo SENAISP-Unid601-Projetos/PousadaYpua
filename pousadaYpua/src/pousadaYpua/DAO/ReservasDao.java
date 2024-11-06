@@ -47,7 +47,7 @@ public class ReservasDao {
 
 	    }
 	    public void delete(String cpf) {
-	        String sql = "DELETE * FROM Reserva WHERE cpf = ?";
+	        String sql = "DELETE FROM Reserva WHERE cpf = ?";
 	        try (PreparedStatement stmt = con.prepareStatement(sql)) {
 	        	stmt.setString(1, cpf);
 	            stmt.executeUpdate(); 
@@ -102,11 +102,11 @@ public class ReservasDao {
 			return false;
 	    }
 	    
-	    public String buscarDatas(Reserva reserva)  {
+	    public String buscarDatas(Reserva reserva, String date )  {
 	    	String sql = "SELECT numero_quarto, datas_reservadas FROM DatasReservadas WHERE numero_quarto = ? AND datas_reservadas = ?";
 	    	try(PreparedStatement stmt = con.prepareStatement(sql)){
 	    		stmt.setString(1, reserva.getQuarto().getNumero());
-	    		stmt.setString(2, reserva.getDataEntrada());
+	    		stmt.setString(2, date);
 	    		
 	    	ResultSet rs = stmt.executeQuery();
 	    	if(rs.next()) {
@@ -126,26 +126,28 @@ public class ReservasDao {
 	    
 	    public void insertDatas(Reserva reserva) {
 	    	
+	    	for(String data : reserva.getDatasReservadas()) {
+	    		String sql = "INSERT INTO DatasReservadas (numero_pedido, cpf, numero_quarto, datas_reservadas) VALUES (?,?,?,?)";
+		    	try (PreparedStatement stmt = con.prepareStatement(sql)) {
+		    		stmt.setString(1, reserva.getNumeroPedido());
+		            stmt.setString(2, reserva.getCliente().getCpf());
+		            stmt.setString(3, reserva.getQuarto().getNumero());
+		            stmt.setString(4, data);
+		            
+		            
+		            stmt.executeUpdate(); 
+		        } catch (SQLException e) {
+		            throw new RuntimeException(e);
+		        }
+	    	}
 	    	
-	    	String sql = "INSERT INTO DatasReservadas (numero_pedido, cpf, numero_quarto, datas_reservadas) VALUES (?,?,?,?)";
-	    	try (PreparedStatement stmt = con.prepareStatement(sql)) {
-	    		stmt.setString(1, reserva.getNumeroPedido());
-	            stmt.setString(2, reserva.getCliente().getCpf());
-	            stmt.setString(3, reserva.getQuarto().getNumero());
-	            stmt.setString(4, reserva.getDataEntrada());
-	            
-	            
-	            stmt.executeUpdate(); 
-	        } catch (SQLException e) {
-	            throw new RuntimeException(e);
-	        }
 
 	    }
 	    
-	    public String buscarPedido(String cpf )  {
-	    	String sql = "SELECT numero_pedido FROM Reservas WHERE cpf = ? ";
+	    public String buscarPedido()  {
+	    	String sql = "SELECT MAX(numero_pedido) AS numero_pedido FROM Reservas ";
 	    	try(PreparedStatement stmt = con.prepareStatement(sql)){
-	    		stmt.setString(1, cpf);
+	    	
 	    		
 	    		
 	    	ResultSet rs = stmt.executeQuery();

@@ -1,11 +1,14 @@
 package pousadaYpua.model;
 
+import java.util.ArrayList;
+
 public class Reserva {
 	private String dataEntrada;
 	private int diasReservado;
 	private String numeroPedido;
 	private Clientes cliente;
 	private Quarto quarto;
+	private ArrayList<String> datasReservadas;
 	
 	public Reserva() {
 	}
@@ -15,15 +18,30 @@ public class Reserva {
 
 	}
 
-	public Reserva(String dataEntrada, String numeroPedido, Clientes cliente, Quarto quarto) {
-		this.dataEntrada = dataEntrada;
+	public Reserva(ArrayList<String> datasReservadas, String numeroPedido, Clientes cliente, Quarto quarto) {
+		this.datasReservadas = datasReservadas;
 
 		this.numeroPedido = numeroPedido;
 		this.cliente = cliente;
 		this.quarto = quarto;
 
 	}
+	public Reserva(ArrayList<String> datasReservadas,  Clientes cliente, Quarto quarto) {
+		this.datasReservadas = datasReservadas;
+		this.cliente = cliente;
+		this.quarto = quarto;
+
+	}
+
 	
+	public Reserva(String dataEntrada, String numeroPedido, Clientes cliente, Quarto quarto) {
+		this.numeroPedido = numeroPedido;
+		this.dataEntrada =  dataEntrada;
+		
+		this.cliente = cliente;
+		this.quarto = quarto;
+
+	}
 	
 	public Reserva(String numeroPedido, Clientes cliente, Quarto quarto) {
 		this.numeroPedido = numeroPedido;
@@ -45,8 +63,16 @@ public class Reserva {
 		this.quarto = quarto;
 
 	}
-
 	
+	
+
+	public ArrayList<String> getDatasReservadas() {
+		return datasReservadas;
+	}
+
+	public void setDatasReservadas(ArrayList<String> datasReservadas) {
+		this.datasReservadas = datasReservadas;
+	}
 
 	public String getDataEntrada() {
 		return dataEntrada;

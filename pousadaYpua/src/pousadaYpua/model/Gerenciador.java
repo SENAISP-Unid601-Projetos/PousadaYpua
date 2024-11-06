@@ -7,10 +7,10 @@ import pousadaYpua.DAO.ReservasDao;
 public class Gerenciador {
 	
 	
-	public boolean verificaDatas(ArrayList<Reserva> datas) {
+	public boolean verificaDatas(Reserva reserva) {
 		ReservasDao reDao = new ReservasDao();
-		for(Reserva r : datas ) {
-			if(reDao.buscarDatas(r) != null) {
+		for(String dia : reserva.getDatasReservadas() ) {
+			if(reDao.buscarDatas(reserva, dia) != null) {
 				return false;
 				
 			}

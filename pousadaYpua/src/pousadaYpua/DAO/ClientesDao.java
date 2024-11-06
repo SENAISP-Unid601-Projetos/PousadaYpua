@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import pousadaYpua.database.Database;
 import pousadaYpua.model.Clientes;
 
@@ -41,9 +43,21 @@ public class ClientesDao {
 			stmt.setString(8, cliente.getCep());
 			stmt.setString(9, cliente.getEstado());
 			stmt.executeUpdate(); // Use executeUpdate() para inserções
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
+			
+			
+			JOptionPane.showMessageDialog(null, 
+                    " Cliente cadastrado com sucesso.", 
+                    "Success", 
+                    JOptionPane.ERROR_MESSAGE);
+            
+        } catch (SQLException e) {
+        	JOptionPane.showMessageDialog(null, 
+                    "Cliente já está cadastrado.", 
+                    "Erro", 
+                    JOptionPane.ERROR_MESSAGE);
+        }
+			
+	
 
 	}
 
