@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -29,11 +30,12 @@ public class UsuarioDao {
 	}
 	
 	public void insert(Usuario usuario) {
-		  String sql = "INSERT INTO Usuarios (id, nome, senha) VALUES (?, ?, ?)";
+		  String sql = "INSERT INTO Usuarios (id, nome, senha, permissoes) VALUES (?, ?, ?, ?)";
 	        try (PreparedStatement stmt = con.prepareStatement(sql)) {
 	            stmt.setString(1, usuario.getId());
 	            stmt.setString(2, usuario.getNome());
 	            stmt.setString(3, usuario.getSenha());
+	            stmt.setString(4, usuario.getPermissoes());
 	            stmt.executeUpdate(); // Use executeUpdate() para inserções
 	            
 	            JOptionPane.showMessageDialog(null, 
@@ -77,7 +79,8 @@ public class UsuarioDao {
 			return new Usuario(
 					rs.getString("id"),
 					rs.getString("nome"),
-					rs.getString("senha")
+					rs.getString("senha"),
+					rs.getString("permissoes")
 					);
 					
 		}catch(SQLException e) {
@@ -85,4 +88,50 @@ public class UsuarioDao {
 		}
 		return null;
 	}
+	
+	public Usuario buscaDeFuncionario() {
+		String sql = "SELECT * FROM Usuarios ";
+		try(PreparedStatement stmt = con.prepareStatement(sql)){
+			
+			ResultSet rs = stmt.executeQuery();
+			ArrayList<Usuario> usuarios = new ArrayList<>();
+
+			while (rs.next()) {
+			    Usuario usuario = new Usuario(
+			        rs.getString("id"),
+			        rs.getString("nome"),
+			        rs.getString("senha"),
+			        rs.getString("permissoes")
+			    );
+			    usuarios.add(usuario);
+			}
+					
+		}catch(SQLException e) {
+			
+		}
+		return null;
+	}
+	
+	
+	public void atualizarUsuario(Usuario usuario) {
+		String sql = "UPDATE Usuarios SET nome = ?, senha = ? WHERE id = ?";
+		try(PreparedStatement stmt = con.prepareStatement(sql)){
+			stmt.setString(1, usuario.getNome());
+			stmt.setString(2, usuario.getSenha());
+			stmt.setString(3, usuario.getId());
+			stmt.executeUpdate();
+			JOptionPane.showMessageDialog(null, 
+                    "Usuario Atualizado com sucesso.", 
+                    "Success", 
+                    JOptionPane.INFORMATION_MESSAGE);
+		}
+		catch(SQLException e) {
+			
+			JOptionPane.showMessageDialog(null, 
+                    "ID de Usuario incorreto ou Usuario não existe.", 
+                    "Erro", 
+                    JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
 }

@@ -246,7 +246,6 @@ public class ReservaQuarto extends JInternalFrame {
 				reserva = new Reserva(datasReserva, clientes, quarto);
 				if(gerenciador.verificaDatas(reserva)) {
 					reservaDao.insert(reserva);
-					
 					reserva.setNumeroPedido(reservaDao.buscarPedido());
 					System.out.println(reservaDao.buscarPedido());
 					reservaDao.insertDatas(reserva);

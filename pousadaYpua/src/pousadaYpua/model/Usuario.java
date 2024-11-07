@@ -4,13 +4,14 @@ public class Usuario {
 	private String nome;
 	private String senha;
 	private String id;
+	private String permissoes;
 	
 	
-	public Usuario(String nome, String senha, String id) {
+	public Usuario(String nome, String senha, String id, String permissoes) {
 		this.nome = nome;
 		this.senha = senha;
 		this.id = id;
-		
+		this.setPermissoes(permissoes);
 	}
 	public Usuario(String nome, String id) {
 		this.nome = nome;
@@ -38,6 +39,12 @@ public class Usuario {
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getPermissoes() {
+		return permissoes;
+	}
+	public void setPermissoes(String permissoes) {
+		this.permissoes = permissoes;
 	}
 	
 	

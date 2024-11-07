@@ -131,13 +131,13 @@ public class CadastroFuncionario extends JInternalFrame {
         		nome = txtName.getText();
         		senha = txtSenha.getText();
         		String id = txtId.getText();
-        		
+        		String permissoes = null;
         		txtName.setText("");
         		txtSenha.setText("");
         		txtId.setText("");
         		
         		
-        		 usuario = new Usuario(nome, senha, id);
+        		 usuario = new Usuario(nome, senha, id, permissoes);
         		 userDao.insert(usuario);
         		
         	}
