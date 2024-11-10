@@ -128,7 +128,7 @@ public class CadastroFuncionario extends JInternalFrame {
         panel_Fundo.setLayout(null);
         
         JComboBox comboBoxAcesso = new JComboBox();
-        comboBoxAcesso.setModel(new DefaultComboBoxModel(new String[] {"", "Admin ", "funcionario"}));
+        comboBoxAcesso.setModel(new DefaultComboBoxModel(new String[] {"", "Admin ", "Funcionario"}));
         comboBoxAcesso.setBounds(154, 227, 148, 24);
         panel_Fundo.add(comboBoxAcesso);
         
@@ -145,22 +145,23 @@ public class CadastroFuncionario extends JInternalFrame {
         		nome = txtName.getText();
         		senha = txtSenha.getText();
         		String id = txtId.getText();
-        		String permissoes = null;
+        		String permissoes = (String)comboBoxAcesso.getSelectedItem();
         		txtName.setText("");
         		txtSenha.setText("");
         		txtId.setText("");
+        		Usuario u = new Usuario(nome, senha, id, permissoes);
+        		System.out.println(u.getId()+u.getNome());
+        		
+        		 userDao.insert(u);
         		
         		
-        		 usuario = new Usuario(nome, senha, id, permissoes);
-        		 userDao.insert(usuario);
         		
         	}
         });
         
         btnSair.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
-			
+        		 dispose();			
         	}
         });
     }

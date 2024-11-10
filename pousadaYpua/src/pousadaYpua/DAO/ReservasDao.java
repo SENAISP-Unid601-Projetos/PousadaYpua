@@ -46,10 +46,10 @@ public class ReservasDao {
 	        }
 
 	    }
-	    public void delete(String cpf) {
-	        String sql = "DELETE FROM Reserva WHERE cpf = ?";
+	    public void delete(String numeroPedido) {
+	        String sql = "DELETE FROM Reserva WHERE numero_pedido = ?";
 	        try (PreparedStatement stmt = con.prepareStatement(sql)) {
-	        	stmt.setString(1, cpf);
+	        	stmt.setString(1, numeroPedido);
 	            stmt.executeUpdate(); 
 	        } catch (SQLException e) {
 	            throw new RuntimeException(e);
@@ -163,6 +163,16 @@ public class ReservasDao {
 			}
 	    	return null;
 			
+	    }
+	    public void deleteDatas(String numeroPedido) {
+	        String sql = "DELETE FROM DatasReservadas WHERE numero_pedido = ?";
+	        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+	        	stmt.setString(1, numeroPedido);
+	            stmt.executeUpdate(); 
+	        } catch (SQLException e) {
+	            throw new RuntimeException(e);
+	        }
+
 	    }
 
 }

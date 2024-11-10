@@ -41,7 +41,7 @@ public class UsuarioDao {
 	            JOptionPane.showMessageDialog(null, 
 	                    " Usuario cadastrado com sucesso.", 
 	                    "Success", 
-	                    JOptionPane.ERROR_MESSAGE);
+	                    JOptionPane.INFORMATION_MESSAGE);
 	            
 	        } catch (SQLException e) {
 	        	JOptionPane.showMessageDialog(null, 
@@ -71,17 +71,20 @@ public class UsuarioDao {
 		}
 	}
 	public Usuario buscarFuncionario(String idUsuario) {
-		String sql = "SELECT FROM Usuarios WHERE id = ? ";
+		String sql = "SELECT * FROM Usuarios WHERE id = ? ";
 		try(PreparedStatement stmt = con.prepareStatement(sql)){
 			stmt.setString(1, idUsuario);
 			ResultSet rs = stmt.executeQuery();
 			
+			
+			while (rs.next()) {
 			return new Usuario(
 					rs.getString("id"),
 					rs.getString("nome"),
 					rs.getString("senha"),
 					rs.getString("permissoes")
 					);
+			}
 					
 		}catch(SQLException e) {
 			

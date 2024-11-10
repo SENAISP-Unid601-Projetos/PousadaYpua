@@ -11,7 +11,7 @@ import pousadaYpua.utils.FileUtils;
 public class Database {
 
 	private Connection connection = null;
-	private final static String path ="jdbc:sqlite:C:\\Users\\Tania\\Documents\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\Pousada.db";
+	private final static String path ="jdbc:sqlite:/Users/macbookpro/Documents/Projeto-Integrador-Pousada/pousadaYpua/resources/Pousada.db";
 
 	private static Database instance = null;
 	

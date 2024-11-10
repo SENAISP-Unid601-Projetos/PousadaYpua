@@ -22,7 +22,7 @@ public class ClientesDao {
 	public ClientesDao() {
 
 		try {
-			// Exemplo de inicialização da conexão
+			
 			this.con = DriverManager.getConnection(path);
 
 		} catch (SQLException e) {
@@ -42,8 +42,7 @@ public class ClientesDao {
 			stmt.setString(7, cliente.getCidade());
 			stmt.setString(8, cliente.getCep());
 			stmt.setString(9, cliente.getEstado());
-			stmt.executeUpdate(); // Use executeUpdate() para inserções
-			
+			stmt.executeUpdate(); 
 			
 			JOptionPane.showMessageDialog(null, 
                     " Cliente cadastrado com sucesso.", 
@@ -78,9 +77,7 @@ public class ClientesDao {
 			stmt.setString(1, cpf2);
 			ResultSet rs = stmt.executeQuery();
 
-			if (rs.next()) { // Verificando se o cliente foi encontrado
-				// Criando um novo objeto Clientes com base nos dados retornados pelo SELECT
-
+			if (rs.next()) { 
 				String cpf = rs.getString("cpf");
 				String nome = rs.getString("nome");
 				String celular = rs.getString("celular");
@@ -117,9 +114,7 @@ public class ClientesDao {
 		try (PreparedStatement stmt = con.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
 
-			while (rs.next()) { // Verificando se o cliente foi encontrado
-				// Criando um novo objeto Clientes com base nos dados retornados pelo SELECT
-
+			while (rs.next()) {
 				String cpf = rs.getString("cpf");
 				String nome = rs.getString("nome");
 				String celular = rs.getString("celular");
@@ -145,5 +140,34 @@ public class ClientesDao {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+	}
+	
+	
+	public void atualizarCliente(Clientes cliente) {
+	    String sql = "UPDATE Clientes SET nome = ?, celular = ?, email = ?, endereco = ?, numero = ?, cidade = ?, cep = ?, estado = ? WHERE cpf = ?";
+		try (PreparedStatement stmt = con.prepareStatement(sql)) {
+			stmt.setString(1, cliente.getCpf());
+			stmt.setString(2, cliente.getNome());
+			stmt.setString(3, cliente.getCelular());
+			stmt.setString(4, cliente.getEmail());
+			stmt.setString(5, cliente.getEndereco());
+			stmt.setString(6, cliente.getNumero());
+			stmt.setString(7, cliente.getCidade());
+			stmt.setString(8, cliente.getCep());
+			stmt.setString(9, cliente.getEstado());
+			stmt.executeUpdate(); 
+			
+			
+			JOptionPane.showMessageDialog(null, 
+                    " Cliente atualizado com sucesso.", 
+                    "Success", 
+                    JOptionPane.INFORMATION_MESSAGE);
+            
+        } catch (SQLException e) {
+        	
+        }
+			
+	
+
 	}
 }
