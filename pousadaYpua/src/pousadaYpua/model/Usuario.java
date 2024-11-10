@@ -11,7 +11,7 @@ public class Usuario {
 		this.nome = nome;
 		this.senha = senha;
 		this.id = id;
-		this.setPermissoes(permissoes);
+		this.permissoes = permissoes;
 	}
 	public Usuario(String nome, String id) {
 		this.nome = nome;

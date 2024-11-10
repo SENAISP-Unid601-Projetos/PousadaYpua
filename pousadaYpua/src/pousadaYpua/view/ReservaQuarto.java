@@ -130,8 +130,11 @@ public class ReservaQuarto extends JInternalFrame {
 		panel.add(txtArea_InfoClient);
 
 		JComboBox comboBoxQuarto = new JComboBox();
+		comboBoxQuarto.setToolTipText("");
+		comboBoxQuarto.setName("");
 		comboBoxQuarto.setModel(new DefaultComboBoxModel(
-				new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14" }));
+				new String[] {" ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14" }));
+		comboBoxQuarto.setSelectedIndex(0);
 		comboBoxQuarto.setMaximumRowCount(12);
 		comboBoxQuarto.setBounds(468, 145, 122, 27);
 		panel.add(comboBoxQuarto);
@@ -196,6 +199,11 @@ public class ReservaQuarto extends JInternalFrame {
 
 		comboBoxQuarto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(comboBoxQuarto.getSelectedIndex() == 0) {
+					JOptionPane.showMessageDialog(null, "Escolha um quarto!", "Erro",
+							  JOptionPane.ERROR_MESSAGE);
+					return;
+				}
 				String numero = (String) comboBoxQuarto.getSelectedItem();
 
 				quarto = new Quarto(numero);
@@ -227,6 +235,13 @@ public class ReservaQuarto extends JInternalFrame {
 //
 //					reservaDao.insert(reserva);
 //				}
+				
+				if(comboBoxQuarto.getSelectedIndex() == 0) {
+					JOptionPane.showMessageDialog(null, "Escolha um quarto!", "Erro",
+							  JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+				
 
 				LocalDate dataEntrada = DataUtils.stringToDate(dataEntradaStr);
 				if(dataEntrada.isBefore(LocalDate.now())) {

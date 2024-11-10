@@ -1,25 +1,25 @@
 package pousadaYpua.view;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
-import java.awt.Color;
-import javax.swing.JButton;
-import java.awt.Font;
+
+import pousadaYpua.model.Gerenciador;
 
 public class Tela {
-    private String path = "C:\\Users\\Aluno\\Documents\\GitHub\\PousadaYpua\\pousadaYpua\\resources";
+    private String path = "C:\\Users\\Tania\\Documents\\GitHub\\PousadaYpua\\pousadaYpua\\resources";
     private JFrame frame;
     private JDesktopPane desktopPane;
     private JMenuBar menuBar; // Precisamos de referência ao menuBar para desabilitar
@@ -30,6 +30,7 @@ public class Tela {
     private JLabel lblNewLabel_1;
     private JLabel lblNewLabel_2;
     private JLabel lblNewLabel_3;
+    private Gerenciador gerenciador;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -55,6 +56,9 @@ public class Tela {
      * 
      */
     private void initialize() {
+    	gerenciador =  new Gerenciador();
+    	
+    	
         frame = new JFrame();
         frame.setBounds(100, 100, 1280,1024 );
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -87,6 +91,10 @@ public class Tela {
         textArea.setBounds(0, 0, 1540, 823);
         desktopPane.add(textArea);
         
+
+        
+        
+        //Cria barra de menu Superior
         menuBar = new JMenuBar();
         frame.setJMenuBar(menuBar);
         
@@ -182,6 +190,13 @@ public class Tela {
             }
         });
         mnNewMenu.add(mntmQuartosReservados);
+        
+        
+        // Iniciar o sistema na pagina de Login 
+        Login login =  new Login(gerenciador);
+        desktopPane.add(login);
+        login.setVisible(true);
+        //setMenuEnabled(false);
         
     }
     

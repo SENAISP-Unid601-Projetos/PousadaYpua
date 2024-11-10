@@ -70,10 +70,10 @@ public class UsuarioDao {
                     JOptionPane.ERROR_MESSAGE);
 		}
 	}
-	public Usuario buscarFuncionario(Usuario usuario) {
+	public Usuario buscarFuncionario(String idUsuario) {
 		String sql = "SELECT FROM Usuarios WHERE id = ? ";
 		try(PreparedStatement stmt = con.prepareStatement(sql)){
-			stmt.setString(1, usuario.getId());
+			stmt.setString(1, idUsuario);
 			ResultSet rs = stmt.executeQuery();
 			
 			return new Usuario(
@@ -89,12 +89,13 @@ public class UsuarioDao {
 		return null;
 	}
 	
-	public Usuario buscaDeFuncionario() {
+	public ArrayList<Usuario> buscaDeFuncionario() {
 		String sql = "SELECT * FROM Usuarios ";
+		ArrayList<Usuario> usuarios = new ArrayList<>();
+
 		try(PreparedStatement stmt = con.prepareStatement(sql)){
 			
 			ResultSet rs = stmt.executeQuery();
-			ArrayList<Usuario> usuarios = new ArrayList<>();
 
 			while (rs.next()) {
 			    Usuario usuario = new Usuario(
@@ -109,7 +110,7 @@ public class UsuarioDao {
 		}catch(SQLException e) {
 			
 		}
-		return null;
+		return usuarios;
 	}
 	
 	

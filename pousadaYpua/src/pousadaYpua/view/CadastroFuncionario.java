@@ -108,14 +108,14 @@ public class CadastroFuncionario extends JInternalFrame {
         JButton btnCadastrar = new JButton("CADASTRAR");
         btnCadastrar.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
         btnCadastrar.setBackground(new Color(255, 255, 255));
-        btnCadastrar.setBounds(239, 249, 139, 29);
+        btnCadastrar.setBounds(239, 302, 139, 29);
         panel.add(btnCadastrar);
         
         JButton btnSair = new JButton("SAIR");
         btnSair.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
         btnSair.setForeground(Color.BLACK);
         btnSair.setBackground(new Color(250, 255, 253));
-        btnSair.setBounds(88, 249, 117, 29);
+        btnSair.setBounds(88, 302, 117, 29);
         panel.add(btnSair);
                 
         JPanel panel_Fundo = new JPanel();
@@ -123,6 +123,7 @@ public class CadastroFuncionario extends JInternalFrame {
         panel_Fundo.setBackground(UIManager.getColor("Button.disabledForeground"));
         panel_Fundo.setBounds(0, 0, 446, 360);
         panel.add(panel_Fundo);
+        panel_Fundo.setLayout(null);
         
         
         btnCadastrar.addActionListener(new ActionListener() {
