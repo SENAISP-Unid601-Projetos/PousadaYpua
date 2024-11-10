@@ -22,6 +22,8 @@ import javax.swing.border.EmptyBorder;
 import pousadaYpua.DAO.UsuarioDao;
 import pousadaYpua.model.Usuario;
 import javax.swing.border.LineBorder;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class CadastroFuncionario extends JInternalFrame {
 
@@ -75,7 +77,7 @@ public class CadastroFuncionario extends JInternalFrame {
         JLabel lblNome = new JLabel("Nome: ");
         lblNome.setHorizontalAlignment(SwingConstants.LEFT);
         lblNome.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-        lblNome.setBounds(80, 146, 148, 24);
+        lblNome.setBounds(80, 146, 67, 24);
         panel.add(lblNome);
         
         txtName = new JTextField();
@@ -86,7 +88,7 @@ public class CadastroFuncionario extends JInternalFrame {
         JLabel lblSenha = new JLabel("Senha: ");
         lblSenha.setHorizontalAlignment(SwingConstants.LEFT);
         lblSenha.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-        lblSenha.setBounds(80, 188, 148, 24);
+        lblSenha.setBounds(80, 188, 67, 24);
         panel.add(lblSenha);
         
         txtSenha = new JPasswordField();
@@ -102,7 +104,7 @@ public class CadastroFuncionario extends JInternalFrame {
         JLabel lblId = new JLabel("ID: ");
         lblId.setHorizontalAlignment(SwingConstants.LEFT);
         lblId.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-        lblId.setBounds(80, 102, 148, 24);
+        lblId.setBounds(80, 102, 67, 24);
         panel.add(lblId);
         
         JButton btnCadastrar = new JButton("CADASTRAR");
@@ -124,6 +126,17 @@ public class CadastroFuncionario extends JInternalFrame {
         panel_Fundo.setBounds(0, 0, 446, 360);
         panel.add(panel_Fundo);
         panel_Fundo.setLayout(null);
+        
+        JComboBox comboBoxAcesso = new JComboBox();
+        comboBoxAcesso.setModel(new DefaultComboBoxModel(new String[] {"", "Admin ", "funcionario"}));
+        comboBoxAcesso.setBounds(154, 227, 148, 24);
+        panel_Fundo.add(comboBoxAcesso);
+        
+        JLabel lblAcesso = new JLabel("Acesso:");
+        lblAcesso.setHorizontalAlignment(SwingConstants.LEFT);
+        lblAcesso.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
+        lblAcesso.setBounds(77, 227, 67, 24);
+        panel_Fundo.add(lblAcesso);
         
         
         btnCadastrar.addActionListener(new ActionListener() {
