@@ -34,6 +34,10 @@ import pousadaYpua.model.Gerenciador;
 import pousadaYpua.model.Quarto;
 import pousadaYpua.model.Reserva;
 import pousadaYpua.utils.DataUtils;
+import javax.swing.JFormattedTextField;
+import javax.swing.UIManager;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 public class ReservaQuarto extends JInternalFrame {
 
@@ -75,24 +79,23 @@ public class ReservaQuarto extends JInternalFrame {
 		MaskFormatter dataMask = null;
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(0, 0, 1125, 675);
-
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-
-		JPanel panel = new JPanel();
-		panel.setBackground(UIManager.getColor("Button.shadow"));
-		panel.setBounds(0, 17, 1120, 617);
-
-		contentPane.add(panel);
-		panel.setLayout(null);
-
+	    setBounds(0, 0, 1125, 675);
+	    
+	    contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+	    setContentPane(contentPane);
+	    contentPane.setLayout(null);
+	    
+	    JPanel panel = new JPanel();
+	    panel.setBackground(Color.GRAY);
+	    panel.setBounds(0, 17, 1120, 617);
+	    
+	    contentPane.add(panel);
+	    panel.setLayout(null);
+		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(
-				"C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\imagemInterna.jpg"));
-		lblNewLabel.setBounds(376, 287, 714, 320);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\imgInterna.jpg"));
+		lblNewLabel.setBounds(430, 287, 661, 320);
 		panel.add(lblNewLabel);
 
 		JTextField textCpf = new JTextField();

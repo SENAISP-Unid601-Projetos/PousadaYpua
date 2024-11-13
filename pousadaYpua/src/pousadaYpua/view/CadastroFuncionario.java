@@ -122,7 +122,7 @@ public class CadastroFuncionario extends JInternalFrame {
                 
         JPanel panel_Fundo = new JPanel();
         panel_Fundo.setBorder(UIManager.getBorder("DesktopIcon.border"));
-        panel_Fundo.setBackground(UIManager.getColor("Button.disabledForeground"));
+        panel_Fundo.setBackground(Color.GRAY);
         panel_Fundo.setBounds(0, 0, 446, 360);
         panel.add(panel_Fundo);
         panel_Fundo.setLayout(null);

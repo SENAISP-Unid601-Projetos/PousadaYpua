@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Frame;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,10 +18,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextArea;
 
-import pousadaYpua.model.Gerenciador;
-
 public class Tela {
-    private String path = "C:\\Users\\Tania\\Documents\\GitHub\\PousadaYpua\\pousadaYpua\\resources";
+    private String path = "C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources";
     private JFrame frame;
     private JDesktopPane desktopPane;
     private JMenuBar menuBar; // Precisamos de referência ao menuBar para desabilitar
@@ -56,12 +56,17 @@ public class Tela {
      * 
      */
     private void initialize() {
-    	gerenciador =  new Gerenciador();
     	
-    	
-        frame = new JFrame();
+    
+        frame = new JFrame("Bem Vindo á Pousada Ypuã");
         frame.setBounds(100, 100, 1280,1024 );
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        // Carregar a imagem do ícone
+        Image icon = Toolkit.getDefaultToolkit().getImage("C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\logo-pousada.png");
+        frame.setIconImage(icon);
+
+        frame.setVisible(true);
         
         desktopPane = new JDesktopPane();
         frame.setContentPane(desktopPane);
@@ -91,10 +96,7 @@ public class Tela {
         textArea.setBounds(0, 0, 1540, 823);
         desktopPane.add(textArea);
         
-
-        
-        
-        //Cria barra de menu Superior
+       
         menuBar = new JMenuBar();
         frame.setJMenuBar(menuBar);
         
