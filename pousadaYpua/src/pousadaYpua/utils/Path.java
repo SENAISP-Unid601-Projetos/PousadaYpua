@@ -1,11 +1,15 @@
 package pousadaYpua.utils;
 
 public class Path {
+	private static String pathResources = "C:\\\\Users\\\\nicol\\\\Documentos\\\\GitHub\\\\PousadaYpua\\\\pousadaYpua\\\\resources";
+	private static String pathBanco = "jdbc:sqlite:C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\Pousada.db";
 	
-	private static String path = "C:\\\\Users\\\\nicol\\\\Documentos\\\\GitHub\\\\PousadaYpua\\\\pousadaYpua\\\\resources";
+	public static String getPathBanco() {
+		return pathBanco;	
+	}
 	
-	public static String getPath() {
-		return path;	
+	public static String getPathResources() {
+		return pathResources;
 	}
 
 }

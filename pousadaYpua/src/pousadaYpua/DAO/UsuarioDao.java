@@ -11,17 +11,18 @@ import javax.swing.JOptionPane;
 
 import pousadaYpua.database.Database;
 import pousadaYpua.model.Usuario;
+import pousadaYpua.utils.Path;
 
 public class UsuarioDao {
 
-	String path = Database.getPath();
+	
 	private Connection con;
 
 	public UsuarioDao() {
 
 		try {
 			// Exemplo de inicialização da conexão
-			this.con = DriverManager.getConnection(path);
+			this.con = DriverManager.getConnection(Path.getPathBanco());
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

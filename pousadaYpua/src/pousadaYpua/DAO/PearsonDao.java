@@ -9,17 +9,17 @@ import java.sql.Statement;
 
 import pousadaYpua.database.Database;
 import pousadaYpua.model.Pearson;
+import pousadaYpua.utils.Path;
 
 
 public class PearsonDao {
     private Connection con;
-	String path = Database.getPath();
-
+	
 
     public PearsonDao() {
         try {
             // Exemplo de inicialização da conexão
-            this.con = DriverManager.getConnection(path);
+            this.con = DriverManager.getConnection(Path.getPathBanco());
 
         } catch (SQLException e) {
             e.printStackTrace();

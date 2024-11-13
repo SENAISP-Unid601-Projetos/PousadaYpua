@@ -11,19 +11,20 @@ import javax.swing.JOptionPane;
 
 import pousadaYpua.database.Database;
 import pousadaYpua.model.Clientes;
+import pousadaYpua.utils.Path;
 
 public class ClientesDao {
 
 	private Connection con;
 	
 	
-	private String path = Database.getPath();
+
 	
 	public ClientesDao() {
 
 		try {
 			
-			this.con = DriverManager.getConnection(path);
+			this.con = DriverManager.getConnection(Path.getPathBanco());
 
 		} catch (SQLException e) {
 			e.printStackTrace();

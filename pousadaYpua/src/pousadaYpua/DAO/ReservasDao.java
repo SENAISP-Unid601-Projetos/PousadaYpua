@@ -10,10 +10,11 @@ import pousadaYpua.database.Database;
 import pousadaYpua.model.Clientes;
 import pousadaYpua.model.Quarto;
 import pousadaYpua.model.Reserva;
+import pousadaYpua.utils.Path;
 
 public class ReservasDao {
 	
-	private String path = Database.getPath();
+
 
 	 private Connection con;
 
@@ -21,7 +22,7 @@ public class ReservasDao {
 
 	        try {
 	            // Exemplo de inicialização da conexão
-	            this.con = DriverManager.getConnection(path);
+	            this.con = DriverManager.getConnection(Path.getPathBanco());
 
 	        } catch (
 	                SQLException e) {
