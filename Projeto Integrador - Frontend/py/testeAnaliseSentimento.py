@@ -1,3 +1,5 @@
+#Codigo para fazer teste de tabela e acuracia e precisão da IA implementada
+
 from sklearn.metrics import confusion_matrix, accuracy_score, precision_score
 from analiseSentimento import calcular_star_rating
 
