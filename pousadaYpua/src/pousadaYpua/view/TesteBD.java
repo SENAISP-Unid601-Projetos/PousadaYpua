@@ -7,7 +7,6 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 import pousadaYpua.DAO.PearsonDao;
-import pousadaYpua.DAO.QuartosDao;
 import pousadaYpua.database.Database;
 import pousadaYpua.model.Pearson;
 import pousadaYpua.model.Quarto;
