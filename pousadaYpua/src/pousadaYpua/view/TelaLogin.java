@@ -83,8 +83,8 @@ public class TelaLogin extends JDialog {
         JButton cancelButton = new JButton("Cancelar");
         cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                loginSuccessful = false; // Login cancelado
-                dispose(); // Fecha o diálogo
+                loginSuccessful = false; 
+                dispose(); 
             }
         });
         cancelButton.setActionCommand("Cancel");

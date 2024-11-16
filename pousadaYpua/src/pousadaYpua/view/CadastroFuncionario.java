@@ -46,6 +46,7 @@ public class CadastroFuncionario extends JInternalFrame {
                     CadastroFuncionario frame = new CadastroFuncionario();
                     frame.setVisible(true);
                     
+                    
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
