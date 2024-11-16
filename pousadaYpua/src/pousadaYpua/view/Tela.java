@@ -50,8 +50,20 @@ public class Tela {
         });
     }
     
+    
+    
+    
     public Tela() {
-        initialize();
+    	 TelaLogin telaLogin = new TelaLogin();
+    	    telaLogin.setVisible(true);
+
+    	    if (telaLogin.isLoginSuccessful()) {
+    	        initialize();
+    	    }
+    	    else {
+    	    	 System.exit(0);
+    	    }
+        
     }
 
     /**
@@ -65,7 +77,7 @@ public class Tela {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         // Carregar a imagem do ícone
-        Image icon = Toolkit.getDefaultToolkit().getImage("\\logo-pousada.png");
+        Image icon = Toolkit.getDefaultToolkit().getImage("/logo-pousada.png");
         frame.setIconImage(icon);
 
         frame.setVisible(true);

@@ -268,7 +268,7 @@ public class ReservaQuarto extends JInternalFrame {
 					System.out.println(reservaDao.buscarPedido());
 					reservaDao.insertDatas(reserva);
 					JOptionPane.showMessageDialog(null, "Reserva registrada com sucesso! ", "Sucesso",
-							JOptionPane.ERROR_MESSAGE);
+							JOptionPane.INFORMATION_MESSAGE);
 				}else {
 
 					JOptionPane.showMessageDialog(null, "Data já está reservada! ", "Erro",

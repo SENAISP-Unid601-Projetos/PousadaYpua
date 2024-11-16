@@ -86,11 +86,7 @@ public class Login extends JInternalFrame {
 		contentPane.add(lblSenha);
 		
 		JButton btnLogin = new JButton("Login");
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				gerenciador.verificaLogin(txtUsuario.getText(),textSenha.getText());
-			}
-		});
+		
 		btnLogin.setBackground(new Color(255, 255, 255));
 		btnLogin.setFont(new Font("Verdana", Font.PLAIN, 18));
 		btnLogin.setBounds(195, 239, 113, 30);
@@ -101,5 +97,27 @@ public class Login extends JInternalFrame {
 		btnSair.setFont(new Font("Verdana", Font.PLAIN, 18));
 		btnSair.setBounds(64, 239, 113, 30);
 		contentPane.add(btnSair);
+		
+		
+		
+		
+		
+		
+		
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gerenciador.verificaLogin(txtUsuario.getText(),textSenha.getText());
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			}
+		});
 	}
 }

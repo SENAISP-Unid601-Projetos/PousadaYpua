@@ -20,6 +20,7 @@ public class Database {
 		try {
 
 			connection = DriverManager.getConnection(Path.getPathBanco());
+			System.out.println(Path.getPathBanco());
 
 		} catch (Exception e) {
 			System.err.println("Houve um problema ao criar o banco, mas eu ja resolvi. :)");
@@ -30,19 +31,19 @@ public class Database {
 	
 	
 
-	public static void prePopulateDatabase() throws IOException, SQLException {
-
-		try {
-			Statement statement = getinstance().connection.createStatement();
-
-			String sql = FileUtils.loadTextFile(
-					"/Users/macbookpro/Documents/Projeto-Integrador-Pousada/pousadaYpua/resources/Descrition.sql");
-			System.out.println(sql);
-			statement.executeUpdate(sql);
-		}catch (Exception ex){
-			System.out.println("tratando as excecoes: " + ex.getMessage());
-		}
-	}
+//	public static void prePopulateDatabase() throws IOException, SQLException {
+//
+//		try {
+//			Statement statement = getinstance().connection.createStatement();
+//
+//			String sql = FileUtils.loadTextFile(
+//					"/Users/macbookpro/Documents/Projeto-Integrador-Pousada/pousadaYpua/resources/Descrition.sql");
+//			System.out.println(sql);
+//			statement.executeUpdate(sql);
+//		}catch (Exception ex){
+//			System.out.println("tratando as excecoes: " + ex.getMessage());
+//		}
+//	}
 
 	public static Database getinstance() throws IOException {
 		if (instance == null) {

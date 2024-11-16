@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -23,6 +24,7 @@ import pousadaYpua.DAO.UsuarioDao;
 import pousadaYpua.model.Usuario;
 import javax.swing.border.LineBorder;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.DefaultComboBoxModel;
 
 public class CadastroFuncionario extends JInternalFrame {
@@ -34,6 +36,7 @@ public class CadastroFuncionario extends JInternalFrame {
     private String nome;
     private String senha;
     private Usuario usuario;
+    JComponent contentPane = new JPanel();
     
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -54,19 +57,24 @@ public class CadastroFuncionario extends JInternalFrame {
     	setBorder(UIManager.getBorder("DesktopIcon.border"));
     	UsuarioDao userDao = new UsuarioDao();
     	
-        setTitle("Cadastro de Funcionário");
+    	setTitle("Cadastro de Funcionário");
         setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
-       
-        setBounds(270,205, 449, 389);
-        
+        setBounds(270, 205, 449, 389);
         setClosable(true);
         setMaximizable(true);
         setIconifiable(true);
 
+        contentPane.setBackground(Color.DARK_GRAY);
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentPane.setLayout(null); 
+        setContentPane(contentPane); 
+
         JPanel panel = new JPanel();
         panel.setBackground(UIManager.getColor("Button.shadow"));
-        getContentPane().add(panel);
+        panel.setBounds(0, 0, 449, 360); // Dimensão do painel
         panel.setLayout(null);
+        contentPane.add(panel); 
+        
         
         JLabel lblCadastroFuncionario = new JLabel("Cadastrar Funcionario");
         lblCadastroFuncionario.setHorizontalAlignment(SwingConstants.CENTER);
@@ -140,24 +148,32 @@ public class CadastroFuncionario extends JInternalFrame {
         
         
         btnCadastrar.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		
-        		nome = txtName.getText();
-        		senha = txtSenha.getText();
-        		String id = txtId.getText();
-        		String permissoes = (String)comboBoxAcesso.getSelectedItem();
-        		txtName.setText("");
-        		txtSenha.setText("");
-        		txtId.setText("");
-        		Usuario u = new Usuario(nome, senha, id, permissoes);
-        		System.out.println(u.getId()+u.getNome());
-        		
-        		 userDao.insert(u);
-        		
-        		
-        		
-        	}
+            public void actionPerformed(ActionEvent e) {
+                nome = txtName.getText();
+                senha = txtSenha.getText();
+                String id = txtId.getText();
+                String permissoes = (String) comboBoxAcesso.getSelectedItem();
+
+                if (nome.isEmpty() || senha.isEmpty() || id.isEmpty() || permissoes.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos!", "Erro", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                Usuario u = new Usuario(nome, senha, id, permissoes);
+
+                try {
+                    userDao.insert(u);
+                    JOptionPane.showMessageDialog(null, "Funcionário cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                    txtName.setText("");
+                    txtSenha.setText("");
+                    txtId.setText("");
+                    comboBoxAcesso.setSelectedIndex(0);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Erro ao cadastrar funcionário: " + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+            }
         });
+
         
         btnSair.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {

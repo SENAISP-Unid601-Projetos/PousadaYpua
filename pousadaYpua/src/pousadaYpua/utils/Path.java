@@ -1,8 +1,8 @@
 package pousadaYpua.utils;
 
 public class Path {
-	private static String pathResources = "C:\\\\Users\\\\nicol\\\\Documentos\\\\GitHub\\\\PousadaYpua\\\\pousadaYpua\\\\resources";
-	private static String pathBanco = "jdbc:sqlite:C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\Pousada.db";
+	private static String pathResources = "/Users/macbookpro/Documents/Projeto-Integrador-Pousada/pousadaYpua/resources";
+	private static String pathBanco = "jdbc:sqlite:/Users/macbookpro/Documents/Projeto-Integrador-Pousada/pousadaYpua/resources/Pousada.db";
 	
 	public static String getPathBanco() {
 		return pathBanco;	
