@@ -1,8 +1,11 @@
 package pousadaYpua.utils;
 
+import java.io.File;
+
 public class Path {
-	private static String pathResources = "/Users/macbookpro/Documents/Projeto-Integrador-Pousada/pousadaYpua/resources";
-	private static String pathBanco = "jdbc:sqlite:/Users/macbookpro/Documents/Projeto-Integrador-Pousada/pousadaYpua/resources/Pousada.db";
+	private static String rootPath = new File("").getAbsolutePath();
+	private static String pathResources = rootPath +File .separator+ "resources";
+	private static String pathBanco = "jdbc:sqlite:"+File .separator+ rootPath+ File .separator+ "resources"+File.separator+"Pousada.db";
 	
 	public static String getPathBanco() {
 		return pathBanco;	

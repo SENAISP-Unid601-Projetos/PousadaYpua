@@ -17,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 
 import pousadaYpua.DAO.UsuarioDao;
 import pousadaYpua.model.Usuario;
+import pousadaYpua.utils.Path;
 
 public class TelaLogin extends JDialog {
 
@@ -74,9 +75,9 @@ public class TelaLogin extends JDialog {
         JButton okButton = new JButton("Entrar");
         okButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //validarLogin();
-            	 String rootPath = new File("").getAbsolutePath();
-                 System.out.println("Caminho da pasta raiz do projeto: " + rootPath);
+                validarLogin();
+//            	 String rootPath = new File("").getAbsolutePath();
+//                 System.out.println(Path.getPathBanco() +"\n"+ Path.getPathResources());
             }
         });
         okButton.setActionCommand("OK");
