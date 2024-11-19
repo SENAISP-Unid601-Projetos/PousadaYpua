@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -73,7 +74,9 @@ public class TelaLogin extends JDialog {
         JButton okButton = new JButton("Entrar");
         okButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                validarLogin();
+                //validarLogin();
+            	 String rootPath = new File("").getAbsolutePath();
+                 System.out.println("Caminho da pasta raiz do projeto: " + rootPath);
             }
         });
         okButton.setActionCommand("OK");

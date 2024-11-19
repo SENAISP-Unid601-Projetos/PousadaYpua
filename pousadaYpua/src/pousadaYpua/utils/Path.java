@@ -11,5 +11,7 @@ public class Path {
 	public static String getPathResources() {
 		return pathResources;
 	}
+	
+	
 
 }
