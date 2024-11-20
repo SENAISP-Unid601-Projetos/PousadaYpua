@@ -28,7 +28,7 @@ import javax.swing.border.TitledBorder;
 public class CadastroCliente extends JInternalFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
+	
 	private JTextField txtNome;
 	private JTextField txtCelular;
 	private JTextField txtCpf;
@@ -40,6 +40,7 @@ public class CadastroCliente extends JInternalFrame {
 	private JTextField txtEstado;
 	private Clientes clientes;
 	ClientesDao clienteDao;
+	private JPanel contentPane;
 
 	/**
 	 * Launch the application.

@@ -90,6 +90,10 @@ public class QuartosReservados extends JInternalFrame {
 		panel.add(lblNewLabel);
 		
 		JButton btnInformacao = new JButton("Informações");
+		btnInformacao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnInformacao.setBackground(Color.LIGHT_GRAY);
 		
 		btnInformacao.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));

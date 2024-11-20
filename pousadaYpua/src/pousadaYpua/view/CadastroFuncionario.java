@@ -55,7 +55,7 @@ public class CadastroFuncionario extends JInternalFrame {
     }
     
     public CadastroFuncionario() {
-    	setBorder(UIManager.getBorder("DesktopIcon.border"));
+//    	setBorder(UIManager.getBorder("DesktopIcon.border"));
     	UsuarioDao userDao = new UsuarioDao();
     	
     	setTitle("Cadastro de Funcionário");
