@@ -62,7 +62,7 @@ public class CadastroCliente extends JInternalFrame {
 	public CadastroCliente() {
 		
 		super("Cadastro de Clientes");
-		setBorder(UIManager.getBorder("DesktopIcon.border"));
+//		setBorder(UIManager.getBorder("DesktopIcon.border"));
 		clienteDao  =  new ClientesDao();
 		
 		setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);

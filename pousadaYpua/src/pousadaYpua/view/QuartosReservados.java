@@ -57,7 +57,7 @@ public class QuartosReservados extends JInternalFrame {
 		getContentPane().setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 12));
 		setBackground(SystemColor.scrollbar);
 		getContentPane().setBackground(Color.GRAY);
-		setBorder(UIManager.getBorder("DesktopIcon.border"));
+//		setBorder(UIManager.getBorder("DesktopIcon.border"));
         setClosable(true);
         setResizable(true);
         setMaximizable(true);
