@@ -72,7 +72,7 @@ public class Tela {
     private void initialize() {
     	
     
-        frame = new JFrame("Bem Vindo á Pousada Ypuã");
+        frame = new JFrame("Pousada Ypuã");
         frame.setBounds(100, 100, 1280,1024 );
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -208,11 +208,7 @@ public class Tela {
         mnNewMenu.add(mntmQuartosReservados);
         
         
-        // Iniciar o sistema na pagina de Login 
-        Login login =  new Login(gerenciador);
-        desktopPane.add(login);
-        login.setVisible(true);
-        //setMenuEnabled(false);
+       
         
     }
     
