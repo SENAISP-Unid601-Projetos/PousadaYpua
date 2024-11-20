@@ -38,6 +38,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.UIManager;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import javax.swing.JFormattedTextField$AbstractFormatter;
 
 public class ReservaQuarto extends JInternalFrame {
 
@@ -95,7 +96,7 @@ public class ReservaQuarto extends JInternalFrame {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\imgInterna.jpg"));
-		lblNewLabel.setBounds(430, 287, 661, 320);
+		lblNewLabel.setBounds(430, 352, 661, 255);
 		panel.add(lblNewLabel);
 
 		JTextField textCpf = new JTextField();
@@ -181,6 +182,15 @@ public class ReservaQuarto extends JInternalFrame {
 		JFormattedTextField textDataEntrada = new JFormattedTextField(dataMask);
 		textDataEntrada.setBounds(468, 222, 122, 30);
 		panel.add(textDataEntrada);
+		
+		JFormattedTextField textDataSaida1 = new JFormattedTextField((AbstractFormatter) null);
+		textDataSaida1.setBounds(468, 304, 122, 30);
+		panel.add(textDataSaida1);
+		
+		JLabel lblDataSaid = new JLabel("DATA SAIDA");
+		lblDataSaid.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
+		lblDataSaid.setBounds(468, 264, 183, 30);
+		panel.add(lblDataSaid);
 
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -221,6 +231,7 @@ public class ReservaQuarto extends JInternalFrame {
 
 				String dataEntradaStr = textDataEntrada.getText();
 				String diasReservados = textDiasReservados.getText();
+				
 				int dias = Integer.parseInt(diasReservados);
 				boolean reservaCriada = false;
 
@@ -233,6 +244,7 @@ public class ReservaQuarto extends JInternalFrame {
 
 
 				clientes = clienteDao.buscar(cpf);
+				
 
 //				if (c.getCpf() == null || c.getCpf() == cpf) {
 //
@@ -252,6 +264,8 @@ public class ReservaQuarto extends JInternalFrame {
 												  JOptionPane.ERROR_MESSAGE);
 					return;
 				}
+				
+				
 				
 				for (int i = 0; i < dias; i++) {
 

@@ -9,6 +9,8 @@ public class Reserva {
 	private Clientes cliente;
 	private Quarto quarto;
 	private ArrayList<String> datasReservadas;
+	private String dataSaida;
+	
 	
 	public Reserva() {
 	}
@@ -34,6 +36,14 @@ public class Reserva {
 	}
 
 	
+	public Reserva(String dataEntrada,String dataSaida, String numeroPedido, Clientes cliente, Quarto quarto) {
+		this.numeroPedido = numeroPedido;
+		this.dataEntrada =  dataEntrada;
+		this.dataSaida = dataSaida;
+		this.cliente = cliente;
+		this.quarto = quarto;
+
+	}
 	public Reserva(String dataEntrada, String numeroPedido, Clientes cliente, Quarto quarto) {
 		this.numeroPedido = numeroPedido;
 		this.dataEntrada =  dataEntrada;
@@ -114,4 +124,15 @@ public class Reserva {
 		this.cliente = cliente;
 	}
 
+	
+	public String getDataSaida() {
+		return dataSaida;
+	}
+
+	public void setDataSaida(String dataSaida) {
+		this.dataSaida = dataSaida;
+	}
+
+	
+	
 }

@@ -175,5 +175,25 @@ public class ReservasDao {
 	        }
 
 	    }
+	    
+	    public void insert2(Reserva reserva) {
+	    	Clientes cliente = reserva.getCliente();	
+	    	Quarto quarto = reserva.getQuarto();
+	    			
+	    	
+	        String sql = "INSERT INTO Reserva (cpf, numero_quarto, data_entrada, data_saida) VALUES ( ?,?, ?, ?)";
+	        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+	            stmt.setString(1, cliente.getCpf());
+	            stmt.setString(2, quarto.getNumero());
+	            stmt.setString(3, reserva.getDataEntrada());
+	            stmt.setString(4, reserva.getDataSaida());
+
+	            
+	            stmt.executeUpdate(); 
+	        } catch (SQLException e) {
+	            throw new RuntimeException(e);
+	        }
+
+	    }
 
 }
