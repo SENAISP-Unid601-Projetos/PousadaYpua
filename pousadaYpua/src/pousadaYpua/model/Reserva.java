@@ -10,9 +10,16 @@ public class Reserva {
 	private Quarto quarto;
 	private ArrayList<String> datasReservadas;
 	private String dataSaida;
-	
-	
-	public Reserva() {
+	private String checkin;
+
+	public Reserva(String dataEntrada, String dataSaida, Clientes cliente, Quarto quarto, String checkin) {
+
+		this.dataEntrada = dataEntrada;
+		this.dataSaida = dataSaida;
+		this.cliente = cliente;
+		this.quarto = quarto;
+		this.checkin = checkin;
+
 	}
 
 	public Reserva(String dataEntrada) {
@@ -20,61 +27,61 @@ public class Reserva {
 
 	}
 
-	public Reserva(ArrayList<String> datasReservadas, String numeroPedido, Clientes cliente, Quarto quarto) {
-		this.datasReservadas = datasReservadas;
+//	public Reserva(ArrayList<String> datasReservadas, String numeroPedido, Clientes cliente, Quarto quarto) {
+//		this.datasReservadas = datasReservadas;
+//
+//		this.numeroPedido = numeroPedido;
+//		this.cliente = cliente;
+//		this.quarto = quarto;
+//
+//	}
 
+//	public Reserva(ArrayList<String> datasReservadas, Clientes cliente, Quarto quarto) {
+//		this.datasReservadas = datasReservadas;
+//		this.cliente = cliente;
+//		this.quarto = quarto;
+//
+//	}
+
+	public Reserva(String dataEntrada, String dataSaida, String numeroPedido, Clientes cliente, Quarto quarto) {
 		this.numeroPedido = numeroPedido;
-		this.cliente = cliente;
-		this.quarto = quarto;
-
-	}
-	public Reserva(ArrayList<String> datasReservadas,  Clientes cliente, Quarto quarto) {
-		this.datasReservadas = datasReservadas;
-		this.cliente = cliente;
-		this.quarto = quarto;
-
-	}
-
-	
-	public Reserva(String dataEntrada,String dataSaida, String numeroPedido, Clientes cliente, Quarto quarto) {
-		this.numeroPedido = numeroPedido;
-		this.dataEntrada =  dataEntrada;
+		this.dataEntrada = dataEntrada;
 		this.dataSaida = dataSaida;
 		this.cliente = cliente;
 		this.quarto = quarto;
 
 	}
-	public Reserva(String dataEntrada, String numeroPedido, Clientes cliente, Quarto quarto) {
-		this.numeroPedido = numeroPedido;
-		this.dataEntrada =  dataEntrada;
-		
+
+	public Reserva(String dataEntrada, String dataSaida, Clientes cliente, Quarto quarto) {
+
+		this.dataEntrada = dataEntrada;
+		this.dataSaida = dataSaida;
 		this.cliente = cliente;
 		this.quarto = quarto;
 
 	}
-	
+
 	public Reserva(String numeroPedido, Clientes cliente, Quarto quarto) {
 		this.numeroPedido = numeroPedido;
 
-		
 		this.cliente = cliente;
 		this.quarto = quarto;
 
 	}
-	
-	
-	public Reserva(String dataEntrada,  Quarto quarto) {
+
+	public Reserva(String dataEntrada, Quarto quarto) {
 		this.dataEntrada = dataEntrada;
 		this.quarto = quarto;
 
 	}
-	public Reserva(Clientes cliente,  Quarto quarto) {
+
+	public Reserva(Clientes cliente, Quarto quarto) {
 		this.cliente = cliente;
 		this.quarto = quarto;
 
 	}
-	
-	
+
+
 
 	public ArrayList<String> getDatasReservadas() {
 		return datasReservadas;
@@ -124,7 +131,6 @@ public class Reserva {
 		this.cliente = cliente;
 	}
 
-	
 	public String getDataSaida() {
 		return dataSaida;
 	}
@@ -133,6 +139,12 @@ public class Reserva {
 		this.dataSaida = dataSaida;
 	}
 
-	
-	
+	public String getCheckin() {
+		return checkin;
+	}
+
+	public void setCheckin(String checkin) {
+		this.checkin = checkin;
+	}
+
 }

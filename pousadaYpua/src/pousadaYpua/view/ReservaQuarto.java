@@ -5,7 +5,6 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -23,7 +22,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
@@ -34,11 +32,6 @@ import pousadaYpua.model.Gerenciador;
 import pousadaYpua.model.Quarto;
 import pousadaYpua.model.Reserva;
 import pousadaYpua.utils.DataUtils;
-import javax.swing.JFormattedTextField;
-import javax.swing.UIManager;
-import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
-import javax.swing.JFormattedTextField$AbstractFormatter;
 
 public class ReservaQuarto extends JInternalFrame {
 
@@ -183,7 +176,8 @@ public class ReservaQuarto extends JInternalFrame {
 		textDataEntrada.setBounds(468, 222, 122, 30);
 		panel.add(textDataEntrada);
 		
-		JFormattedTextField textDataSaida1 = new JFormattedTextField((AbstractFormatter) null);
+		JFormattedTextField textDataSaida1 = new JFormattedTextField(dataMask);
+		
 		textDataSaida1.setBounds(468, 304, 122, 30);
 		panel.add(textDataSaida1);
 		
@@ -231,7 +225,7 @@ public class ReservaQuarto extends JInternalFrame {
 
 				String dataEntradaStr = textDataEntrada.getText();
 				String diasReservados = textDiasReservados.getText();
-				
+				String dataSaidaStr = textDataSaida1.getText();
 				int dias = Integer.parseInt(diasReservados);
 				boolean reservaCriada = false;
 
@@ -251,11 +245,11 @@ public class ReservaQuarto extends JInternalFrame {
 //					reservaDao.insert(reserva);
 //				}
 				
-				if(comboBoxQuarto.getSelectedIndex() == 0) {
-					JOptionPane.showMessageDialog(null, "Escolha um quarto!", "Erro",
-							  JOptionPane.ERROR_MESSAGE);
-					return;
-				}
+//				if(comboBoxQuarto.getSelectedIndex() == 0) {
+//					JOptionPane.showMessageDialog(null, "Escolha um quarto!", "Erro",
+//							  JOptionPane.ERROR_MESSAGE);
+//					return;
+//				}
 				
 
 				LocalDate dataEntrada = DataUtils.stringToDate(dataEntradaStr);
@@ -265,31 +259,49 @@ public class ReservaQuarto extends JInternalFrame {
 					return;
 				}
 				
-				
-				
-				for (int i = 0; i < dias; i++) {
-
-					LocalDate increment = dataEntrada.plusDays(i);
-					datasReserva.add(DataUtils.dateToString(increment));
-//					reserva = new Reserva(DataUtils.dateToString(increment), clientes, quarto);
-					System.out.println(increment);
+				LocalDate dataSaida = DataUtils.stringToDate(dataSaidaStr);
+				if(dataSaida.isBefore(dataEntrada) || dataSaida.isEqual(dataEntrada)) 
+ {
+					JOptionPane.showMessageDialog(null, "Digite uma Data valida! ", "Erro",
+												  JOptionPane.ERROR_MESSAGE);
+					return;
 				}
 				
-				reserva = new Reserva(datasReserva, clientes, quarto);
-				if(gerenciador.verificaDatas(reserva)) {
-					reservaDao.insert(reserva);
-					reserva.setNumeroPedido(reservaDao.buscarPedido());
-					System.out.println(reservaDao.buscarPedido());
-					reservaDao.insertDatas(reserva);
-					JOptionPane.showMessageDialog(null, "Reserva registrada com sucesso! ", "Sucesso",
-							JOptionPane.INFORMATION_MESSAGE);
-				}else {
-
-					JOptionPane.showMessageDialog(null, "Data já está reservada! ", "Erro",
-							JOptionPane.ERROR_MESSAGE);
 				
-
+				if(reservaDao.verificaDisponibilidade(numero, dataEntradaStr, dataSaidaStr) ) {
+					reserva = new Reserva(dataEntradaStr, dataSaidaStr, clientes, quarto);
+					
+					reservaDao.insert2(reserva);
+					
+				}else {JOptionPane.showMessageDialog(null, "Data já reservada ", "Erro",
+						  JOptionPane.ERROR_MESSAGE);
+					
 				}
+				
+				
+//				for (int i = 0; i < dias; i++) {
+//
+//					LocalDate increment = dataEntrada.plusDays(i);
+//					datasReserva.add(DataUtils.dateToString(increment));
+////					reserva = new Reserva(DataUtils.dateToString(increment), clientes, quarto);
+//					System.out.println(increment);
+//				}
+//				
+//				reserva = new Reserva(datasReserva, clientes, quarto);
+//				if(gerenciador.verificaDatas(reserva)) {
+//					reservaDao.insert(reserva);
+//					reserva.setNumeroPedido(reservaDao.buscarPedido());
+//					System.out.println(reservaDao.buscarPedido());
+//					reservaDao.insertDatas(reserva);
+//					JOptionPane.showMessageDialog(null, "Reserva registrada com sucesso! ", "Sucesso",
+//							JOptionPane.INFORMATION_MESSAGE);
+//				}else {
+//
+//					JOptionPane.showMessageDialog(null, "Data já está reservada! ", "Erro",
+//							JOptionPane.ERROR_MESSAGE);
+//				
+//
+//				}
 
 			}
 		});

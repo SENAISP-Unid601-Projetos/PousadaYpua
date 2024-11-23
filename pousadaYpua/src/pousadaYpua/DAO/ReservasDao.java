@@ -5,8 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-import pousadaYpua.database.Database;
 import pousadaYpua.model.Clientes;
 import pousadaYpua.model.Quarto;
 import pousadaYpua.model.Reserva;
@@ -195,5 +196,53 @@ public class ReservasDao {
 	        }
 
 	    }
+	    
+	    public boolean verificaDisponibilidade(String numeroQuarto, String entrada, String saida) {
+	        String sql = "SELECT 1 FROM Reserva WHERE numero_quarto = ? AND (data_entrada < ? AND data_saida > ?)";
+	        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+	            stmt.setString(1, numeroQuarto);
+	            stmt.setString(2, saida);
+	            stmt.setString(3, entrada);
+
+	            ResultSet rs = stmt.executeQuery();
+	            return !rs.next(); // Se não retornar nada o quarto ta disponível
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	            return false;
+	        }
+	        
+	    
+	    }
+	    
+	    public List<Object[]> buscaReservas() {
+	        List<Object[]> reservas = new ArrayList<>();
+
+	    	
+	    	
+			String sql = "SELECT * FROM Reserva ";
+			
+			try (PreparedStatement stmt = con.prepareStatement(sql)) {
+				ResultSet rs = stmt.executeQuery();
+
+				while (rs.next()) {
+					Object[] reserva = {
+			                rs.getInt("numero_pedido"),
+			                rs.getString("cpf"),
+			                rs.getString("numero_quarto"),
+			                rs.getString("data_entrada"),
+			                rs.getString("data_saida"),
+			                rs.getString("checkin_status"),
+			                rs.getString("checkout_status")
+			            };
+
+			         reservas.add(reserva); // Adiciona a reserva à lista
+			        }
+				
+
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+			return reservas;
+		}
 
 }

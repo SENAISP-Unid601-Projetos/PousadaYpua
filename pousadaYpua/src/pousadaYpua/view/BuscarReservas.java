@@ -2,16 +2,21 @@ package pousadaYpua.view;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import pousadaYpua.DAO.ReservasDao;
+import pousadaYpua.model.Reserva;
 
 public class BuscarReservas extends JInternalFrame {
 
@@ -19,6 +24,8 @@ public class BuscarReservas extends JInternalFrame {
     private JPanel contentPane;
     private JTable tabelaReservas;
     private DefaultTableModel modeloTabela;
+    
+    ReservasDao reservaDao = new ReservasDao();
 
     /**
      * Launch the application.
@@ -28,6 +35,7 @@ public class BuscarReservas extends JInternalFrame {
             try {
                 BuscarReservas frame = new BuscarReservas();
                 frame.setVisible(true);
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -38,12 +46,17 @@ public class BuscarReservas extends JInternalFrame {
      * Create the frame.
      */
     public BuscarReservas() {
+    	tabelaReservas.setRowSelectionAllowed(true);
+    	tabelaReservas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 
+    	
+    	
         setTitle("Buscar Reservas");
         setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
         setBounds(0, 0, 1125, 675);
         setClosable(true);
         setMaximizable(true);
         setIconifiable(true);
+        
 
         contentPane = new JPanel();
         contentPane.setBackground(Color.DARK_GRAY);
@@ -53,11 +66,14 @@ public class BuscarReservas extends JInternalFrame {
 
         // Tabela para exibir reservas
         modeloTabela = new DefaultTableModel(
-                new Object[]{"ID Reserva", "Cliente", "Quarto", "Data Entrada", "Data Saída", "Ações"}, 0);
+                new Object[]{"ID Reserva", "CPF Cliente", "Quarto", "Data Entrada", "Data Saída", "Check-in", "Check-out"}, 0);
         tabelaReservas = new JTable(modeloTabela);
         JScrollPane scrollPane = new JScrollPane(tabelaReservas);
         scrollPane.setBounds(20, 20, 1080, 500);
         contentPane.add(scrollPane);
+        
+        tabelaReservas.getSelectedRow();
+        tabelaReservas.setRowSelectionAllowed(true);
 
         
         JButton btnCheckIn = new JButton("Realizar Check-In");
@@ -77,7 +93,15 @@ public class BuscarReservas extends JInternalFrame {
      * Simula carregamento de dados na tabela.
      */
     private void carregarReservas() {
-        modeloTabela.addRow(new Object[]{1, "João Silva", 101, "2024-10-20", "2024-10-25", "Check-In"});
-        modeloTabela.addRow(new Object[]{2, "Maria Oliveira", 202, "2024-10-22", "2024-10-28", "Check-In"});
+        // Limpa a tabela antes de adicionar novas linhas
+        modeloTabela.setRowCount(0);
+
+        // Recupera os dados de reservas
+        List<Object[]> reservas = reservaDao.buscaReservas();
+
+        // Adiciona os dados no modelo da tabela
+        for (Object[] reserva : reservas) {
+            modeloTabela.addRow(reserva);
+        }
     }
 }
