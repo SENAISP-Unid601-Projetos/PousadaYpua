@@ -244,5 +244,18 @@ public class ReservasDao {
 			}
 			return reservas;
 		}
+	    
+	    public void updateCheckin(Reserva reserva)  {
+	    	String sql = "UPDATE Reserva SET checkin_status = 'feito' WHERE numero_pedido = ?";
+	    	try 
+	    		(PreparedStatement stmt = con.prepareStatement(sql)){
+	    	stmt.setString(1, reserva.getNumeroPedido() );
+	    	
+	    	stmt.executeUpdate();
+	    	
+	    	}catch(SQLException e) {
+	    		throw new RuntimeException(e.getMessage());
+	    	}
+	    }
 
 }

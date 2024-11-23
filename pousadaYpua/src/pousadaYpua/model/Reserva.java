@@ -22,8 +22,8 @@ public class Reserva {
 
 	}
 
-	public Reserva(String dataEntrada) {
-		this.dataEntrada = dataEntrada;
+	public Reserva(String numeroPedido) {
+		this.numeroPedido = numeroPedido;
 
 	}
 
