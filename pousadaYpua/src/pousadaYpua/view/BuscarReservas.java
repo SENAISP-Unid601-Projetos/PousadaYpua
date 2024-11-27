@@ -19,6 +19,8 @@ import javax.swing.table.DefaultTableModel;
 
 import pousadaYpua.DAO.ReservasDao;
 import pousadaYpua.model.Reserva;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 public class BuscarReservas extends JInternalFrame {
 
@@ -30,6 +32,7 @@ public class BuscarReservas extends JInternalFrame {
     private Reserva reserva;
     
     ReservasDao reservaDao = new ReservasDao();
+    private JTextField txtDigiteOCpf;
 
     /**
      * Launch the application.
@@ -77,12 +80,33 @@ public class BuscarReservas extends JInternalFrame {
 
         
         JScrollPane scrollPane = new JScrollPane(tabelaReservas);
-        scrollPane.setBounds(20, 20, 1080, 500);
+        scrollPane.setBounds(15, 52, 1080, 500);
         contentPane.add(scrollPane);
 
         JButton btnCheckIn = new JButton("Realizar Check-In");
-        btnCheckIn.setBounds(950, 550, 150, 30);
+        btnCheckIn.setBounds(786, 564, 150, 30);
         contentPane.add(btnCheckIn);
+        
+        txtDigiteOCpf = new JTextField();
+        txtDigiteOCpf.setEditable(false);
+        txtDigiteOCpf.setText("DIGITE O CPF");
+        txtDigiteOCpf.setBounds(154, 14, 122, 26);
+        contentPane.add(txtDigiteOCpf);
+        txtDigiteOCpf.setColumns(10);
+        
+        JLabel lblBuscarReserva = new JLabel("BUSCAR RESERVA:");
+        lblBuscarReserva.setBounds(24, 19, 122, 16);
+        contentPane.add(lblBuscarReserva);
+        
+        JButton btnBuscar = new JButton("BUSCAR");
+        
+        btnBuscar.setBounds(288, 14, 122, 29);
+        contentPane.add(btnBuscar);
+        
+        JButton btnCheckout = new JButton("Realizar Check-Out");
+        
+        btnCheckout.setBounds(948, 564, 150, 30);
+        contentPane.add(btnCheckout);
 
         
         tabelaReservas.addMouseListener(new MouseAdapter() {
@@ -116,6 +140,8 @@ public class BuscarReservas extends JInternalFrame {
                 }
             }
         });
+        
+       
 
         carregarReservas();
 
@@ -142,6 +168,39 @@ public class BuscarReservas extends JInternalFrame {
                 }
             }
         });
+        
+        btnCheckout.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		int linhaSelecionada = tabelaReservas.getSelectedRow();
+                if (linhaSelecionada != -1) {
+                	
+               
+                    // Obtém os dados da linha selecionada
+                    Object idReserva = tabelaReservas.getValueAt(linhaSelecionada, 0);
+                    reservaDao.updateCheckout(reserva);
+                    carregarReservas();
+                    // Realiza o Check-In (simulado com mensagem)
+                    JOptionPane.showMessageDialog(contentPane, 
+                            "Check-Out realizado para a reserva ID: " + idReserva,
+                            "Check-Out", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    // Caso nenhuma linha esteja selecionada
+                    JOptionPane.showMessageDialog(contentPane, 
+                            "Selecione uma reserva para realizar o Check-Out.",
+                            "Aviso", JOptionPane.WARNING_MESSAGE);
+                }
+        		
+        	}
+        });
+        
+        btnBuscar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	
+        		
+        		reserva = reservaDao.buscarReservasPorCpf(reserva);
+        		
+        	}
+        });
     }
 
     /**
@@ -162,4 +221,24 @@ public class BuscarReservas extends JInternalFrame {
             modeloTabela.addRow(reserva);
         }
     }
+    private void carregarReservasPorCpf() {
+        // Limpa a tabela antes de adicionar novas linhas
+        modeloTabela.setRowCount(0);
+        
+
+        // Recupera os dados de reservas
+        List<Object[]> reservas = reservaDao.buscaReservasPorCpf(cpf);
+
+        
+       
+
+        // Adiciona os dados no modelo da tabela
+        for (Object[] reserva : reservas) {
+            modeloTabela.addRow(reserva);
+        }
+    }
+    
+    
+    
+    
 }
