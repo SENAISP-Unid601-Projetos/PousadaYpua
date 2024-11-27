@@ -10,17 +10,18 @@ import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import pousadaYpua.DAO.ReservasDao;
+import pousadaYpua.model.Clientes;
 import pousadaYpua.model.Reserva;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
 
 public class BuscarReservas extends JInternalFrame {
 
@@ -32,6 +33,7 @@ public class BuscarReservas extends JInternalFrame {
     private Reserva reserva;
     
     ReservasDao reservaDao = new ReservasDao();
+    Clientes cliente ;
     private JTextField txtDigiteOCpf;
 
     /**
@@ -54,6 +56,9 @@ public class BuscarReservas extends JInternalFrame {
      */
     @SuppressWarnings("deprecation")
 	public BuscarReservas() {
+    	
+    	
+    	
         setTitle("Buscar Reservas");
         setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
         setBounds(0, 0, 1125, 675);
@@ -88,7 +93,6 @@ public class BuscarReservas extends JInternalFrame {
         contentPane.add(btnCheckIn);
         
         txtDigiteOCpf = new JTextField();
-        txtDigiteOCpf.setEditable(false);
         txtDigiteOCpf.setText("DIGITE O CPF");
         txtDigiteOCpf.setBounds(154, 14, 122, 26);
         contentPane.add(txtDigiteOCpf);
@@ -194,12 +198,11 @@ public class BuscarReservas extends JInternalFrame {
         });
         
         btnBuscar.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        	
-        		
-        		reserva = reservaDao.buscarReservasPorCpf(reserva);
-        		
-        	}
+            public void actionPerformed(ActionEvent e) {
+                String cpf = txtDigiteOCpf.getText();
+                List<Reserva> reservas = reservaDao.buscaTodasReservasPorCpf(cpf);
+                carregarReservasPorCpf(reservas);
+            }
         });
     }
 
@@ -221,22 +224,22 @@ public class BuscarReservas extends JInternalFrame {
             modeloTabela.addRow(reserva);
         }
     }
-    private void carregarReservasPorCpf() {
-        // Limpa a tabela antes de adicionar novas linhas
+    private void carregarReservasPorCpf(List<Reserva> reservas) {
         modeloTabela.setRowCount(0);
-        
 
-        // Recupera os dados de reservas
-        List<Object[]> reservas = reservaDao.buscaReservasPorCpf(cpf);
-
-        
-       
-
-        // Adiciona os dados no modelo da tabela
-        for (Object[] reserva : reservas) {
-            modeloTabela.addRow(reserva);
+        for (Reserva reserva : reservas) {
+            modeloTabela.addRow(new Object[] {
+                reserva.getNumeroPedido(),
+                reserva.getCliente().getCpf(),
+                reserva.getQuarto().getNumero(),
+                reserva.getDataEntrada(),
+                reserva.getDataSaida(),
+                reserva.getCheckin(),
+                reserva.getDataSaida()
+            });
         }
     }
+
     
     
     

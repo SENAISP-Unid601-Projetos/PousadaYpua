@@ -244,44 +244,35 @@ public class ReservasDao {
 			}
 			return reservas;
 		}
-	    public Reserva buscaReservasPorCpf(String cpf) {
-	    	Clientes cliente = reserva.getCliente();	
-	    	Quarto quarto = reserva.getQuarto();
-	    	
-	    	
-			String sql = "SELECT * FROM Reserva WHERE cpf = ?";
-			
-			try (PreparedStatement stmt = con.prepareStatement(sql)) {
-				stmt.setString(1, cliente.getCpf() );
-				ResultSet rs = stmt.executeQuery();
+	    public List<Reserva> buscaTodasReservasPorCpf(String cpf) {
+	        List<Reserva> reservas = new ArrayList<>();
+	        String sql = "SELECT * FROM Reserva WHERE cpf = ?";
 
-				while (rs.next()) {
-					
-			            String numeroPedido =     rs.getString("numero_pedido");
-			        String cpf =        rs.getString("cpf");
-			            String numeroQuarto =    rs.getString("numero_quarto");
-			            String dataEntrada =    rs.getString("data_entrada");
-			            String dataSaida=     rs.getString("data_saida");
-			              String checkin =  rs.getString("checkin_status");
-			              String checkout =  rs.getString("checkout_status");
-			           
+	        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+	            stmt.setString(1, cpf);
+	            ResultSet rs = stmt.executeQuery();
 
-			        
-			        
-			 cliente = new Clientes(cpf);
-				 quarto = new Quarto(numeroQuarto);
-				return new Reserva(numeroPedido, checkin, checkout, cliente, quarto);
-				}
-				
-				
+	            while (rs.next()) {
+	                String numeroPedido = rs.getString("numero_pedido");
+	                String numeroQuarto = rs.getString("numero_quarto");
+	                String dataEntrada = rs.getString("data_entrada");
+	                String dataSaida = rs.getString("data_saida");
+	                String checkin = rs.getString("checkin_status");
+	                String checkout = rs.getString("checkout_status");
 
-			} catch (SQLException e) {
-				throw new RuntimeException(e);
-			}
-			return null;
-			
-		}
-	    
+	                Clientes cliente = new Clientes(cpf);
+	                Quarto quarto = new Quarto(numeroQuarto);
+
+	                reservas.add(new Reserva(numeroPedido, checkin, checkout, cliente, quarto));
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+
+	        return reservas;
+	    }
+
+
 	    public void updateCheckin(Reserva reserva)  {
 	    	String sql = "UPDATE Reserva SET checkin_status = 'feito' WHERE numero_pedido = ?";
 	    	try 
