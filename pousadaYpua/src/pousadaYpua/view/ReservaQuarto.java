@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ import pousadaYpua.model.Gerenciador;
 import pousadaYpua.model.Quarto;
 import pousadaYpua.model.Reserva;
 import pousadaYpua.utils.DataUtils;
+import pousadaYpua.utils.Path;
 
 public class ReservaQuarto extends JInternalFrame {
 
@@ -88,7 +90,7 @@ public class ReservaQuarto extends JInternalFrame {
 	    panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\nicol\\Documentos\\GitHub\\PousadaYpua\\pousadaYpua\\resources\\imgInterna.jpg"));
+		lblNewLabel.setIcon(new ImageIcon(Path.getPathResources()+File.pathSeparator+"imgInterna.jpg"));
 		lblNewLabel.setBounds(430, 352, 661, 255);
 		panel.add(lblNewLabel);
 
