@@ -4,21 +4,35 @@ import java.util.ArrayList;
 
 public class Reserva {
 	private String dataEntrada;
-	private int diasReservado;
+	private String dataSaida;
 	private String numeroPedido;
 	private Clientes cliente;
 	private Quarto quarto;
-	private ArrayList<String> datasReservadas;
-	private String dataSaida;
 	private String checkin;
+	private String checkout;
 
-	public Reserva(String dataEntrada, String dataSaida, Clientes cliente, Quarto quarto, String checkin) {
+	public Reserva(String dataEntrada, String dataSaida, Clientes cliente, Quarto quarto, String checkin, String checkout) {
 
 		this.dataEntrada = dataEntrada;
 		this.dataSaida = dataSaida;
 		this.cliente = cliente;
 		this.quarto = quarto;
 		this.checkin = checkin;
+		this.checkout = checkout;
+		
+
+	}
+	public Reserva(String numeroPedido, String dataEntrada, String dataSaida, Clientes cliente, Quarto quarto, String checkin, String checkout) {
+
+		
+		this.numeroPedido = numeroPedido;
+		this.dataEntrada = dataEntrada;
+		this.dataSaida = dataSaida;
+		this.cliente = cliente;
+		this.quarto = quarto;
+		this.checkin = checkin;
+		this.checkout = checkout;
+		
 
 	}
 
@@ -61,36 +75,8 @@ public class Reserva {
 
 	}
 
-	public Reserva(String numeroPedido, Clientes cliente, Quarto quarto) {
-		this.numeroPedido = numeroPedido;
-
-		this.cliente = cliente;
-		this.quarto = quarto;
-
-	}
-
-	public Reserva(String dataEntrada, Quarto quarto) {
-		this.dataEntrada = dataEntrada;
-		this.quarto = quarto;
-
-	}
-
-	public Reserva(Clientes cliente, Quarto quarto) {
-		this.cliente = cliente;
-		this.quarto = quarto;
-
-	}
-
-
-
-	public ArrayList<String> getDatasReservadas() {
-		return datasReservadas;
-	}
-
-	public void setDatasReservadas(ArrayList<String> datasReservadas) {
-		this.datasReservadas = datasReservadas;
-	}
-
+	
+	
 	public String getDataEntrada() {
 		return dataEntrada;
 	}
@@ -98,14 +84,10 @@ public class Reserva {
 	public void setDataEntrada(String dataEntrada) {
 		this.dataEntrada = dataEntrada;
 	}
+	
+	
 
-	public int getDiasReservado() {
-		return diasReservado;
-	}
-
-	public void setDiasReservado(int diasReservado) {
-		this.diasReservado = diasReservado;
-	}
+	
 
 	public Quarto getQuarto() {
 		return quarto;
@@ -146,5 +128,14 @@ public class Reserva {
 	public void setCheckin(String checkin) {
 		this.checkin = checkin;
 	}
+
+	public String getCheckout() {
+		return checkout;
+	}
+
+	public void setCheckout(String checkout) {
+		this.checkout = checkout;
+	}
+	
 
 }

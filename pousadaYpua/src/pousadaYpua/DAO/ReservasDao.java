@@ -58,30 +58,7 @@ public class ReservasDao {
 	        }
 
 	    }
-	    public Reserva buscar(String cpf) {
-			String sql = "SELECT * FROM Reservas WHERE cpf = ?";
-			try(PreparedStatement stmt = con.prepareStatement(sql)){
-				stmt.setString(1, cpf);
-			ResultSet rs = stmt.executeQuery();
-			
-			if(rs.next()) {
-				String numeroPedido = rs.getString("numero_pedido");
-				String cpf2 = rs.getString("cpf");
-				String numeroQuarto = rs.getString("numero_quarto");
-				String dataReservada = rs.getString("data_reservada");
-				
-				
-				Clientes cliente = new Clientes(cpf2);
-				Quarto quarto = new Quarto(numeroQuarto);
-				return new Reserva(dataReservada, numeroPedido, cliente, quarto);
-			}
-			
-			}catch(Exception e) {
-				
-			}
-			return null;
-	    	
-	    }
+	   
 	    
 	    
 	    public boolean existeReserva(String cpf) {
@@ -126,25 +103,7 @@ public class ReservasDao {
 			
 	    }
 	    
-	    public void insertDatas(Reserva reserva) {
-	    	
-	    	for(String data : reserva.getDatasReservadas()) {
-	    		String sql = "INSERT INTO DatasReservadas (numero_pedido, cpf, numero_quarto, datas_reservadas) VALUES (?,?,?,?)";
-		    	try (PreparedStatement stmt = con.prepareStatement(sql)) {
-		    		stmt.setString(1, reserva.getNumeroPedido());
-		            stmt.setString(2, reserva.getCliente().getCpf());
-		            stmt.setString(3, reserva.getQuarto().getNumero());
-		            stmt.setString(4, data);
-		            
-		            
-		            stmt.executeUpdate(); 
-		        } catch (SQLException e) {
-		            throw new RuntimeException(e);
-		        }
-	    	}
-	    	
-
-	    }
+	   
 	    
 	    public String buscarPedido()  {
 	    	String sql = "SELECT MAX(numero_pedido) AS numero_pedido FROM Reservas ";
@@ -219,7 +178,7 @@ public class ReservasDao {
 
 	    	
 	    	
-			String sql = "SELECT * FROM Reserva ";
+			String sql = "SELECT * FROM Reserva WHERE (checkin_status = 'feito' OR  checkin_status = 'pendente') AND checkout_status = 'pendente' ";
 			
 			try (PreparedStatement stmt = con.prepareStatement(sql)) {
 				ResultSet rs = stmt.executeQuery();
@@ -244,7 +203,7 @@ public class ReservasDao {
 			}
 			return reservas;
 		}
-	    public List<Reserva> buscaTodasReservasPorCpf(String cpf) {
+	    public List<Reserva> buscaReservaPorCpf(String cpf) {
 	        List<Reserva> reservas = new ArrayList<>();
 	        String sql = "SELECT * FROM Reserva WHERE cpf = ?";
 
@@ -254,23 +213,28 @@ public class ReservasDao {
 
 	            while (rs.next()) {
 	                String numeroPedido = rs.getString("numero_pedido");
+	                cpf = rs.getString("cpf");
 	                String numeroQuarto = rs.getString("numero_quarto");
 	                String dataEntrada = rs.getString("data_entrada");
 	                String dataSaida = rs.getString("data_saida");
 	                String checkin = rs.getString("checkin_status");
 	                String checkout = rs.getString("checkout_status");
 
-	                Clientes cliente = new Clientes(cpf);
-	                Quarto quarto = new Quarto(numeroQuarto);
+	                // Supondo que Cliente e Quarto são classes que você tem no seu modelo
+	                Clientes cliente = new Clientes(cpf);  // Criando um cliente com o CPF
+	                Quarto quarto = new Quarto(numeroQuarto); // Criando um quarto com o número
 
-	                reservas.add(new Reserva(numeroPedido, checkin, checkout, cliente, quarto));
+	                // Criando a reserva
+	                reservas.add(new Reserva(numeroPedido, dataEntrada, dataSaida, cliente, quarto, checkin, checkout));
 	            }
+
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
 
 	        return reservas;
 	    }
+
 
 
 	    public void updateCheckin(Reserva reserva)  {

@@ -111,6 +111,11 @@ public class BuscarReservas extends JInternalFrame {
         
         btnCheckout.setBounds(948, 564, 150, 30);
         contentPane.add(btnCheckout);
+        
+        JButton btnNewButton = new JButton("RELOAD");
+        
+        btnNewButton.setBounds(424, 14, 82, 29);
+        contentPane.add(btnNewButton);
 
         
         tabelaReservas.addMouseListener(new MouseAdapter() {
@@ -200,9 +205,17 @@ public class BuscarReservas extends JInternalFrame {
         btnBuscar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String cpf = txtDigiteOCpf.getText();
-                List<Reserva> reservas = reservaDao.buscaTodasReservasPorCpf(cpf);
+                List<Reserva> reservas = reservaDao.buscaReservaPorCpf(cpf);
+                
                 carregarReservasPorCpf(reservas);
             }
+        });
+        
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        		carregarReservas();
+        	}
         });
     }
 
@@ -228,20 +241,16 @@ public class BuscarReservas extends JInternalFrame {
         modeloTabela.setRowCount(0);
 
         for (Reserva reserva : reservas) {
+            // Adiciona uma nova linha para cada reserva encontrada
             modeloTabela.addRow(new Object[] {
-                reserva.getNumeroPedido(),
-                reserva.getCliente().getCpf(),
-                reserva.getQuarto().getNumero(),
-                reserva.getDataEntrada(),
-                reserva.getDataSaida(),
-                reserva.getCheckin(),
-                reserva.getDataSaida()
+                reserva.getNumeroPedido(),              
+                reserva.getCliente().getCpf(),          
+                reserva.getQuarto().getNumero(),        
+                reserva.getDataEntrada(),               
+                reserva.getDataSaida(),                 
+                reserva.getCheckin(),                   
+                reserva.getCheckout()                    // Status do check-out
             });
         }
     }
-
-    
-    
-    
-    
 }

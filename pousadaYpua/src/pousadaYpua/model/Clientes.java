@@ -21,7 +21,7 @@ public class Clientes {
 	}
 
 	public String getInfo() {
-		String s = "Nome: " + this.nome +"\n"+ " Celular: " + celular + "\n"+" CPF: " + cpf +"\n"+
+		String s = " Nome: " + this.nome +"\n"+ " Celular: " + celular + "\n"+" CPF: " + cpf +"\n"+
 	" Email: " + email + "\n"+ " Endereço: " + endereco +"\n"+
 	" Numero: "+ numero +"\n"+ " Cidade: " + cidade
 	+ "\n"+ " Cep: " + cep + "\n"+" Estado: " + estado;

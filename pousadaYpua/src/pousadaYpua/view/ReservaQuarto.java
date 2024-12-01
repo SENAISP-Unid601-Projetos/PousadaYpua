@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
+import javax.swing.JDesktopPane;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -43,7 +44,7 @@ public class ReservaQuarto extends JInternalFrame {
 	Reserva reserva;
 	Gerenciador gerenciador;
 	JComponent contentPane = new JPanel();
-	private JTextField textDiasReservados;
+	 private JDesktopPane desktopPane;
 
 	/**
 	 * Launch the application.
@@ -65,10 +66,17 @@ public class ReservaQuarto extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public ReservaQuarto() {
+		
 
 		super("Reserva de Quartos");
 		setClosable(true);
-
+		
+		desktopPane = new JDesktopPane(); 
+	    setContentPane(desktopPane); 
+	    contentPane = new JPanel(); 
+	    contentPane.setLayout(null);
+	    desktopPane.add(contentPane);		 
+		 
 		ClientesDao clienteDao = new ClientesDao();
 		ReservasDao reservaDao = new ReservasDao();
 		Gerenciador gerenciador = new Gerenciador();
@@ -95,7 +103,7 @@ public class ReservaQuarto extends JInternalFrame {
 		panel.add(lblNewLabel);
 
 		JTextField textCpf = new JTextField();
-		textCpf.setBounds(468, 39, 263, 30);
+		textCpf.setBounds(468, 38, 263, 30);
 		panel.add(textCpf);
 		textCpf.setColumns(10);
 
@@ -125,7 +133,7 @@ public class ReservaQuarto extends JInternalFrame {
 
 		JTextArea txtArea_InfoClient = new JTextArea();
 		txtArea_InfoClient.setEditable(false);
-		txtArea_InfoClient.setBounds(20, 63, 311, 290);
+		txtArea_InfoClient.setBounds(20, 63, 311, 150);
 		panel.add(txtArea_InfoClient);
 
 		JComboBox comboBoxQuarto = new JComboBox();
@@ -143,24 +151,10 @@ public class ReservaQuarto extends JInternalFrame {
 		lblNQuarto.setBounds(468, 103, 183, 30);
 		panel.add(lblNQuarto);
 
-		textDiasReservados = new JTextField();
-		textDiasReservados.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		textDiasReservados.setColumns(10);
-		textDiasReservados.setBounds(626, 222, 130, 30);
-		panel.add(textDiasReservados);
-
 		JLabel lblDataEntrada = new JLabel("DATA ENTRADA");
 		lblDataEntrada.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
 		lblDataEntrada.setBounds(468, 182, 183, 30);
 		panel.add(lblDataEntrada);
-
-		JLabel lblDataSaida = new JLabel("DIAS RESERVADOS");
-		lblDataSaida.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-		lblDataSaida.setBounds(626, 182, 183, 30);
-		panel.add(lblDataSaida);
 
 		JButton btnReservar = new JButton("RESERVAR");
 
@@ -175,17 +169,17 @@ public class ReservaQuarto extends JInternalFrame {
 		}
 
 		JFormattedTextField textDataEntrada = new JFormattedTextField(dataMask);
-		textDataEntrada.setBounds(468, 222, 122, 30);
+		textDataEntrada.setBounds(468, 221, 122, 30);
 		panel.add(textDataEntrada);
 		
 		JFormattedTextField textDataSaida1 = new JFormattedTextField(dataMask);
 		
-		textDataSaida1.setBounds(468, 304, 122, 30);
+		textDataSaida1.setBounds(623, 221, 122, 30);
 		panel.add(textDataSaida1);
 		
 		JLabel lblDataSaid = new JLabel("DATA SAIDA");
 		lblDataSaid.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 14));
-		lblDataSaid.setBounds(468, 264, 183, 30);
+		lblDataSaid.setBounds(623, 182, 183, 30);
 		panel.add(lblDataSaid);
 
 		btnBuscar.addActionListener(new ActionListener() {
@@ -198,9 +192,43 @@ public class ReservaQuarto extends JInternalFrame {
 					txtArea_InfoClient.setText(clientes.getInfo());
 					System.out.println(clientes.getCpf() + clientes.getNome());
 				} else {
-					txtArea_InfoClient.setText(
-							"O cliente buscado não existe!\nDigite um CPF valido ou \ncadatre um novo Cliente!");
-					System.out.println("Cliente Inexistente");
+				    // Opções dos botões
+				    Object[] opcoes = {"Tentar Novamente", "Cadastrar Novo Cliente"};
+				    
+				    // Exibir diálogo personalizado
+				    int resposta = JOptionPane.showOptionDialog(
+				        null,
+				        "O cliente buscado não existe!\nDigite um CPF válido ou cadastre um novo cliente!",
+				        "Cliente Inexistente",
+				        JOptionPane.YES_NO_OPTION, // Dois botões: "Sim" e "Não"
+				        JOptionPane.WARNING_MESSAGE,
+				        null,
+				        opcoes,
+				        opcoes[0] 
+				    );
+
+				    
+				    if (resposta == JOptionPane.YES_OPTION) {
+				        
+				    } else if (resposta == JOptionPane.NO_OPTION) {
+				    	try {
+				            CadastroCliente telaCadastroCliente = new CadastroCliente();
+				            
+				            if (desktopPane != null) { // Garante que desktopPane está inicializado
+				                desktopPane.add(telaCadastroCliente);
+				                telaCadastroCliente.setVisible(true);
+				                telaCadastroCliente.toFront(); // Traz o JInternalFrame para frente
+				            } else {
+				                throw new IllegalStateException("DesktopPane não foi inicializado.");
+				            }
+				        } catch (Exception ex) {
+				            ex.printStackTrace();
+				            JOptionPane.showMessageDialog(null, "Erro ao abrir tela de cadastro: " + ex.getMessage(),
+				                    "Erro", JOptionPane.ERROR_MESSAGE);
+				        }
+				    } else {
+				        System.out.println("Usuário fechou o diálogo.");
+				    }
 				}
 
 			}
@@ -226,9 +254,9 @@ public class ReservaQuarto extends JInternalFrame {
 				ArrayList<String> datasReserva = new ArrayList();
 
 				String dataEntradaStr = textDataEntrada.getText();
-				String diasReservados = textDiasReservados.getText();
+				
 				String dataSaidaStr = textDataSaida1.getText();
-				int dias = Integer.parseInt(diasReservados);
+				
 				boolean reservaCriada = false;
 
 				String numero = quarto.getNumero();
@@ -274,6 +302,9 @@ public class ReservaQuarto extends JInternalFrame {
 					reserva = new Reserva(dataEntradaStr, dataSaidaStr, clientes, quarto);
 					
 					reservaDao.insert2(reserva);
+					JOptionPane.showMessageDialog(null, "Reserva registrada com sucesso! ", "Sucesso",
+							  JOptionPane.INFORMATION_MESSAGE);
+					
 					
 				}else {JOptionPane.showMessageDialog(null, "Data já reservada ", "Erro",
 						  JOptionPane.ERROR_MESSAGE);

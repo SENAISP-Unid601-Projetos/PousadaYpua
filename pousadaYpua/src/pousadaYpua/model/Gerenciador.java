@@ -21,17 +21,7 @@ public class Gerenciador {
 	public void setUser(Usuario user) {
 		this.user = user;
 	}
-	public boolean verificaDatas(Reserva reserva) {
-		ReservasDao reDao = new ReservasDao();
-		for(String dia : reserva.getDatasReservadas() ) {
-			if(reDao.buscarDatas(reserva, dia) != null) {
-				return false;
-				
-			}
-		}
-		return true;
-		
-	}
+	
 	public boolean verificaCpf(ArrayList<Reserva> verif, String cpf) {
 		ReservasDao reservaDao = new ReservasDao();
 				for(Reserva r : verif) {
