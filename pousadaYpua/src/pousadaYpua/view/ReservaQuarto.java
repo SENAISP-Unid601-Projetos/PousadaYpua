@@ -192,43 +192,9 @@ public class ReservaQuarto extends JInternalFrame {
 					txtArea_InfoClient.setText(clientes.getInfo());
 					System.out.println(clientes.getCpf() + clientes.getNome());
 				} else {
-				    // Opções dos botões
-				    Object[] opcoes = {"Tentar Novamente", "Cadastrar Novo Cliente"};
+					JOptionPane.showMessageDialog(null, "Digite um CPF válido ou cadastre novo cliente! ", "Erro",
+							  JOptionPane.ERROR_MESSAGE);
 				    
-				    // Exibir diálogo personalizado
-				    int resposta = JOptionPane.showOptionDialog(
-				        null,
-				        "O cliente buscado não existe!\nDigite um CPF válido ou cadastre um novo cliente!",
-				        "Cliente Inexistente",
-				        JOptionPane.YES_NO_OPTION, // Dois botões: "Sim" e "Não"
-				        JOptionPane.WARNING_MESSAGE,
-				        null,
-				        opcoes,
-				        opcoes[0] 
-				    );
-
-				    
-				    if (resposta == JOptionPane.YES_OPTION) {
-				        
-				    } else if (resposta == JOptionPane.NO_OPTION) {
-				    	try {
-				            CadastroCliente telaCadastroCliente = new CadastroCliente();
-				            
-				            if (desktopPane != null) { // Garante que desktopPane está inicializado
-				                desktopPane.add(telaCadastroCliente);
-				                telaCadastroCliente.setVisible(true);
-				                telaCadastroCliente.toFront(); // Traz o JInternalFrame para frente
-				            } else {
-				                throw new IllegalStateException("DesktopPane não foi inicializado.");
-				            }
-				        } catch (Exception ex) {
-				            ex.printStackTrace();
-				            JOptionPane.showMessageDialog(null, "Erro ao abrir tela de cadastro: " + ex.getMessage(),
-				                    "Erro", JOptionPane.ERROR_MESSAGE);
-				        }
-				    } else {
-				        System.out.println("Usuário fechou o diálogo.");
-				    }
 				}
 
 			}

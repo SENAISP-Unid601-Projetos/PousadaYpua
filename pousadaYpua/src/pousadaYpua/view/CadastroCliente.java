@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -225,6 +226,19 @@ public class CadastroCliente extends JInternalFrame {
 				String cidade = txtCidade.getText();
 				String cep = txtCep.getText();
 				String estado = txtEstado.getText();
+				
+				if(cpf.matches("\\d{11}")) {
+					
+				}else {
+					
+					JOptionPane.showMessageDialog(null, 
+		                    "CPF Invalido.", 
+		                    "Erro", 
+		                    JOptionPane.ERROR_MESSAGE);
+					
+					return;
+		        
+				}
 
 				txtNome.setText("");
 				txtCelular.setText("");
