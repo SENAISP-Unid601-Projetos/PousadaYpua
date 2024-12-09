@@ -78,7 +78,7 @@ public class Tela {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         // Carregar a imagem do ícone
-        Image icon = Toolkit.getDefaultToolkit().getImage("/logo-pousada.png");
+        Image icon = Toolkit.getDefaultToolkit().getImage(Path.getPathResources()+"/logo-pousada.png");
         frame.setIconImage(icon);
 
         frame.setVisible(true);
@@ -87,22 +87,22 @@ public class Tela {
         frame.setContentPane(desktopPane);
         
         lblNewLabel = new JLabel("");
-        lblNewLabel.setIcon(new ImageIcon(Path.getPathResources()+File.pathSeparator+"imagemPousada.jpg"));
+        lblNewLabel.setIcon(new ImageIcon(Path.getPathResources()+"imagemPousada.jpg"));
         lblNewLabel.setBounds(0, 0, 744, 355);
         desktopPane.add(lblNewLabel);
         
         lblNewLabel_1 = new JLabel("");
-        lblNewLabel_1.setIcon(new ImageIcon(Path.getPathResources()+File.pathSeparator+"pousada2.jpg"));
+        lblNewLabel_1.setIcon(new ImageIcon(Path.getPathResources()+"pousada2.jpg"));
         lblNewLabel_1.setBounds(0, 355, 744, 468);
         desktopPane.add(lblNewLabel_1);
         
         lblNewLabel_2 = new JLabel("");
-        lblNewLabel_2.setIcon(new ImageIcon(Path.getPathResources()+File.pathSeparator+"PousadaYpua.jpg"));
+        lblNewLabel_2.setIcon(new ImageIcon(Path.getPathResources()+"PousadaYpua.jpg"));
         lblNewLabel_2.setBounds(745, 0, 795, 355);
         desktopPane.add(lblNewLabel_2);
         
         lblNewLabel_3 = new JLabel("");
-        lblNewLabel_3.setIcon(new ImageIcon(Path.getPathResources()+File.pathSeparator+"pousada1.jpg"));
+        lblNewLabel_3.setIcon(new ImageIcon(Path.getPathResources()+"pousada1.jpg"));
         lblNewLabel_3.setBounds(743, 355, 787, 468);
         desktopPane.add(lblNewLabel_3);
         

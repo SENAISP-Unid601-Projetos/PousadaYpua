@@ -33,6 +33,8 @@ public class TelaLogin extends JDialog {
         try {
             TelaLogin dialog = new TelaLogin();
             dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+           
+            dialog.setLocationRelativeTo(null);
             dialog.setVisible(true);
         } catch (Exception e) {
             e.printStackTrace();
@@ -43,8 +45,12 @@ public class TelaLogin extends JDialog {
     	userDao = new UsuarioDao();
     	
         setTitle("Login - Pousada Ypuã");
+        
+        
+        
         setBounds(100, 100, 450, 300);
         setModal(true); // Bloqueia a interação com outras janelas até que este diálogo seja fechado
+        setLocationRelativeTo(null);
         getContentPane().setLayout(new BorderLayout());
 
         contentPanel.setBorder(new EmptyBorder(10, 10, 10, 10));

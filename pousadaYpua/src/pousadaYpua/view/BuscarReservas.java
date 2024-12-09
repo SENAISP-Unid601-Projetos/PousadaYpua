@@ -116,6 +116,12 @@ public class BuscarReservas extends JInternalFrame {
         
         btnNewButton.setBounds(424, 14, 82, 29);
         contentPane.add(btnNewButton);
+        
+        JButton btnSair = new JButton("SAIR");
+        
+        btnSair.setForeground(new Color(255, 17, 0));
+        btnSair.setBounds(687, 564, 87, 29);
+        contentPane.add(btnSair);
 
         
         tabelaReservas.addMouseListener(new MouseAdapter() {
@@ -156,19 +162,34 @@ public class BuscarReservas extends JInternalFrame {
 
         btnCheckIn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Obtém a linha selecionada
-                int linhaSelecionada = tabelaReservas.getSelectedRow();
-                if (linhaSelecionada != -1) {
-                	
                
-                    // Obtém os dados da linha selecionada
-                    Object idReserva = tabelaReservas.getValueAt(linhaSelecionada, 0);
+            	int linhaSelecionada = tabelaReservas.getSelectedRow();
+                if (linhaSelecionada != -1) {
+                   
+                    Object idReservaObj = tabelaReservas.getValueAt(linhaSelecionada, 0);
+                    int idReserva = Integer.parseInt(idReservaObj.toString()); // Converte para inteiro
+
+                   
+                    Reserva reserva = reservaDao.buscarPorId(idReserva);
+                    if(reserva.getCheckin().equals("pendente")) {
+                    	System.out.println(reserva.getNumeroPedido());
+                    
+                  
                     reservaDao.updateCheckin(reserva);
                     carregarReservas();
                     // Realiza o Check-In (simulado com mensagem)
                     JOptionPane.showMessageDialog(contentPane, 
                             "Check-In realizado para a reserva ID: " + idReserva,
                             "Check-In", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    else
+                    {
+                    	JOptionPane.showMessageDialog(contentPane, 
+                                "Check-In já foi feito " ,
+                                "AVISO", JOptionPane.WARNING_MESSAGE);
+                    	
+                    }
+                    
                 } else {
                     // Caso nenhuma linha esteja selecionada
                     JOptionPane.showMessageDialog(contentPane, 
@@ -182,16 +203,33 @@ public class BuscarReservas extends JInternalFrame {
         	public void actionPerformed(ActionEvent e) {
         		int linhaSelecionada = tabelaReservas.getSelectedRow();
                 if (linhaSelecionada != -1) {
-                	
-               
-                    // Obtém os dados da linha selecionada
-                    Object idReserva = tabelaReservas.getValueAt(linhaSelecionada, 0);
+                   
+                    Object idReservaObj = tabelaReservas.getValueAt(linhaSelecionada, 0);
+                    int idReserva = Integer.parseInt(idReservaObj.toString()); // Converte para inteiro
+
+                   
+                    Reserva reserva = reservaDao.buscarPorId(idReserva);
+                    
+                    if(reserva.getCheckout().equals("pendente") && reserva.getCheckin().equals("feito")) {
+                    	
+                    
                     reservaDao.updateCheckout(reserva);
                     carregarReservas();
                     // Realiza o Check-In (simulado com mensagem)
                     JOptionPane.showMessageDialog(contentPane, 
                             "Check-Out realizado para a reserva ID: " + idReserva,
                             "Check-Out", JOptionPane.INFORMATION_MESSAGE);
+                    }else if(reserva.getCheckout().equals("feito"))
+                    {
+                    	JOptionPane.showMessageDialog(contentPane, 
+                                "Check-Out já foi feito.",
+                                "Aviso", JOptionPane.WARNING_MESSAGE);
+                    }else if(reserva.getCheckout().equals("pendente") && reserva.getCheckin().equals("pendente"))
+                    {
+                    	JOptionPane.showMessageDialog(contentPane, 
+                                "Realize o Check-in antes de realizar Check-out.",
+                                "Aviso", JOptionPane.WARNING_MESSAGE);
+                    }
                 } else {
                     // Caso nenhuma linha esteja selecionada
                     JOptionPane.showMessageDialog(contentPane, 
@@ -215,6 +253,12 @@ public class BuscarReservas extends JInternalFrame {
         	public void actionPerformed(ActionEvent e) {
         		
         		carregarReservas();
+        	}
+        });
+        btnSair.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        		dispose();
         	}
         });
     }
