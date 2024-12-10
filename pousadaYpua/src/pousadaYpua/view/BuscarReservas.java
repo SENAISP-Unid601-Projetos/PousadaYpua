@@ -9,6 +9,8 @@ import java.awt.event.MouseEvent;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -42,9 +44,17 @@ public class BuscarReservas extends JInternalFrame {
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
             try {
-                BuscarReservas frame = new BuscarReservas();
+                JFrame frame = new JFrame("Exemplo");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(1200, 700);
+                JDesktopPane desktopPane = new JDesktopPane();
+                frame.add(desktopPane);
                 frame.setVisible(true);
-                
+
+                BuscarReservas buscarReservas = new BuscarReservas(desktopPane);
+                desktopPane.add(buscarReservas);
+                buscarReservas.setVisible(true);
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -55,16 +65,19 @@ public class BuscarReservas extends JInternalFrame {
      * Create the frame.
      */
     @SuppressWarnings("deprecation")
-	public BuscarReservas() {
-    	
-    	
-    	
+    public BuscarReservas(JDesktopPane desktopPane) {
         setTitle("Buscar Reservas");
         setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
         setBounds(0, 0, 1125, 675);
         setClosable(true);
         setMaximizable(true);
         setIconifiable(true);
+
+        // Centralizar no JDesktopPane
+        int x = (desktopPane.getWidth() - this.getWidth()) / 2;
+        int y = (desktopPane.getHeight() - this.getHeight()) / 2;
+        setLocation(x, y);
+    
 
         contentPane = new JPanel();
         contentPane.setBackground(Color.DARK_GRAY);

@@ -1,6 +1,7 @@
 
 package pousadaYpua.view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -8,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -16,15 +18,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
+import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 import pousadaYpua.DAO.ClientesDao;
 import pousadaYpua.model.Clientes;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.LineBorder;
-import javax.swing.border.TitledBorder;
 
 public class CadastroCliente extends JInternalFrame {
 
@@ -49,34 +48,53 @@ public class CadastroCliente extends JInternalFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
-					CadastroCliente frame = new CadastroCliente();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				 try {
+			            // Criação do JFrame principal
+			            JFrame frame = new JFrame("Sistema de Gestão");
+			            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			            frame.setSize(1200, 800);
+			            frame.setLayout(new BorderLayout());
+
+			            // Criação do JDesktopPane
+			            JDesktopPane desktopPane = new JDesktopPane();
+			            frame.add(desktopPane, BorderLayout.CENTER);
+			            frame.setVisible(true);
+
+			            // Criação do CadastroCliente centralizado
+			            CadastroCliente cadastroCliente = new CadastroCliente(desktopPane);
+			            desktopPane.add(cadastroCliente);
+			            cadastroCliente.setVisible(true);
+
+			        } catch (Exception e) {
+			            e.printStackTrace();
+			        }
 			}
 		});
 
 	}
 
 	// Criação do contrutor com encapsulamento e parametros;
-	public CadastroCliente() {
-		
-		super("Cadastro de Clientes");
-//		setBorder(UIManager.getBorder("DesktopIcon.border"));
-		clienteDao  =  new ClientesDao();
-		
-		setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
-	       
-        setBounds(0, 0, 1125, 675);
-        
-        setClosable(true);
-        setMaximizable(true);
-        setIconifiable(true);
-		contentPane = new JPanel();
-		contentPane.setBackground(Color.DARK_GRAY);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+	public CadastroCliente(JDesktopPane desktopPane) {
+	    super("Cadastro de Clientes");
+	    clienteDao = new ClientesDao();
+
+	    setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
+	    setBounds(0, 0, 1125, 675); // Define o tamanho do JInternalFrame
+	    setClosable(true);
+	    setMaximizable(true);
+	    setIconifiable(true);
+
+	    // Centralizar no JDesktopPane
+	    if (desktopPane != null) {
+	        int x = (desktopPane.getWidth() - this.getWidth()) / 2;
+	        int y = (desktopPane.getHeight() - this.getHeight()) / 2;
+	        setLocation(x, y);
+	    }
+
+	    contentPane = new JPanel();
+	    contentPane.setBackground(Color.DARK_GRAY);
+	    contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+	    setContentPane(contentPane);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

@@ -123,7 +123,7 @@ public class Tela {
         JMenuItem mntmCadastrarFuncionario = new JMenuItem("Cadastrar Funcionario");
         mntmCadastrarFuncionario.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                CadastroFuncionario cadastroFuncionario = new CadastroFuncionario();
+                CadastroFuncionario cadastroFuncionario = new CadastroFuncionario(desktopPane);
                 desktopPane.add(cadastroFuncionario);
                 cadastroFuncionario.setVisible(true);
                 
@@ -145,7 +145,7 @@ public class Tela {
         JMenuItem mntmCadastrarClientes = new JMenuItem("Cadastrar Clientes");
         mntmCadastrarClientes.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                CadastroCliente telaCadastroCliente = new CadastroCliente();
+                CadastroCliente telaCadastroCliente = new CadastroCliente(desktopPane);
                 desktopPane.add(telaCadastroCliente);
                 telaCadastroCliente.setVisible(true);
                 
@@ -190,7 +190,7 @@ public class Tela {
         JMenuItem mntmBuscarReservas = new JMenuItem("Buscar Reservas");
         mntmBuscarReservas.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                BuscarReservas buscarReservas = new BuscarReservas();
+                BuscarReservas buscarReservas = new BuscarReservas(desktopPane);
                 desktopPane.add(buscarReservas);
                 buscarReservas.setVisible(true);
                 

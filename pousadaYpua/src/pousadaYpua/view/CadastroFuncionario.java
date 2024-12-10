@@ -3,13 +3,15 @@ package pousadaYpua.view;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -22,10 +24,6 @@ import javax.swing.border.EmptyBorder;
 
 import pousadaYpua.DAO.UsuarioDao;
 import pousadaYpua.model.Usuario;
-import javax.swing.border.LineBorder;
-import javax.swing.JComboBox;
-import javax.swing.JComponent;
-import javax.swing.DefaultComboBoxModel;
 
 public class CadastroFuncionario extends JInternalFrame {
 
@@ -41,12 +39,19 @@ public class CadastroFuncionario extends JInternalFrame {
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                	
-                    CadastroFuncionario frame = new CadastroFuncionario();
+            	try {
+                    JFrame frame = new JFrame("Sistema");
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    frame.setSize(800, 600);
+                    JDesktopPane desktopPane = new JDesktopPane();
+                    frame.add(desktopPane);
                     frame.setVisible(true);
-                    
-                    
+
+                    // Criando o JInternalFrame e centralizando
+                    CadastroFuncionario cadastroFuncionario = new CadastroFuncionario(desktopPane);
+                    desktopPane.add(cadastroFuncionario);
+                    cadastroFuncionario.setVisible(true);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -54,7 +59,7 @@ public class CadastroFuncionario extends JInternalFrame {
         });
     }
     
-    public CadastroFuncionario() {
+    public CadastroFuncionario(JDesktopPane desktopPane) {
 //    	setBorder(UIManager.getBorder("DesktopIcon.border"));
     	UsuarioDao userDao = new UsuarioDao();
     	
@@ -65,6 +70,11 @@ public class CadastroFuncionario extends JInternalFrame {
         setMaximizable(true);
         setIconifiable(true);
 
+        
+        int x = (desktopPane.getWidth() - this.getWidth()) / 2;
+        int y = (desktopPane.getHeight() - this.getHeight()) / 2;
+        setLocation(x, y);
+        
         contentPane.setBackground(Color.DARK_GRAY);
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(null); 
