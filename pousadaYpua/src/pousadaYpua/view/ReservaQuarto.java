@@ -98,7 +98,7 @@ public class ReservaQuarto extends JInternalFrame {
 	    panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(Path.getPathResources()+File.pathSeparator+"imgInterna.jpg"));
+		lblNewLabel.setIcon(new ImageIcon(Path.getPathResources()+"\\imgInterna.jpg"));
 		lblNewLabel.setBounds(430, 352, 661, 255);
 		panel.add(lblNewLabel);
 
