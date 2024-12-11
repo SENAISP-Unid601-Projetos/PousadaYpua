@@ -48,7 +48,7 @@ public class ClientesDao {
 			JOptionPane.showMessageDialog(null, 
                     " Cliente cadastrado com sucesso.", 
                     "Success", 
-                    JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.INFORMATION_MESSAGE);
             
         } catch (SQLException e) {
         	JOptionPane.showMessageDialog(null, 
