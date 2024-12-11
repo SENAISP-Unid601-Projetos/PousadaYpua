@@ -35,18 +35,18 @@ public class Tela {
     private Gerenciador gerenciador;
 
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    Tela window = new Tela();  // Teste
-                    window.frame.setVisible(true);
-                    window.frame.setLocationRelativeTo(null);
-                    window.frame.setExtendedState(Frame.MAXIMIZED_BOTH);
-                    System.out.println(Path.getPathResources());
-                   
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        EventQueue.invokeLater(() -> {
+            TelaLogin telaLogin = new TelaLogin();
+            telaLogin.setVisible(true);
+
+            if (telaLogin.isLoginSuccessful()) {
+                Tela tela = new Tela();
+                tela.frame.setVisible(true);
+                tela.frame.setLocationRelativeTo(null);
+                tela.frame.setExtendedState(Frame.MAXIMIZED_BOTH);
+                System.out.println(Path.getPathResources());
+            } else {
+                System.exit(0);
             }
         });
     }
@@ -54,17 +54,8 @@ public class Tela {
     
     
     
-    public Tela() {
-    	 TelaLogin telaLogin = new TelaLogin();
-    	    telaLogin.setVisible(true);
-
-    	    if (telaLogin.isLoginSuccessful()) {
-    	        initialize();
-    	    }
-    	    else {
-    	    	 System.exit(0);
-    	    }
-        
+    public Tela() {	 
+    	 initialize();
     }
 
     /**
