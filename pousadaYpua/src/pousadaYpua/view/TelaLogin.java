@@ -107,11 +107,13 @@ public class TelaLogin extends JDialog {
         
         usuario = userDao.buscarFuncionario(id);
         
+        if (usuario == null) {
+            JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos.", "Erro", JOptionPane.ERROR_MESSAGE);
+            loginSuccessful = false;
+            return;
+        }
         
-        System.out.println(usuario.getNome()
-        		+ usuario.getSenha());
-        System.out.println(usuario.getSenha());
-        
+        System.out.println(usuario.getNome() + usuario.getSenha());
 
         if (id.equals(usuario.getId()) && senha.equals(usuario.getSenha())) {
             JOptionPane.showMessageDialog(this, "Login bem-sucedido!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
