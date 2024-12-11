@@ -20,6 +20,7 @@ import javax.swing.JTextArea;
 
 import pousadaYpua.model.Gerenciador;
 import pousadaYpua.utils.Path;
+import pousadaYpua.utils.Resolucao;
 
 public class Tela {
     private JFrame frame;
@@ -97,9 +98,12 @@ public class Tela {
         lblNewLabel_3.setBounds(743, 355, 787, 468);
         desktopPane.add(lblNewLabel_3);
         
+        int largura = Resolucao.getLargura();
+        int altura = Resolucao.getAltura();
+        
         textArea = new JTextArea();
         textArea.setBackground(new Color(99, 99, 99));
-        textArea.setBounds(0, 0, 1540, 823);
+        textArea.setBounds(0, 0, largura, altura);
         desktopPane.add(textArea);
         
        
